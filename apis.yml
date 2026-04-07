@@ -1,16 +1,14 @@
 aid: trustpilot
-url: 
-  https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/apis.yml
 apis:
   - aid: trustpilot:trustpilot-business-api
     name: Trustpilot Business API
     tags:
-      - Reviews
-      - Consumer Reviews
-      - Trust
       - Business Profiles
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Consumer Reviews
+      - Reviews
+      - Trust
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.trustpilot.com/v1
     humanURL: https://developers.trustpilot.com/
     properties:
@@ -33,13 +31,12 @@ apis:
   - aid: trustpilot:trustpilot-invitation-api
     name: Trustpilot Invitation API
     tags:
-      - Reviews
       - Consumer Reviews
-      - Trust
-      - Invitations
       - Email
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Invitations
+      - Reviews
+      - Trust
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.trustpilot.com/v1
     humanURL: https://developers.trustpilot.com/invitation-api
     properties:
@@ -57,12 +54,11 @@ apis:
   - aid: trustpilot:trustpilot-consumer-api
     name: Trustpilot Consumer API
     tags:
-      - Reviews
       - Consumer Reviews
+      - Reviews
       - Trust
       - Widgets
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.trustpilot.com/v1
     humanURL: https://developers.trustpilot.com/consumer-api
     properties:
@@ -85,12 +81,11 @@ description: >-
   reviews programmatically, integrate review data into their own systems, and automate
   invitation workflows to gather customer feedback at scale.
 tags:
-  - Reviews
   - Consumer Reviews
+  - Reviews
   - Trust
 type: Index
-image: 
-  https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
   - url: https://www.trustpilot.com/
