@@ -1,0 +1,34 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.trustpilot.com/v1/business-units/search?name=Apple&country=US&perPage=5&apikey=YOUR_API_KEY",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "businesses": [
+        {
+          "id": "46d6a890ffa235a75b00021d",
+          "displayName": "Apple",
+          "name": "apple.com",
+          "websiteUrl": "https://www.apple.com",
+          "countryCode": "US",
+          "trustScore": 2.2,
+          "stars": 2.5,
+          "numberOfReviews": {
+            "total": 14820
+          }
+        }
+      ],
+      "totalNumberOfBusinesses": 1,
+      "currentPage": 1,
+      "perPage": 5
+    }
+  }
+}

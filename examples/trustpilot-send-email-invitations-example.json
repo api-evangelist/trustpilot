@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.trustpilot.com/v1/private/business-units/46d6a890ffa235a75b00021d/email-invitations",
+    "headers": {
+      "Authorization": "Bearer eyJhbGciOiJSUzI1NiJ9...",
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    "body": {
+      "invitations": [
+        {
+          "recipientEmail": "customer@example.com",
+          "recipientName": "Jane Smith",
+          "referenceNumber": "ORDER-2026-04567",
+          "templateId": "template_abc123",
+          "preferredSendTime": "2026-05-05T09:00:00Z",
+          "tags": ["ecommerce", "april-2026"]
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "invitationsSent": 1
+    }
+  }
+}

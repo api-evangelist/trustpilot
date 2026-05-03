@@ -1,0 +1,63 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "tp": "https://developers.trustpilot.com/vocabulary/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Review": "schema:Review",
+    "id": "schema:identifier",
+    "stars": {
+      "@id": "schema:reviewRating",
+      "@type": "xsd:integer"
+    },
+    "title": "schema:name",
+    "text": {
+      "@id": "schema:reviewBody",
+      "@type": "xsd:string"
+    },
+    "language": {
+      "@id": "schema:inLanguage",
+      "@type": "xsd:string"
+    },
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "status": "schema:status",
+    "verificationLevel": {
+      "@id": "tp:verificationLevel",
+      "@type": "xsd:string"
+    },
+
+    "consumer": "schema:author",
+    "displayName": "schema:name",
+    "email": "schema:email",
+
+    "reply": {
+      "@id": "schema:comment",
+      "@type": "schema:Comment"
+    },
+
+    "BusinessUnit": "schema:Organization",
+    "trustScore": {
+      "@id": "schema:ratingValue",
+      "@type": "xsd:decimal"
+    },
+    "websiteUrl": "schema:url",
+    "countryCode": "schema:addressCountry",
+    "numberOfReviews": {
+      "@id": "schema:reviewCount",
+      "@type": "xsd:integer"
+    },
+
+    "Invitation": "schema:Offer",
+    "recipientEmail": "schema:email",
+    "recipientName": "schema:name",
+    "referenceNumber": "schema:orderNumber"
+  }
+}

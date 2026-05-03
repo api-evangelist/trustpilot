@@ -1,0 +1,550 @@
+openapi: 3.0.3
+info:
+  title: Trustpilot Business Units API
+  description: >-
+    Provides endpoints to retrieve company profile information, reviews, images,
+    categories, and web links for specific business units on Trustpilot. Search for
+    business units and access both public and private review data.
+  version: 1.0.0
+  contact:
+    url: https://developers.trustpilot.com/
+  termsOfService: https://www.trustpilot.com/legal/terms-and-conditions-for-businesses
+servers:
+  - url: https://api.trustpilot.com
+    description: Production
+tags:
+  - name: Business Units
+    description: Business unit profile and review operations
+  - name: Reviews
+    description: Business unit review retrieval
+  - name: Images
+    description: Business unit image operations
+paths:
+  /v1/business-units/search:
+    get:
+      operationId: searchBusinessUnits
+      summary: Search Business Units
+      description: Search for business units on Trustpilot, even if you only know part of the name.
+      tags:
+        - Business Units
+      security:
+        - ApiKey: []
+      parameters:
+        - name: name
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Business name or partial name to search for
+        - name: country
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter results by ISO 3166-1 alpha-2 country code
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+          description: Page number for pagination
+        - name: perPage
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+          description: Number of results per page
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Your Trustpilot API key
+      responses:
+        '200':
+          description: Search results returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUnitSearchResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v1/business-units/{businessUnitId}/profileinfo:
+    get:
+      operationId: getBusinessUnitProfile
+      summary: Get Business Unit Profile
+      description: Retrieve company profile information including contact details and social media links.
+      tags:
+        - Business Units
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique Trustpilot business unit identifier
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Business unit profile returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUnitProfile'
+        '404':
+          description: Business unit not found
+  /v1/business-units/{businessUnitId}/reviews:
+    get:
+      operationId: getBusinessUnitReviews
+      summary: Get Business Unit Reviews
+      description: Fetch public reviews for a business unit with filtering and sorting options.
+      tags:
+        - Reviews
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: stars
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: integer
+              enum: [1, 2, 3, 4, 5]
+          description: Filter by star rating
+        - name: language
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter reviews by language (ISO 639-1 code)
+        - name: orderBy
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [createdat.asc, createdat.desc]
+          description: Sort order for reviews
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - name: perPage
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Reviews returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewListResponse'
+        '404':
+          description: Business unit not found
+  /v1/business-units/{businessUnitId}/all-reviews:
+    get:
+      operationId: getAllBusinessUnitReviews
+      summary: Get All Business Unit Reviews
+      description: Retrieve paginated public reviews using pageToken cursor-based pagination, supporting up to 100,000 reviews.
+      tags:
+        - Reviews
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageToken
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Pagination cursor from previous response
+        - name: perPage
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Reviews returned with pagination token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewListResponse'
+  /v1/private/business-units/{businessUnitId}/reviews:
+    get:
+      operationId: getPrivateBusinessUnitReviews
+      summary: Get Private Business Unit Reviews
+      description: Access private reviews including customer contact information and order IDs.
+      tags:
+        - Reviews
+      security:
+        - OAuth2: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - name: perPage
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Private reviews returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateReviewListResponse'
+  /v1/business-units/{businessUnitId}/images:
+    get:
+      operationId: getBusinessUnitImages
+      summary: Get Business Unit Images
+      description: Fetch company profile images in multiple sizes.
+      tags:
+        - Images
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Images returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUnitImages'
+  /v1/business-units/{businessUnitId}/images/logo:
+    get:
+      operationId: getBusinessUnitLogo
+      summary: Get Business Unit Logo
+      description: Retrieve company or location-specific logo.
+      tags:
+        - Images
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Logo image returned
+  /v1/business-units/{businessUnitId}/categories:
+    get:
+      operationId: getBusinessUnitCategories
+      summary: Get Business Unit Categories
+      description: List categories associated with a business unit.
+      tags:
+        - Business Units
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Categories returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryListResponse'
+  /v1/business-units/{businessUnitId}/web-links:
+    get:
+      operationId: getBusinessUnitWebLinks
+      summary: Get Business Unit Web Links
+      description: Obtain links to the business unit's public profile page on Trustpilot.
+      tags:
+        - Business Units
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: locale
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Locale code for localized URLs
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Web links returned
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: query
+      name: apikey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+          tokenUrl: https://authenticate.trustpilot.com/oauth/token
+          scopes:
+            business.review.read: Read private review data
+  schemas:
+    BusinessUnitSearchResponse:
+      type: object
+      properties:
+        businesses:
+          type: array
+          items:
+            $ref: '#/components/schemas/BusinessUnitSummary'
+        totalNumberOfBusinesses:
+          type: integer
+        currentPage:
+          type: integer
+        perPage:
+          type: integer
+    BusinessUnitSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Trustpilot business unit ID
+        displayName:
+          type: string
+        name:
+          type: string
+        websiteUrl:
+          type: string
+        countryCode:
+          type: string
+        trustScore:
+          type: number
+          format: double
+        stars:
+          type: number
+          format: double
+        numberOfReviews:
+          type: object
+          properties:
+            total:
+              type: integer
+    BusinessUnitProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        name:
+          type: string
+        websiteUrl:
+          type: string
+        countryCode:
+          type: string
+        trustScore:
+          type: number
+          format: double
+        stars:
+          type: number
+          format: double
+        numberOfReviews:
+          type: object
+          properties:
+            total:
+              type: integer
+            oneStar:
+              type: integer
+            twoStars:
+              type: integer
+            threeStars:
+              type: integer
+            fourStars:
+              type: integer
+            fiveStars:
+              type: integer
+        contact:
+          type: object
+          properties:
+            email:
+              type: string
+            phone:
+              type: string
+    ReviewListResponse:
+      type: object
+      properties:
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+        nextPageToken:
+          type: string
+        totalNumberOfReviews:
+          type: integer
+    Review:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique review identifier
+        stars:
+          type: integer
+          minimum: 1
+          maximum: 5
+          description: Star rating given by consumer
+        title:
+          type: string
+          description: Review title
+        text:
+          type: string
+          description: Review body text
+        language:
+          type: string
+          description: Language code of the review
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        consumer:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        businessUnit:
+          type: object
+          properties:
+            id:
+              type: string
+        status:
+          type: string
+          enum: [active, archived]
+        verificationLevel:
+          type: string
+          description: Verification level of the review
+    PrivateReviewListResponse:
+      type: object
+      properties:
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrivateReview'
+        totalNumberOfReviews:
+          type: integer
+    PrivateReview:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Review'
+        - type: object
+          properties:
+            consumer:
+              type: object
+              properties:
+                email:
+                  type: string
+                id:
+                  type: string
+                displayName:
+                  type: string
+            orderId:
+              type: string
+    BusinessUnitImages:
+      type: object
+      properties:
+        logoUrl:
+          type: string
+        headerUrl:
+          type: string
+        promotionBoxUrl:
+          type: string
+    CategoryListResponse:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string

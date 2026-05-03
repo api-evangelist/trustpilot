@@ -1,0 +1,105 @@
+extends: spectral:oas
+rules:
+  trustpilot-operation-ids-camel-case:
+    description: Trustpilot operation IDs must use camelCase format.
+    severity: warn
+    given: "$.paths.*[get,post,put,patch,delete]"
+    then:
+      field: operationId
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  trustpilot-path-versioned:
+    description: All Trustpilot API paths must be versioned with /v1/ prefix.
+    severity: error
+    given: "$.paths"
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^/v[0-9]/"
+
+  trustpilot-private-paths-require-oauth:
+    description: Trustpilot private endpoints (/v1/private/*) must require OAuth2 security.
+    severity: error
+    given: "$.paths['/v1/private/*'].*[get,post,put,patch,delete]"
+    then:
+      field: security
+      function: truthy
+
+  trustpilot-public-paths-require-apikey:
+    description: Trustpilot public endpoints should define API key authentication.
+    severity: warn
+    given: "$.paths[?(!@property.startsWith('/v1/private/'))].*[get,post,put,patch,delete].parameters[?(@.name=='apikey')]"
+    then:
+      field: required
+      function: truthy
+
+  trustpilot-business-unit-id-in-path:
+    description: Business unit endpoints must use {businessUnitId} path parameter.
+    severity: warn
+    given: "$.paths[?(@property.includes('business-units'))]"
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "\\{businessUnitId\\}|/search"
+
+  trustpilot-review-id-in-path:
+    description: Review-specific endpoints must use {reviewId} path parameter.
+    severity: warn
+    given: "$.paths[?(@property.includes('reviews') && !@property.endsWith('/reviews'))]"
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "\\{reviewId\\}|summaries|attribute-summaries|batch-summaries|latest|invitation-links"
+
+  trustpilot-stars-integer:
+    description: Star rating fields must be integer type with min 1, max 5.
+    severity: warn
+    given: "$.components.schemas.*.properties.stars"
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values:
+          - integer
+
+  trustpilot-responses-have-200:
+    description: GET operations must define a 200 response.
+    severity: warn
+    given: "$.paths.*[get]"
+    then:
+      field: responses.200
+      function: truthy
+
+  trustpilot-date-time-format:
+    description: Date/time fields in Trustpilot schemas must use date-time format.
+    severity: warn
+    given: "$.components.schemas.*.properties[createdAt,updatedAt,preferredSendTime]"
+    then:
+      field: format
+      function: enumeration
+      functionOptions:
+        values:
+          - date-time
+
+  trustpilot-operations-have-tags:
+    description: All Trustpilot operations should be tagged.
+    severity: warn
+    given: "$.paths.*[get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: truthy
+
+  trustpilot-kebab-case-paths:
+    description: Trustpilot path segments must use kebab-case.
+    severity: warn
+    given: "$.paths"
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^(/v[0-9]/(private/)?[a-z0-9{}-]+(/[a-z0-9{}-]+)*)+$"

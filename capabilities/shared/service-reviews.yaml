@@ -1,0 +1,239 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Trustpilot Service Reviews API"
+  description: "Manages service reviews including replies, tags, reviewer identification, and public review retrieval."
+  tags:
+    - Reviews
+    - Consumer Reviews
+    - Trust
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      TRUSTPILOT_API_KEY: TRUSTPILOT_API_KEY
+      TRUSTPILOT_OAUTH2_TOKEN: TRUSTPILOT_OAUTH2_TOKEN
+
+capability:
+  consumes:
+    - type: http
+      namespace: trustpilot-service-reviews
+      baseUri: https://api.trustpilot.com
+      description: "Trustpilot service review management and retrieval."
+      authentication:
+        type: bearer
+        token: "{{TRUSTPILOT_OAUTH2_TOKEN}}"
+      resources:
+        - name: review
+          path: /v1/reviews/{reviewId}
+          description: "Public review details"
+          operations:
+            - name: get-review
+              method: GET
+              description: "Fetch public review information by ID."
+              inputParameters:
+                - name: reviewId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: latest-reviews
+          path: /v1/reviews/latest
+          description: "Latest reviews in a language"
+          operations:
+            - name: get-latest-reviews
+              method: GET
+              description: "Get the latest reviews in a specific language."
+              inputParameters:
+                - name: count
+                  in: query
+                  type: integer
+                  required: true
+                - name: language
+                  in: query
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: review-reply
+          path: /v1/private/reviews/{reviewId}/reply
+          description: "Reply to a review"
+          operations:
+            - name: create-review-reply
+              method: POST
+              description: "Post a company reply to a service review."
+              inputParameters:
+                - name: reviewId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  message: "{{tools.message}}"
+            - name: delete-review-reply
+              method: DELETE
+              description: "Remove a company response from a review."
+              inputParameters:
+                - name: reviewId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: review-tags
+          path: /v1/private/reviews/{reviewId}/tags
+          description: "Review tag management"
+          operations:
+            - name: get-review-tags
+              method: GET
+              description: "Retrieve all tags for a review."
+              inputParameters:
+                - name: reviewId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: set-review-tags
+              method: POST
+              description: "Set the tags of a service review."
+              inputParameters:
+                - name: reviewId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  tags: "{{tools.tags}}"
+
+  exposes:
+    - type: rest
+      port: 8101
+      namespace: trustpilot-service-reviews-api
+      resources:
+        - path: /v1/reviews/latest
+          name: latest-reviews
+          description: "Latest reviews"
+          operations:
+            - method: GET
+              name: get-latest-reviews
+              description: "Get latest reviews in a language"
+              call: "trustpilot-service-reviews.get-latest-reviews"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reviews/{reviewId}
+          name: review
+          description: "Get a specific review"
+          operations:
+            - method: GET
+              name: get-review
+              description: "Get review details"
+              call: "trustpilot-service-reviews.get-review"
+              with:
+                reviewId: "rest.reviewId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reviews/{reviewId}/reply
+          name: review-reply
+          description: "Manage review replies"
+          operations:
+            - method: POST
+              name: create-review-reply
+              description: "Post reply to review"
+              call: "trustpilot-service-reviews.create-review-reply"
+              with:
+                reviewId: "rest.reviewId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9101
+      namespace: trustpilot-service-reviews-mcp
+      transport: http
+      tools:
+        - name: get-review
+          description: "Get public review details by review ID."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "trustpilot-service-reviews.get-review"
+          with:
+            reviewId: "tools.reviewId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-latest-reviews
+          description: "Get the latest reviews in a specific language."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "trustpilot-service-reviews.get-latest-reviews"
+          with:
+            count: "tools.count"
+            language: "tools.language"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-review-reply
+          description: "Post a company reply to a customer service review."
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "trustpilot-service-reviews.create-review-reply"
+          with:
+            reviewId: "tools.reviewId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-review-tags
+          description: "Get all tags assigned to a service review."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "trustpilot-service-reviews.get-review-tags"
+          with:
+            reviewId: "tools.reviewId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: set-review-tags
+          description: "Set tags on a service review for categorization."
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "trustpilot-service-reviews.set-review-tags"
+          with:
+            reviewId: "tools.reviewId"
+          outputParameters:
+            - type: object
+              mapping: "$."

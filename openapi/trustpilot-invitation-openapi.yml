@@ -1,0 +1,223 @@
+openapi: 3.0.3
+info:
+  title: Trustpilot Invitation API
+  description: >-
+    Allows businesses to programmatically send review invitations to their customers
+    via email or SMS after transactions or service interactions. Supports invitation
+    links, bulk email invitations, template retrieval, and invitation data deletion.
+  version: 1.0.0
+  contact:
+    url: https://developers.trustpilot.com/
+  termsOfService: https://www.trustpilot.com/legal/terms-and-conditions-for-businesses
+servers:
+  - url: https://api.trustpilot.com
+    description: Production
+tags:
+  - name: Invitations
+    description: Review invitation operations
+paths:
+  /v1/private/business-units/{businessUnitId}/templates:
+    get:
+      operationId: getInvitationTemplates
+      summary: Get Invitation Templates
+      description: Retrieve available invitation templates with IDs and names for a business unit.
+      tags:
+        - Invitations
+      security:
+        - OAuth2: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Trustpilot business unit identifier
+      responses:
+        '200':
+          description: Templates returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  templates:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        subject:
+                          type: string
+                        bodyContent:
+                          type: string
+        '401':
+          description: Unauthorized
+  /v1/private/business-units/{businessUnitId}/email-invitations:
+    post:
+      operationId: sendEmailInvitations
+      summary: Send Email Invitations
+      description: Trigger email invitations for service and product reviews to a list of recipients.
+      tags:
+        - Invitations
+      security:
+        - OAuth2: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                invitations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      recipientEmail:
+                        type: string
+                        format: email
+                      recipientName:
+                        type: string
+                      referenceNumber:
+                        type: string
+                      templateId:
+                        type: string
+                      preferredSendTime:
+                        type: string
+                        format: date-time
+                      tags:
+                        type: array
+                        items:
+                          type: string
+                      products:
+                        type: array
+                        description: Products for product review invitations
+                        items:
+                          type: object
+                          properties:
+                            productUrl:
+                              type: string
+                            productName:
+                              type: string
+                            productSku:
+                              type: string
+                            imageUrl:
+                              type: string
+              required:
+                - invitations
+      responses:
+        '201':
+          description: Invitations queued successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v1/private/business-units/{businessUnitId}/invitation-links:
+    post:
+      operationId: createInvitationLink
+      summary: Create Invitation Link
+      description: Create a unique invitation link for service reviews.
+      tags:
+        - Invitations
+      security:
+        - OAuth2: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                referenceNumber:
+                  type: string
+                  description: Order or reference number
+                redirectUrl:
+                  type: string
+                  description: URL to redirect after review submission
+                tags:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          description: Invitation link created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    description: Unique invitation URL
+  /v1/private/business-units/{businessUnitId}/invitation-data/delete:
+    post:
+      operationId: deleteInvitationData
+      summary: Delete Invitation Data
+      description: Remove invitation data by email addresses or date range. Cannot specify both email addresses and dates in the same request.
+      tags:
+        - Invitations
+      security:
+        - OAuth2: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                emails:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+                  description: Email addresses to delete invitation data for (cannot be used with startDate/endDate)
+                startDate:
+                  type: string
+                  format: date-time
+                  description: Start of date range (cannot be used with emails)
+                endDate:
+                  type: string
+                  format: date-time
+                  description: End of date range (cannot be used with emails)
+      responses:
+        '204':
+          description: Invitation data deleted
+        '400':
+          description: Bad request - cannot specify both emails and dates
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+          tokenUrl: https://authenticate.trustpilot.com/oauth/token
+          scopes:
+            business.invitations.manage: Manage business invitations
+        clientCredentials:
+          tokenUrl: https://authenticate.trustpilot.com/oauth/token
+          scopes:
+            business.invitations.manage: Manage business invitations

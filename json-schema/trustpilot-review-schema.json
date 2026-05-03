@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/trustpilot/main/json-schema/trustpilot-review-schema.json",
+  "title": "Trustpilot Review",
+  "description": "Represents a consumer review on the Trustpilot platform, for either service or product reviews.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique Trustpilot review identifier."
+    },
+    "stars": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Star rating given by the consumer (1-5)."
+    },
+    "title": {
+      "type": "string",
+      "description": "Review title."
+    },
+    "text": {
+      "type": "string",
+      "description": "Full review body text."
+    },
+    "language": {
+      "type": "string",
+      "description": "ISO 639-1 language code of the review."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the review was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the review was last updated."
+    },
+    "consumer": {
+      "type": "object",
+      "description": "Consumer who wrote the review.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Consumer identifier."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Consumer's display name."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Consumer email (private reviews only)."
+        }
+      },
+      "required": ["id", "displayName"]
+    },
+    "businessUnit": {
+      "type": "object",
+      "description": "Business unit the review is for.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Business unit identifier."
+        }
+      },
+      "required": ["id"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "archived"],
+      "description": "Current review status."
+    },
+    "verificationLevel": {
+      "type": "string",
+      "description": "Verification level indicating review authenticity."
+    },
+    "orderId": {
+      "type": ["string", "null"],
+      "description": "Order identifier associated with review (private reviews only)."
+    },
+    "reply": {
+      "type": ["object", "null"],
+      "description": "Company reply to the review.",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "required": ["id", "stars", "createdAt", "consumer", "businessUnit", "status"]
+}

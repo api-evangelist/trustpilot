@@ -1,0 +1,38 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.trustpilot.com/v1/business-units/46d6a890ffa235a75b00021d/reviews?stars=5&stars=4&language=en&orderBy=createdat.desc&perPage=20&apikey=YOUR_API_KEY",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "reviews": [
+        {
+          "id": "5e3de1b45fb06f0001790b51",
+          "stars": 5,
+          "title": "Excellent customer service",
+          "text": "I had a great experience with this company. The support team was very helpful and resolved my issue quickly.",
+          "language": "en",
+          "createdAt": "2026-04-28T10:15:00Z",
+          "updatedAt": "2026-04-28T10:15:00Z",
+          "consumer": {
+            "id": "5e3de1b45fb06f0001790b50",
+            "displayName": "John D."
+          },
+          "businessUnit": {
+            "id": "46d6a890ffa235a75b00021d"
+          },
+          "status": "active",
+          "verificationLevel": "verified"
+        }
+      ],
+      "totalNumberOfReviews": 1205
+    }
+  }
+}

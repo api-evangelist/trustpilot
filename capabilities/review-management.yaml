@@ -1,0 +1,306 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Trustpilot Review Management"
+  description: >-
+    Unified review management capability combining business unit profiles, service review
+    management, and invitation workflows. Used by customer experience teams and CRM
+    integrations to monitor reviews, respond to customer feedback, tag and categorize
+    reviews, and automate post-purchase review invitation campaigns.
+  tags:
+    - Reviews
+    - Consumer Reviews
+    - Business Profiles
+    - Invitations
+    - Trust
+    - Ratings
+    - Customer Experience
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      TRUSTPILOT_API_KEY: TRUSTPILOT_API_KEY
+      TRUSTPILOT_OAUTH2_TOKEN: TRUSTPILOT_OAUTH2_TOKEN
+
+capability:
+  consumes:
+    - import: trustpilot-business-units
+      location: ./shared/business-units.yaml
+    - import: trustpilot-service-reviews
+      location: ./shared/service-reviews.yaml
+    - import: trustpilot-invitations
+      location: ./shared/invitations.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: trustpilot-review-management-api
+      description: "Unified REST API for review monitoring, response, and invitation management."
+      resources:
+        - path: /v1/business-units/search
+          name: business-unit-search
+          description: "Search Trustpilot business units"
+          operations:
+            - method: GET
+              name: search-business-units
+              description: "Search for business units by name or domain."
+              call: "trustpilot-business-units.search-business-units"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/business-units/{businessUnitId}/profile
+          name: business-unit-profile
+          description: "Business unit trust profile"
+          operations:
+            - method: GET
+              name: get-business-unit-profile
+              description: "Get company trust profile including TrustScore and review counts."
+              call: "trustpilot-business-units.get-business-unit-profile"
+              with:
+                businessUnitId: "rest.businessUnitId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/business-units/{businessUnitId}/reviews
+          name: reviews
+          description: "Business unit reviews"
+          operations:
+            - method: GET
+              name: get-reviews
+              description: "Get reviews for a business unit with star and language filtering."
+              call: "trustpilot-business-units.get-business-unit-reviews"
+              with:
+                businessUnitId: "rest.businessUnitId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reviews/{reviewId}
+          name: review
+          description: "Individual review details"
+          operations:
+            - method: GET
+              name: get-review
+              description: "Get details for a specific review."
+              call: "trustpilot-service-reviews.get-review"
+              with:
+                reviewId: "rest.reviewId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reviews/{reviewId}/reply
+          name: review-reply
+          description: "Review reply management"
+          operations:
+            - method: POST
+              name: create-review-reply
+              description: "Post a company reply to a review."
+              call: "trustpilot-service-reviews.create-review-reply"
+              with:
+                reviewId: "rest.reviewId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reviews/{reviewId}/tags
+          name: review-tags
+          description: "Review tag management"
+          operations:
+            - method: GET
+              name: get-review-tags
+              description: "Get tags for a review."
+              call: "trustpilot-service-reviews.get-review-tags"
+              with:
+                reviewId: "rest.reviewId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/invitations/email
+          name: email-invitations
+          description: "Send review email invitations"
+          operations:
+            - method: POST
+              name: send-email-invitations
+              description: "Send review invitations to customers."
+              call: "trustpilot-invitations.send-email-invitations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/invitations/links
+          name: invitation-links
+          description: "Create review invitation links"
+          operations:
+            - method: POST
+              name: create-invitation-link
+              description: "Create a unique review invitation link."
+              call: "trustpilot-invitations.create-invitation-link"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reviews/latest
+          name: latest-reviews
+          description: "Latest reviews in a language"
+          operations:
+            - method: GET
+              name: get-latest-reviews
+              description: "Get the most recent reviews in a specific language."
+              call: "trustpilot-service-reviews.get-latest-reviews"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9080
+      namespace: trustpilot-review-management-mcp
+      transport: http
+      description: "MCP server for AI-assisted review monitoring, response drafting, and invitation management."
+      tools:
+        - name: search-business-units
+          description: "Search for businesses on Trustpilot to find their profile and trust score."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "trustpilot-business-units.search-business-units"
+          with:
+            name: "tools.name"
+            country: "tools.country"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-business-unit-profile
+          description: "Get the TrustScore, star rating distribution, and contact details for a business."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "trustpilot-business-units.get-business-unit-profile"
+          with:
+            businessUnitId: "tools.businessUnitId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-business-unit-reviews
+          description: "Get public reviews for a business with filtering by stars and language."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "trustpilot-business-units.get-business-unit-reviews"
+          with:
+            businessUnitId: "tools.businessUnitId"
+            stars: "tools.stars"
+            language: "tools.language"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-all-business-unit-reviews
+          description: "Retrieve all reviews for a business using cursor pagination for large review sets."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "trustpilot-business-units.get-all-business-unit-reviews"
+          with:
+            businessUnitId: "tools.businessUnitId"
+            pageToken: "tools.pageToken"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-review
+          description: "Get details of a specific Trustpilot review including rating, text, and consumer info."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "trustpilot-service-reviews.get-review"
+          with:
+            reviewId: "tools.reviewId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-latest-reviews
+          description: "Get the most recent reviews in a specific language across Trustpilot."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "trustpilot-service-reviews.get-latest-reviews"
+          with:
+            count: "tools.count"
+            language: "tools.language"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-review-reply
+          description: "Post a company reply to a customer review on Trustpilot."
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "trustpilot-service-reviews.create-review-reply"
+          with:
+            reviewId: "tools.reviewId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-review-reply
+          description: "Remove a company reply from a review."
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "trustpilot-service-reviews.delete-review-reply"
+          with:
+            reviewId: "tools.reviewId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-review-tags
+          description: "Get tags assigned to a review for categorization and filtering."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "trustpilot-service-reviews.get-review-tags"
+          with:
+            reviewId: "tools.reviewId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: set-review-tags
+          description: "Set tags on a review to categorize it by topic, campaign, or issue type."
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "trustpilot-service-reviews.set-review-tags"
+          with:
+            reviewId: "tools.reviewId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-invitation-templates
+          description: "Get available email invitation templates for review requests."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "trustpilot-invitations.get-invitation-templates"
+          with:
+            businessUnitId: "tools.businessUnitId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: send-email-invitations
+          description: "Send email review invitations to customers after purchase or service delivery."
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "trustpilot-invitations.send-email-invitations"
+          with:
+            businessUnitId: "tools.businessUnitId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-invitation-link
+          description: "Generate a unique review invitation link to share with customers."
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "trustpilot-invitations.create-invitation-link"
+          with:
+            businessUnitId: "tools.businessUnitId"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.trustpilot.com/v1/private/reviews/5e3de1b45fb06f0001790b51/reply",
+    "headers": {
+      "Authorization": "Bearer eyJhbGciOiJSUzI1NiJ9...",
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    "body": {
+      "message": "Thank you for your kind review! We are glad we could resolve your issue quickly. Your feedback is greatly appreciated.",
+      "authorBusinessUserId": "business_user_789"
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "reply": {
+        "message": "Thank you for your kind review! We are glad we could resolve your issue quickly. Your feedback is greatly appreciated.",
+        "createdAt": "2026-05-03T14:30:00Z"
+      }
+    }
+  }
+}

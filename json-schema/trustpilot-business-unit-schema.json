@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/trustpilot/main/json-schema/trustpilot-business-unit-schema.json",
+  "title": "Trustpilot Business Unit",
+  "description": "Represents a business profile on Trustpilot with trust score, review statistics, and contact information.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique Trustpilot business unit identifier."
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Business display name on Trustpilot."
+    },
+    "name": {
+      "type": "string",
+      "description": "Business domain name."
+    },
+    "websiteUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Business website URL."
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 country code."
+    },
+    "trustScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Trustpilot TrustScore (0-5)."
+    },
+    "stars": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Average star rating."
+    },
+    "numberOfReviews": {
+      "type": "object",
+      "description": "Review count breakdown by star rating.",
+      "properties": {
+        "total": {"type": "integer"},
+        "oneStar": {"type": "integer"},
+        "twoStars": {"type": "integer"},
+        "threeStars": {"type": "integer"},
+        "fourStars": {"type": "integer"},
+        "fiveStars": {"type": "integer"}
+      },
+      "required": ["total"]
+    },
+    "contact": {
+      "type": "object",
+      "description": "Business contact information.",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": ["id", "displayName", "trustScore", "numberOfReviews"]
+}
