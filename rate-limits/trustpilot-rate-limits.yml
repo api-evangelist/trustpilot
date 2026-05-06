@@ -4,107 +4,42 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Trustpilot
 providerId: trustpilot
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Consumer Reviews
   - Reviews
-  - Trust
-  - Ratings
-  - Business Profiles
-  - Product Reviews
+  - Reputation
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Trustpilot API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+description: Trustpilot publishes recommended rate-limit ceilings rather than per-second numerics. The
+  guidance is to stay under 833 calls per 5 minutes and 10,000 calls per hour, and to architect around
+  webhooks, token reuse, and server-side caching to reduce call volume. API access itself is bundled with
+  Premium / Enterprise plans as an add-on.
+sources:
+  - https://developers.trustpilot.com/rate-limiting
+  - https://developers.trustpilot.com/
 limits:
-  - tier: free
-    name: Free Tier Default
+  - name: 5-Minute Soft Ceiling
     scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
+    metric: requests_per_5_minutes
+    limit: 833
     timeFrame: minute
-    applies:
-      - Trustpilot Business Units API
-      - Trustpilot Service Reviews API
-      - Trustpilot Invitation API
-      - Trustpilot Product Reviews API
-      - Trustpilot Consumer API
-  - tier: free
-    name: Free Tier Monthly Quota
+    notes: Trustpilot recommends not exceeding 833 calls per 5 minutes (approx. 167/minute).
+  - name: Hourly Soft Ceiling
     scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Trustpilot Business Units API
-      - Trustpilot Service Reviews API
-      - Trustpilot Invitation API
-      - Trustpilot Product Reviews API
-      - Trustpilot Consumer API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Trustpilot Business Units API
-      - Trustpilot Service Reviews API
-      - Trustpilot Invitation API
-      - Trustpilot Product Reviews API
-      - Trustpilot Consumer API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Trustpilot Business Units API
-      - Trustpilot Service Reviews API
-      - Trustpilot Invitation API
-      - Trustpilot Product Reviews API
-      - Trustpilot Consumer API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Trustpilot Business Units API
-      - Trustpilot Service Reviews API
-      - Trustpilot Invitation API
-      - Trustpilot Product Reviews API
-      - Trustpilot Consumer API
+    metric: requests_per_hour
+    limit: 10000
+    timeFrame: hour
+    notes: Trustpilot recommends a maximum of 10,000 calls per hour.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Webhook-First Architecture
+    description: Trustpilot recommends consuming review and event data via webhooks instead of polling
+      to avoid breaching the 5-minute and hourly recommendations.
+  - name: Token Reuse
+    description: Reuse OAuth 2.0 access tokens across requests rather than minting a new token for every
+      call; minting incurs additional API calls that count toward the limits.
+  - name: Server-Side Caching
+    description: Cache review data on your backend rather than fetching directly from frontend page views;
+      this is the primary lever for staying under the published ceilings.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

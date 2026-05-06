@@ -4,158 +4,339 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Trustpilot
 providerId: trustpilot
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Consumer Reviews
   - Reviews
-  - Trust
-  - Ratings
-  - Business Profiles
-  - Product Reviews
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+  - Reputation
+  - Marketing
+  - SaaS
+description: Trustpilot Business sells five tiers — a free plan plus Starter, Plus, Premium, and Enterprise
+  — priced per domain on a 12-month minimum prepaid contract. Each tier sets a monthly review-invitation
+  cap, the number of widgets/users/domains, and the integration count. API access is bundled in Premium
+  and Enterprise as an add-on; lower tiers do not include API access.
+sources:
+  - https://business.trustpilot.com/pricing
+  - https://developers.trustpilot.com/
 plans:
   - id: trustpilot-free
     name: Free
     type: freemium
-    description: Free entry tier for the Trustpilot API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+    description: No-cost entry plan with basic profile management and a small review-invitation allowance;
+      no documented API access.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
+      - label: Review Invitations
+        name: review_invitations
         type: quota
-        metric: requests
+        metric: invitation
+        limit: 50
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+    elements:
+      - name: Basic Profile Management
+      - name: Support Center Access
+  - id: trustpilot-starter
+    name: Starter
+    type: subscription
+    description: Entry paid plan for small businesses (up to $5M revenue, new customers only); annual
+      prepaid commitment.
+    entries:
+      - label: Subscription Fee
+        name: subscription_fee
+        type: subscription
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$99 per month, billed upfront annually'
+        userMultiplied: false
+      - label: Review Invitations
+        name: review_invitations
+        type: quota
+        metric: invitation
+        limit: 100
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Widgets
+        name: widgets
+        type: quota
+        metric: widget
+        limit: 2
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Users
+        name: users
+        type: quota
+        metric: seat
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Domains
+        name: domains
+        type: quota
+        metric: domain
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Integrations
+        name: integrations
+        type: quota
+        metric: integration
+        limit: 15
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+    elements:
+      - name: 12-Month Minimum Commitment
+      - name: New Customers Only
+  - id: trustpilot-plus
+    name: Plus
+    type: subscription
+    description: Mid-tier plan with profile customization and a 14-day free trial; priced per domain.
+    entries:
+      - label: Subscription Fee
+        name: subscription_fee
+        type: subscription
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$319 per month, per domain, billed upfront annually'
+        userMultiplied: false
+      - label: Review Invitations
+        name: review_invitations
+        type: quota
+        metric: invitation
+        limit: 300
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Widgets
+        name: widgets
+        type: quota
+        metric: widget
+        limit: 10
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Users
+        name: users
+        type: quota
+        metric: seat
+        limit: 3
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Domains
+        name: domains
+        type: quota
+        metric: domain
+        limit: 3
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Integrations
+        name: integrations
+        type: quota
+        metric: integration
+        limit: 25
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+    elements:
+      - name: Profile Customization
+      - name: 14-Day Free Trial
+      - name: 12-Month Minimum Commitment
+  - id: trustpilot-premium
+    name: Premium
+    type: subscription
+    description: Advanced plan with analytics, dashboards, and API access available as an add-on; demo
+      required.
+    entries:
+      - label: Subscription Fee
+        name: subscription_fee
+        type: subscription
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$799 per month, per domain, billed upfront annually'
+        userMultiplied: false
+      - label: Review Invitations
+        name: review_invitations
+        type: quota
+        metric: invitation
         limit: 1000
         timeFrame: month
         geo: global
-        domains:
-          - https://api.trustpilot.com/v1
         unit: 1
-        price: '0.00'
+        price: included
         userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://api.trustpilot.com/v1
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Trustpilot Business Units API
-      - name: Trustpilot Service Reviews API
-      - name: Trustpilot Invitation API
-      - name: Trustpilot Product Reviews API
-      - name: Trustpilot Consumer API
-  - id: trustpilot-pro
-    name: Professional
-    type: paid
-    description: Production tier for Trustpilot. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
+      - label: Widgets
+        name: widgets
         type: quota
-        metric: requests
-        limit: 100000
+        metric: widget
+        limit: 21
         timeFrame: month
         geo: global
-        domains:
-          - https://api.trustpilot.com/v1
         unit: 1
-        price: TBD
+        price: included
         userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
+      - label: Users
+        name: users
+        type: quota
+        metric: seat
+        limit: 10
+        timeFrame: month
         geo: global
-        domains:
-          - https://api.trustpilot.com/v1
         unit: 1
-        price: '0.00'
+        price: included
         userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
+      - label: Domains
+        name: domains
+        type: quota
+        metric: domain
         limit: -1
         timeFrame: month
         geo: global
-        domains:
-          - https://api.trustpilot.com/v1
-        unit: 1000
-        price: TBD
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Integrations
+        name: integrations
+        type: quota
+        metric: integration
+        limit: 25
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: API Access (Add-on)
+        name: api_access_addon
+        type: flat
+        metric: varies
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: add-on
         userMultiplied: false
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Trustpilot Business Units API
-      - name: Trustpilot Service Reviews API
-      - name: Trustpilot Invitation API
-      - name: Trustpilot Product Reviews API
-      - name: Trustpilot Consumer API
+      - name: Advanced Analytics
+      - name: Dashboards
+      - name: Demo Required
+      - name: 12-Month Minimum Commitment
   - id: trustpilot-enterprise
     name: Enterprise
     type: enterprise
-    description: Custom-negotiated tier for Trustpilot. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
+    description: Custom-priced plan with unlimited review invitations and large-scale user/domain support;
+      API access available as an add-on.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
+      - label: Subscription
+        name: subscription_fee
+        type: subscription
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: configurable
+        unit: 1
+        price: pricing upon request
+        userMultiplied: false
+      - label: Review Invitations
+        name: review_invitations
         type: quota
-        metric: requests
+        metric: invitation
         limit: -1
         timeFrame: month
         geo: configurable
-        domains:
-          - https://api.trustpilot.com/v1
         unit: 1
-        price: custom
+        price: included
         userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
+      - label: Widgets
+        name: widgets
+        type: quota
+        metric: widget
+        limit: 22
+        timeFrame: month
         geo: configurable
-        domains:
-          - https://api.trustpilot.com/v1
         unit: 1
-        price: custom
+        price: included
+        userMultiplied: false
+      - label: Users
+        name: users
+        type: quota
+        metric: seat
+        limit: 1000
+        timeFrame: month
+        geo: configurable
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Domains
+        name: domains
+        type: quota
+        metric: domain
+        limit: -1
+        timeFrame: month
+        geo: configurable
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Integrations
+        name: integrations
+        type: quota
+        metric: integration
+        limit: 25
+        timeFrame: month
+        geo: configurable
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: API Access (Add-on)
+        name: api_access_addon
+        type: flat
+        metric: varies
+        limit: 1
+        timeFrame: month
+        geo: configurable
+        unit: 1
+        price: add-on
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Trustpilot Business Units API
-      - name: Trustpilot Service Reviews API
-      - name: Trustpilot Invitation API
-      - name: Trustpilot Product Reviews API
-      - name: Trustpilot Consumer API
+      - name: Optimized Invitations
+      - name: Actionable Insights Tools
+      - name: 12-Month Minimum Commitment
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
