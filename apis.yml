@@ -177,7 +177,7 @@ common:
     type: Blog
   - url: https://status.trustpilot.com/
     name: Status Page
-    type: Status
+    type: StatusPage
   - url: https://twitter.com/trustpilot
     name: Trustpilot on X (Twitter)
     type: X
