@@ -1,0 +1,224 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Trustpilot Invitation API — Invitations
+  description: 'Trustpilot Invitation API — Invitations. 4 operations. Lead operation: Send Email Invitations. Self-contained
+    Naftiko capability covering one Trustpilot business surface.'
+  tags:
+  - Trustpilot
+  - Invitations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TRUSTPILOT_API_KEY: TRUSTPILOT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: invitation-invitations
+    baseUri: https://api.trustpilot.com
+    description: Trustpilot Invitation API — Invitations business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-private-business-units-businessUnitId-email-invitations
+      path: /v1/private/business-units/{businessUnitId}/email-invitations
+      operations:
+      - name: sendemailinvitations
+        method: POST
+        description: Send Email Invitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: businessUnitId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-private-business-units-businessUnitId-invitation-data-delete
+      path: /v1/private/business-units/{businessUnitId}/invitation-data/delete
+      operations:
+      - name: deleteinvitationdata
+        method: POST
+        description: Delete Invitation Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: businessUnitId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-private-business-units-businessUnitId-invitation-links
+      path: /v1/private/business-units/{businessUnitId}/invitation-links
+      operations:
+      - name: createinvitationlink
+        method: POST
+        description: Create Invitation Link
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: businessUnitId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-private-business-units-businessUnitId-templates
+      path: /v1/private/business-units/{businessUnitId}/templates
+      operations:
+      - name: getinvitationtemplates
+        method: GET
+        description: Get Invitation Templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: businessUnitId
+          in: path
+          type: string
+          description: Trustpilot business unit identifier
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.TRUSTPILOT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: invitation-invitations-rest
+    port: 8080
+    description: REST adapter for Trustpilot Invitation API — Invitations. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/private/business-units/{businessunitid}/email-invitations
+      name: v1-private-business-units-businessunitid-email-invitations
+      description: REST surface for v1-private-business-units-businessUnitId-email-invitations.
+      operations:
+      - method: POST
+        name: sendemailinvitations
+        description: Send Email Invitations
+        call: invitation-invitations.sendemailinvitations
+        with:
+          businessUnitId: rest.businessUnitId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/private/business-units/{businessunitid}/invitation-data/delete
+      name: v1-private-business-units-businessunitid-invitation-data-delete
+      description: REST surface for v1-private-business-units-businessUnitId-invitation-data-delete.
+      operations:
+      - method: POST
+        name: deleteinvitationdata
+        description: Delete Invitation Data
+        call: invitation-invitations.deleteinvitationdata
+        with:
+          businessUnitId: rest.businessUnitId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/private/business-units/{businessunitid}/invitation-links
+      name: v1-private-business-units-businessunitid-invitation-links
+      description: REST surface for v1-private-business-units-businessUnitId-invitation-links.
+      operations:
+      - method: POST
+        name: createinvitationlink
+        description: Create Invitation Link
+        call: invitation-invitations.createinvitationlink
+        with:
+          businessUnitId: rest.businessUnitId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/private/business-units/{businessunitid}/templates
+      name: v1-private-business-units-businessunitid-templates
+      description: REST surface for v1-private-business-units-businessUnitId-templates.
+      operations:
+      - method: GET
+        name: getinvitationtemplates
+        description: Get Invitation Templates
+        call: invitation-invitations.getinvitationtemplates
+        with:
+          businessUnitId: rest.businessUnitId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: invitation-invitations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Trustpilot Invitation API — Invitations. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: send-email-invitations
+      description: Send Email Invitations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: invitation-invitations.sendemailinvitations
+      with:
+        businessUnitId: tools.businessUnitId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-invitation-data
+      description: Delete Invitation Data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: invitation-invitations.deleteinvitationdata
+      with:
+        businessUnitId: tools.businessUnitId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-invitation-link
+      description: Create Invitation Link
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: invitation-invitations.createinvitationlink
+      with:
+        businessUnitId: tools.businessUnitId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-invitation-templates
+      description: Get Invitation Templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: invitation-invitations.getinvitationtemplates
+      with:
+        businessUnitId: tools.businessUnitId
+      outputParameters:
+      - type: object
+        mapping: $.

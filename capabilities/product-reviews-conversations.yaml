@@ -1,0 +1,270 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Trustpilot Product Reviews API — Conversations
+  description: 'Trustpilot Product Reviews API — Conversations. 5 operations. Lead operation: Get Public Conversation. Self-contained
+    Naftiko capability covering one Trustpilot business surface.'
+  tags:
+  - Trustpilot
+  - Conversations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TRUSTPILOT_API_KEY: TRUSTPILOT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: product-reviews-conversations
+    baseUri: https://api.trustpilot.com
+    description: Trustpilot Product Reviews API — Conversations business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-conversations-conversationId
+      path: /v1/conversations/{conversationId}
+      operations:
+      - name: getpublicconversation
+        method: GET
+        description: Get Public Conversation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: conversationId
+          in: path
+          type: string
+          required: true
+        - name: apikey
+          in: query
+          type: string
+          required: true
+    - name: v1-private-conversations-conversationId
+      path: /v1/private/conversations/{conversationId}
+      operations:
+      - name: getconversation
+        method: GET
+        description: Get Conversation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: conversationId
+          in: path
+          type: string
+          required: true
+    - name: v1-private-conversations-conversationId-comments
+      path: /v1/private/conversations/{conversationId}/comments
+      operations:
+      - name: createconversationcomment
+        method: POST
+        description: Create Conversation Comment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: conversationId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-private-conversations-conversationId-state
+      path: /v1/private/conversations/{conversationId}/state
+      operations:
+      - name: setconversationstate
+        method: POST
+        description: Set Conversation State
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: conversationId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-private-product-reviews-reviewId-create-conversation
+      path: /v1/private/product-reviews/{reviewId}/create-conversation
+      operations:
+      - name: createproductreviewconversation
+        method: POST
+        description: Create Product Review Conversation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: reviewId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.TRUSTPILOT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: product-reviews-conversations-rest
+    port: 8080
+    description: REST adapter for Trustpilot Product Reviews API — Conversations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/conversations/{conversationid}
+      name: v1-conversations-conversationid
+      description: REST surface for v1-conversations-conversationId.
+      operations:
+      - method: GET
+        name: getpublicconversation
+        description: Get Public Conversation
+        call: product-reviews-conversations.getpublicconversation
+        with:
+          conversationId: rest.conversationId
+          apikey: rest.apikey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/private/conversations/{conversationid}
+      name: v1-private-conversations-conversationid
+      description: REST surface for v1-private-conversations-conversationId.
+      operations:
+      - method: GET
+        name: getconversation
+        description: Get Conversation
+        call: product-reviews-conversations.getconversation
+        with:
+          conversationId: rest.conversationId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/private/conversations/{conversationid}/comments
+      name: v1-private-conversations-conversationid-comments
+      description: REST surface for v1-private-conversations-conversationId-comments.
+      operations:
+      - method: POST
+        name: createconversationcomment
+        description: Create Conversation Comment
+        call: product-reviews-conversations.createconversationcomment
+        with:
+          conversationId: rest.conversationId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/private/conversations/{conversationid}/state
+      name: v1-private-conversations-conversationid-state
+      description: REST surface for v1-private-conversations-conversationId-state.
+      operations:
+      - method: POST
+        name: setconversationstate
+        description: Set Conversation State
+        call: product-reviews-conversations.setconversationstate
+        with:
+          conversationId: rest.conversationId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/private/product-reviews/{reviewid}/create-conversation
+      name: v1-private-product-reviews-reviewid-create-conversation
+      description: REST surface for v1-private-product-reviews-reviewId-create-conversation.
+      operations:
+      - method: POST
+        name: createproductreviewconversation
+        description: Create Product Review Conversation
+        call: product-reviews-conversations.createproductreviewconversation
+        with:
+          reviewId: rest.reviewId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: product-reviews-conversations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Trustpilot Product Reviews API — Conversations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-public-conversation
+      description: Get Public Conversation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: product-reviews-conversations.getpublicconversation
+      with:
+        conversationId: tools.conversationId
+        apikey: tools.apikey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-conversation
+      description: Get Conversation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: product-reviews-conversations.getconversation
+      with:
+        conversationId: tools.conversationId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-conversation-comment
+      description: Create Conversation Comment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: product-reviews-conversations.createconversationcomment
+      with:
+        conversationId: tools.conversationId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: set-conversation-state
+      description: Set Conversation State
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: product-reviews-conversations.setconversationstate
+      with:
+        conversationId: tools.conversationId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-product-review-conversation
+      description: Create Product Review Conversation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: product-reviews-conversations.createproductreviewconversation
+      with:
+        reviewId: tools.reviewId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
