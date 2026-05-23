@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductReviewsSummary",
+  "title": "ProductReviewsSummary",
+  "type": "object",
+  "properties": {
+    "businessUnitId": {
+      "type": "string"
+    },
+    "numberOfReviews": {
+      "type": "integer"
+    },
+    "starsAverage": {
+      "type": "number",
+      "format": "double"
+    },
+    "stars": {
+      "type": "object",
+      "properties": {
+        "oneStar": {
+          "type": "integer"
+        },
+        "twoStars": {
+          "type": "integer"
+        },
+        "threeStars": {
+          "type": "integer"
+        },
+        "fourStars": {
+          "type": "integer"
+        },
+        "fiveStars": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BusinessUnitSummary",
+  "title": "BusinessUnitSummary",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Trustpilot business unit ID"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "websiteUrl": {
+      "type": "string"
+    },
+    "countryCode": {
+      "type": "string"
+    },
+    "trustScore": {
+      "type": "number",
+      "format": "double"
+    },
+    "stars": {
+      "type": "number",
+      "format": "double"
+    },
+    "numberOfReviews": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

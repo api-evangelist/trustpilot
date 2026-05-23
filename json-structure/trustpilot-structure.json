@@ -1,0 +1,147 @@
+{
+  "provider": "Trustpilot",
+  "providerId": "trustpilot",
+  "kind": "json-structure",
+  "description": "Structural overview of the Trustpilot API surface; extracted from openapi/.",
+  "schemaCount": 9,
+  "operationCount": 9,
+  "schemas": [
+    {
+      "name": "BusinessUnitSearchResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "BusinessUnitSummary",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "BusinessUnitProfile",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "ReviewListResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Review",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "PrivateReviewListResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "PrivateReview",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BusinessUnitImages",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CategoryListResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/v1/business-units/search",
+      "operationId": "searchBusinessUnits",
+      "summary": "Search Business Units",
+      "tags": [
+        "Business Units"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/business-units/{businessUnitId}/profileinfo",
+      "operationId": "getBusinessUnitProfile",
+      "summary": "Get Business Unit Profile",
+      "tags": [
+        "Business Units"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/business-units/{businessUnitId}/reviews",
+      "operationId": "getBusinessUnitReviews",
+      "summary": "Get Business Unit Reviews",
+      "tags": [
+        "Reviews"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/business-units/{businessUnitId}/all-reviews",
+      "operationId": "getAllBusinessUnitReviews",
+      "summary": "Get All Business Unit Reviews",
+      "tags": [
+        "Reviews"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/private/business-units/{businessUnitId}/reviews",
+      "operationId": "getPrivateBusinessUnitReviews",
+      "summary": "Get Private Business Unit Reviews",
+      "tags": [
+        "Reviews"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/business-units/{businessUnitId}/images",
+      "operationId": "getBusinessUnitImages",
+      "summary": "Get Business Unit Images",
+      "tags": [
+        "Images"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/business-units/{businessUnitId}/images/logo",
+      "operationId": "getBusinessUnitLogo",
+      "summary": "Get Business Unit Logo",
+      "tags": [
+        "Images"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/business-units/{businessUnitId}/categories",
+      "operationId": "getBusinessUnitCategories",
+      "summary": "Get Business Unit Categories",
+      "tags": [
+        "Business Units"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/business-units/{businessUnitId}/web-links",
+      "operationId": "getBusinessUnitWebLinks",
+      "summary": "Get Business Unit Web Links",
+      "tags": [
+        "Business Units"
+      ]
+    }
+  ]
+}

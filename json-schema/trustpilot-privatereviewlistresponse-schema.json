@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PrivateReviewListResponse",
+  "title": "PrivateReviewListResponse",
+  "type": "object",
+  "properties": {
+    "reviews": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PrivateReview"
+      }
+    },
+    "totalNumberOfReviews": {
+      "type": "integer"
+    }
+  }
+}

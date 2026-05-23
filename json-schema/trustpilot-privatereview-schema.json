@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PrivateReview",
+  "title": "PrivateReview",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Review"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "consumer": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            }
+          }
+        },
+        "orderId": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}
