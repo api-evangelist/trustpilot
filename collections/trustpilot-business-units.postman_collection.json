@@ -1,0 +1,1521 @@
+{
+  "item": [
+    {
+      "id": "133b8293-dfb8-4aaa-bcc4-97ab69ef26a2",
+      "name": "Business Units",
+      "description": {
+        "content": "Business unit profile and review operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "46284242-c090-44b8-aa57-ed53863526aa",
+          "name": "Search Business Units",
+          "request": {
+            "name": "Search Business Units",
+            "description": {
+              "content": "Search for business units on Trustpilot, even if you only know part of the name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "business-units",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Business name or partial name to search for"
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Filter results by ISO 3166-1 alpha-2 country code"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20",
+                  "description": "Number of results per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) Your Trustpilot API key"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f57edbf4-b157-46f9-974b-9c2b39492b1b",
+              "name": "Search results returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"businesses\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"name\": \"string\",\n      \"websiteUrl\": \"string\",\n      \"countryCode\": \"string\",\n      \"trustScore\": 2490.5787346199104,\n      \"stars\": 4898.988899404369,\n      \"numberOfReviews\": {\n        \"total\": 4012\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"name\": \"string\",\n      \"websiteUrl\": \"string\",\n      \"countryCode\": \"string\",\n      \"trustScore\": 8263.861625359188,\n      \"stars\": 7808.6490050846505,\n      \"numberOfReviews\": {\n        \"total\": 7674\n      }\n    }\n  ],\n  \"totalNumberOfBusinesses\": 1178,\n  \"currentPage\": 5643,\n  \"perPage\": 6257\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d200d9cb-91a5-4ed1-ab9b-38557b8f66b8",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8d905a0d-75f8-45dc-a84a-5f6c82c25096",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9dabd0c4-1d8c-4a7f-ab09-e5ef92b1bdb1",
+          "name": "Get Business Unit Profile",
+          "request": {
+            "name": "Get Business Unit Profile",
+            "description": {
+              "content": "Retrieve company profile information including contact details and social media links.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "business-units",
+                ":businessUnitId",
+                "profileinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) Unique Trustpilot business unit identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2171e662-77de-4f75-9ce0-4b94e4c14152",
+              "name": "Business unit profile returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "profileinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) Unique Trustpilot business unit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"name\": \"string\",\n  \"websiteUrl\": \"string\",\n  \"countryCode\": \"string\",\n  \"trustScore\": 5310.489332711915,\n  \"stars\": 918.8343256826215,\n  \"numberOfReviews\": {\n    \"total\": 3325,\n    \"oneStar\": 6151,\n    \"twoStars\": 9752,\n    \"threeStars\": 8515,\n    \"fourStars\": 3440,\n    \"fiveStars\": 9234\n  },\n  \"contact\": {\n    \"email\": \"string\",\n    \"phone\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0eef9a7c-dde2-4d1c-9c47-8c19bbb487d3",
+              "name": "Business unit not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "profileinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) Unique Trustpilot business unit identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "353fd5fa-8433-4e01-83f2-bee8b6dc942c",
+          "name": "Get Business Unit Categories",
+          "request": {
+            "name": "Get Business Unit Categories",
+            "description": {
+              "content": "List categories associated with a business unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "business-units",
+                ":businessUnitId",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "71654a66-1098-45a8-80f7-535271ff0f65",
+              "name": "Categories returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"categories\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f191a0e0-e95d-4690-b17a-40bb805539ca",
+          "name": "Get Business Unit Web Links",
+          "request": {
+            "name": "Get Business Unit Web Links",
+            "description": {
+              "content": "Obtain links to the business unit's public profile page on Trustpilot.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "business-units",
+                ":businessUnitId",
+                "web-links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Locale code for localized URLs"
+                },
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "989703b7-516a-4c6d-8f75-207c02905150",
+              "name": "Web links returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "web-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "29f7d384-c578-42dc-baea-d61e6b9e95d7",
+      "name": "Reviews",
+      "description": {
+        "content": "Business unit review retrieval",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "16aeeae1-c4ad-4135-bb99-a01f97994cdf",
+          "name": "Get Business Unit Reviews",
+          "request": {
+            "name": "Get Business Unit Reviews",
+            "description": {
+              "content": "Fetch public reviews for a business unit with filtering and sorting options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "business-units",
+                ":businessUnitId",
+                "reviews"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "stars",
+                  "value": "<integer>",
+                  "description": "Filter by star rating"
+                },
+                {
+                  "disabled": false,
+                  "key": "stars",
+                  "value": "<integer>",
+                  "description": "Filter by star rating"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Filter reviews by language (ISO 639-1 code)"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort order for reviews"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bf095b37-4db7-4fe9-ab57-59d2cd6aaa0c",
+              "name": "Reviews returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "reviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stars",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "stars",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reviews\": [\n    {\n      \"id\": \"string\",\n      \"stars\": 3,\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"language\": \"string\",\n      \"createdAt\": \"1974-06-13T04:12:40.853Z\",\n      \"updatedAt\": \"1995-04-04T08:14:20.819Z\",\n      \"consumer\": {\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      },\n      \"businessUnit\": {\n        \"id\": \"string\"\n      },\n      \"status\": \"archived\",\n      \"verificationLevel\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"stars\": 4,\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"language\": \"string\",\n      \"createdAt\": \"1960-10-14T08:43:53.248Z\",\n      \"updatedAt\": \"2015-02-09T22:03:18.448Z\",\n      \"consumer\": {\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      },\n      \"businessUnit\": {\n        \"id\": \"string\"\n      },\n      \"status\": \"active\",\n      \"verificationLevel\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\",\n  \"totalNumberOfReviews\": 3057\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c29febcf-e740-411b-9001-004e8661f505",
+              "name": "Business unit not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "reviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stars",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "stars",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4df1b6ce-b3e5-456f-b9e4-a5f654f08964",
+          "name": "Get All Business Unit Reviews",
+          "request": {
+            "name": "Get All Business Unit Reviews",
+            "description": {
+              "content": "Retrieve paginated public reviews using pageToken cursor-based pagination, supporting up to 100,000 reviews.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "business-units",
+                ":businessUnitId",
+                "all-reviews"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Pagination cursor from previous response"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1fc88d53-2590-4b58-b3d5-c6b55db45a86",
+              "name": "Reviews returned with pagination token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "all-reviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reviews\": [\n    {\n      \"id\": \"string\",\n      \"stars\": 2,\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"language\": \"string\",\n      \"createdAt\": \"2008-06-04T15:24:52.424Z\",\n      \"updatedAt\": \"1951-01-29T18:12:08.073Z\",\n      \"consumer\": {\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      },\n      \"businessUnit\": {\n        \"id\": \"string\"\n      },\n      \"status\": \"active\",\n      \"verificationLevel\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"stars\": 2,\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"language\": \"string\",\n      \"createdAt\": \"1948-08-23T18:25:34.436Z\",\n      \"updatedAt\": \"1991-12-09T21:29:32.631Z\",\n      \"consumer\": {\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      },\n      \"businessUnit\": {\n        \"id\": \"string\"\n      },\n      \"status\": \"archived\",\n      \"verificationLevel\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\",\n  \"totalNumberOfReviews\": 4538\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b8f867b-5b10-49c2-abe7-a3b96acea97e",
+          "name": "Get Private Business Unit Reviews",
+          "request": {
+            "name": "Get Private Business Unit Reviews",
+            "description": {
+              "content": "Access private reviews including customer contact information and order IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "private",
+                "business-units",
+                ":businessUnitId",
+                "reviews"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "business.review.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://authenticate.trustpilot.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "caebcf1e-9b53-4562-aeaa-90b82363706d",
+              "name": "Private reviews returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "private",
+                    "business-units",
+                    ":businessUnitId",
+                    "reviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reviews\": [\n    {\n      \"id\": \"string\",\n      \"stars\": 2,\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"language\": \"string\",\n      \"createdAt\": \"1991-02-13T01:48:31.964Z\",\n      \"updatedAt\": \"1989-02-01T09:30:32.478Z\",\n      \"consumer\": {\n        \"id\": \"string\",\n        \"displayName\": \"string\",\n        \"email\": \"string\"\n      },\n      \"businessUnit\": {\n        \"id\": \"string\"\n      },\n      \"status\": \"archived\",\n      \"verificationLevel\": \"string\",\n      \"orderId\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"stars\": 1,\n      \"title\": \"string\",\n      \"text\": \"string\",\n      \"language\": \"string\",\n      \"createdAt\": \"2012-09-13T09:59:52.531Z\",\n      \"updatedAt\": \"1996-12-24T18:17:19.433Z\",\n      \"consumer\": {\n        \"id\": \"string\",\n        \"displayName\": \"string\",\n        \"email\": \"string\"\n      },\n      \"businessUnit\": {\n        \"id\": \"string\"\n      },\n      \"status\": \"archived\",\n      \"verificationLevel\": \"string\",\n      \"orderId\": \"string\"\n    }\n  ],\n  \"totalNumberOfReviews\": 4075\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3517c470-9ccc-4491-a4ba-88acaf593cf0",
+      "name": "Images",
+      "description": {
+        "content": "Business unit image operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c2d6bda-852e-486e-8e84-d4c85fe2640f",
+          "name": "Get Business Unit Images",
+          "request": {
+            "name": "Get Business Unit Images",
+            "description": {
+              "content": "Fetch company profile images in multiple sizes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "business-units",
+                ":businessUnitId",
+                "images"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f3f0a48e-d72b-4044-a00f-8ae3cf527ee4",
+              "name": "Images returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"logoUrl\": \"string\",\n  \"headerUrl\": \"string\",\n  \"promotionBoxUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85cf44f3-86e9-4afe-84be-f62f61df0d3b",
+          "name": "Get Business Unit Logo",
+          "request": {
+            "name": "Get Business Unit Logo",
+            "description": {
+              "content": "Retrieve company or location-specific logo.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "business-units",
+                ":businessUnitId",
+                "images",
+                "logo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "55522eb8-d99f-4e89-b50f-238bcdff3659",
+              "name": "Logo image returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "images",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.trustpilot.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "141ad0a8-a37f-48c8-bce8-2c5bf913eda5",
+    "name": "Trustpilot Business Units API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,858 @@
+{
+  "item": [
+    {
+      "id": "48f4e437-8094-434c-8599-d8354fe9629e",
+      "name": "Invitations",
+      "description": {
+        "content": "Review invitation operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "65f29c62-2b14-48a9-9ac1-e3a75e12f768",
+          "name": "Get Invitation Templates",
+          "request": {
+            "name": "Get Invitation Templates",
+            "description": {
+              "content": "Retrieve available invitation templates with IDs and names for a business unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "private",
+                "business-units",
+                ":businessUnitId",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) Trustpilot business unit identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "business.invitations.manage"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://authenticate.trustpilot.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "737dc040-c593-4802-8adc-dc02eb33dc1a",
+              "name": "Templates returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "private",
+                    "business-units",
+                    ":businessUnitId",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) Trustpilot business unit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"templates\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"subject\": \"string\",\n      \"bodyContent\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"subject\": \"string\",\n      \"bodyContent\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ac7a491-e590-47a4-b114-e6d4cc9702eb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "private",
+                    "business-units",
+                    ":businessUnitId",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) Trustpilot business unit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6d6aa7e-9e83-4878-88e1-b47c7215ed30",
+          "name": "Send Email Invitations",
+          "request": {
+            "name": "Send Email Invitations",
+            "description": {
+              "content": "Trigger email invitations for service and product reviews to a list of recipients.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "private",
+                "business-units",
+                ":businessUnitId",
+                "email-invitations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "business.invitations.manage"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://authenticate.trustpilot.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invitations\": [\n    {\n      \"recipientEmail\": \"<email>\",\n      \"recipientName\": \"<string>\",\n      \"referenceNumber\": \"<string>\",\n      \"templateId\": \"<string>\",\n      \"preferredSendTime\": \"<dateTime>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"products\": [\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        },\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"recipientEmail\": \"<email>\",\n      \"recipientName\": \"<string>\",\n      \"referenceNumber\": \"<string>\",\n      \"templateId\": \"<string>\",\n      \"preferredSendTime\": \"<dateTime>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"products\": [\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        },\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "94bd4a96-2998-4d75-a0be-2656c7665f9e",
+              "name": "Invitations queued successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "private",
+                    "business-units",
+                    ":businessUnitId",
+                    "email-invitations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invitations\": [\n    {\n      \"recipientEmail\": \"<email>\",\n      \"recipientName\": \"<string>\",\n      \"referenceNumber\": \"<string>\",\n      \"templateId\": \"<string>\",\n      \"preferredSendTime\": \"<dateTime>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"products\": [\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        },\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"recipientEmail\": \"<email>\",\n      \"recipientName\": \"<string>\",\n      \"referenceNumber\": \"<string>\",\n      \"templateId\": \"<string>\",\n      \"preferredSendTime\": \"<dateTime>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"products\": [\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        },\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a27aa372-8c6d-4ebe-b3ad-e1f5d02ce4e4",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "private",
+                    "business-units",
+                    ":businessUnitId",
+                    "email-invitations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invitations\": [\n    {\n      \"recipientEmail\": \"<email>\",\n      \"recipientName\": \"<string>\",\n      \"referenceNumber\": \"<string>\",\n      \"templateId\": \"<string>\",\n      \"preferredSendTime\": \"<dateTime>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"products\": [\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        },\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"recipientEmail\": \"<email>\",\n      \"recipientName\": \"<string>\",\n      \"referenceNumber\": \"<string>\",\n      \"templateId\": \"<string>\",\n      \"preferredSendTime\": \"<dateTime>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"products\": [\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        },\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c325c3ee-e556-4037-80dd-7c736b17674a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "private",
+                    "business-units",
+                    ":businessUnitId",
+                    "email-invitations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invitations\": [\n    {\n      \"recipientEmail\": \"<email>\",\n      \"recipientName\": \"<string>\",\n      \"referenceNumber\": \"<string>\",\n      \"templateId\": \"<string>\",\n      \"preferredSendTime\": \"<dateTime>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"products\": [\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        },\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"recipientEmail\": \"<email>\",\n      \"recipientName\": \"<string>\",\n      \"referenceNumber\": \"<string>\",\n      \"templateId\": \"<string>\",\n      \"preferredSendTime\": \"<dateTime>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"products\": [\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        },\n        {\n          \"productUrl\": \"<string>\",\n          \"productName\": \"<string>\",\n          \"productSku\": \"<string>\",\n          \"imageUrl\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8b74494-6ec6-4a2e-92d5-9617baf7b3cb",
+          "name": "Create Invitation Link",
+          "request": {
+            "name": "Create Invitation Link",
+            "description": {
+              "content": "Create a unique invitation link for service reviews.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "private",
+                "business-units",
+                ":businessUnitId",
+                "invitation-links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "business.invitations.manage"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://authenticate.trustpilot.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"referenceNumber\": \"<string>\",\n  \"redirectUrl\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3739b7b-abcf-4d27-b214-1848392c4096",
+              "name": "Invitation link created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "private",
+                    "business-units",
+                    ":businessUnitId",
+                    "invitation-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"referenceNumber\": \"<string>\",\n  \"redirectUrl\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a546ea6f-3eca-492c-9f5e-daf5af1469aa",
+          "name": "Delete Invitation Data",
+          "request": {
+            "name": "Delete Invitation Data",
+            "description": {
+              "content": "Remove invitation data by email addresses or date range. Cannot specify both email addresses and dates in the same request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "private",
+                "business-units",
+                ":businessUnitId",
+                "invitation-data",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "business.invitations.manage"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://authenticate.trustpilot.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71daa904-f12c-4bd7-a91b-cfe0fd5aeb0a",
+              "name": "Invitation data deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "private",
+                    "business-units",
+                    ":businessUnitId",
+                    "invitation-data",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bde29102-a407-4c1b-8c79-efeb7b8d209f",
+              "name": "Bad request - cannot specify both emails and dates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "private",
+                    "business-units",
+                    ":businessUnitId",
+                    "invitation-data",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c7afc4b1-bcb2-480f-a59c-554c32a48c02",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "private",
+                    "business-units",
+                    ":businessUnitId",
+                    "invitation-data",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.trustpilot.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "41f3d272-f11a-4211-8c5b-5cb06a3fbd86",
+    "name": "Trustpilot Invitation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Allows businesses to programmatically send review invitations to their customers via email or SMS after transactions or service interactions. Supports invitation links, bulk email invitations, template retrieval, and invitation data deletion.",
+      "type": "text/plain"
+    }
+  }
+}
