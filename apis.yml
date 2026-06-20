@@ -9,7 +9,7 @@ description: >-
   feedback at scale. Trustpilot's APIs cover business profile management, service reviews, product reviews, invitation
   management, consumer profiles, and public review data.
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Consumer Reviews
   - Reviews
@@ -29,7 +29,7 @@ apis:
       - Reviews
       - Trust
       - Ratings
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.trustpilot.com/v1
     humanURL: https://developers.trustpilot.com/business-units-api
     properties:
@@ -52,7 +52,7 @@ apis:
       - Consumer Reviews
       - Trust
       - Ratings
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.trustpilot.com/v1
     humanURL: https://developers.trustpilot.com/service-reviews-api/
     properties:
@@ -76,7 +76,7 @@ apis:
       - Email
       - Reviews
       - Trust
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.trustpilot.com/v1
     humanURL: https://developers.trustpilot.com/invitation-api
     properties:
@@ -99,7 +99,7 @@ apis:
       - Reviews
       - Consumer Reviews
       - Trust
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.trustpilot.com/v1
     humanURL: https://developers.trustpilot.com/product-reviews-api/
     properties:
@@ -121,7 +121,7 @@ apis:
       - Consumer Reviews
       - Reviews
       - Trust
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.trustpilot.com/v1
     humanURL: https://developers.trustpilot.com/consumer-api
     properties:
