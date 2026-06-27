@@ -145,7 +145,7 @@ common:
     type: Documentation
   - url: https://www.trustpilot.com/signup/business
     name: Sign Up
-    type: SignUp
+    type: Signup
   - url: https://businessapp.b2b.trustpilot.com/login
     name: Login
     type: Login
@@ -188,7 +188,7 @@ common:
   - url: https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/rules/trustpilot-rules.yml
     name: Spectral Rules
     type: SpectralRules
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://developers.trustpilot.com/llms.txt
 maintainers:
   - FN: Kin Lane
