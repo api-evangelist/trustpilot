@@ -1,0 +1,57 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/trustpilot-business-units-openapi.yml, openapi/trustpilot-invitation-openapi.yml,
+  openapi/trustpilot-product-reviews-openapi.yml, openapi/trustpilot-service-reviews-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/trustpilot-business-units-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+    tokenUrl: https://authenticate.trustpilot.com/oauth/token
+- name: OAuth2
+  source: openapi/trustpilot-invitation-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+    tokenUrl: https://authenticate.trustpilot.com/oauth/token
+  - flow: clientCredentials
+    tokenUrl: https://authenticate.trustpilot.com/oauth/token
+- name: OAuth2
+  source: openapi/trustpilot-product-reviews-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+    tokenUrl: https://authenticate.trustpilot.com/oauth/token
+- name: OAuth2
+  source: openapi/trustpilot-service-reviews-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+    tokenUrl: https://authenticate.trustpilot.com/oauth/token
+scopes:
+- scope: business.invitations.manage
+  description: Manage business invitations
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/trustpilot-invitation-openapi.yml
+- scope: business.product.review.manage
+  description: Manage product reviews
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/trustpilot-product-reviews-openapi.yml
+- scope: business.review.manage
+  description: Manage business reviews
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/trustpilot-service-reviews-openapi.yml
+- scope: business.review.read
+  description: Read private review data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/trustpilot-business-units-openapi.yml
