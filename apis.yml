@@ -134,6 +134,10 @@ apis:
       consumer's review history with filtering by stars, language, location, and business unit. Supports pagination and
       sorting and requires API key authentication.
 common:
+  - type: VulnerabilityDisclosure
+    url: security/trustpilot-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/trustpilot-domain-security.yml
   - type: Authentication
     url: authentication/trustpilot-authentication.yml
   - type: OAuthScopes
