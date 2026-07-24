@@ -1,20 +1,17 @@
 openapi: 3.0.3
 info:
-  title: Trustpilot Invitation API
-  description: >-
-    Allows businesses to programmatically send review invitations to their customers
-    via email or SMS after transactions or service interactions. Supports invitation
-    links, bulk email invitations, template retrieval, and invitation data deletion.
+  title: Trustpilot Business Units Invitations API
+  description: Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.
   version: 1.0.0
   contact:
     url: https://developers.trustpilot.com/
   termsOfService: https://www.trustpilot.com/legal/terms-and-conditions-for-businesses
 servers:
-  - url: https://api.trustpilot.com
-    description: Production
+- url: https://api.trustpilot.com
+  description: Production
 tags:
-  - name: Invitations
-    description: Review invitation operations
+- name: Invitations
+  description: Review invitation operations
 paths:
   /v1/private/business-units/{businessUnitId}/templates:
     get:
@@ -22,16 +19,16 @@ paths:
       summary: Get Invitation Templates
       description: Retrieve available invitation templates with IDs and names for a business unit.
       tags:
-        - Invitations
+      - Invitations
       security:
-        - OAuth2: []
+      - OAuth2: []
       parameters:
-        - name: businessUnitId
-          in: path
-          required: true
-          schema:
-            type: string
-          description: Trustpilot business unit identifier
+      - name: businessUnitId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Trustpilot business unit identifier
       responses:
         '200':
           description: Templates returned
@@ -61,15 +58,15 @@ paths:
       summary: Send Email Invitations
       description: Trigger email invitations for service and product reviews to a list of recipients.
       tags:
-        - Invitations
+      - Invitations
       security:
-        - OAuth2: []
+      - OAuth2: []
       parameters:
-        - name: businessUnitId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: businessUnitId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -113,7 +110,7 @@ paths:
                             imageUrl:
                               type: string
               required:
-                - invitations
+              - invitations
       responses:
         '201':
           description: Invitations queued successfully
@@ -127,15 +124,15 @@ paths:
       summary: Create Invitation Link
       description: Create a unique invitation link for service reviews.
       tags:
-        - Invitations
+      - Invitations
       security:
-        - OAuth2: []
+      - OAuth2: []
       parameters:
-        - name: businessUnitId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: businessUnitId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -170,15 +167,15 @@ paths:
       summary: Delete Invitation Data
       description: Remove invitation data by email addresses or date range. Cannot specify both email addresses and dates in the same request.
       tags:
-        - Invitations
+      - Invitations
       security:
-        - OAuth2: []
+      - OAuth2: []
       parameters:
-        - name: businessUnitId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: businessUnitId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -209,6 +206,10 @@ paths:
           description: Unauthorized
 components:
   securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: query
+      name: apikey
     OAuth2:
       type: oauth2
       flows:
@@ -216,8 +217,4 @@ components:
           authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
           tokenUrl: https://authenticate.trustpilot.com/oauth/token
           scopes:
-            business.invitations.manage: Manage business invitations
-        clientCredentials:
-          tokenUrl: https://authenticate.trustpilot.com/oauth/token
-          scopes:
-            business.invitations.manage: Manage business invitations
+            business.review.read: Read private review data

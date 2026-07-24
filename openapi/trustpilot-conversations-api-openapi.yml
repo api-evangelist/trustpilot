@@ -1,0 +1,152 @@
+openapi: 3.0.3
+info:
+  title: Trustpilot Business Units Conversations API
+  description: Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.
+  version: 1.0.0
+  contact:
+    url: https://developers.trustpilot.com/
+  termsOfService: https://www.trustpilot.com/legal/terms-and-conditions-for-businesses
+servers:
+- url: https://api.trustpilot.com
+  description: Production
+tags:
+- name: Conversations
+  description: Product review conversation management
+paths:
+  /v1/private/product-reviews/{reviewId}/create-conversation:
+    post:
+      operationId: createProductReviewConversation
+      summary: Create Product Review Conversation
+      description: Create a new conversation thread on a product review.
+      tags:
+      - Conversations
+      security:
+      - OAuth2: []
+      parameters:
+      - name: reviewId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      responses:
+        '201':
+          description: Conversation created
+  /v1/private/conversations/{conversationId}:
+    get:
+      operationId: getConversation
+      summary: Get Conversation
+      description: Get a private product review conversation.
+      tags:
+      - Conversations
+      security:
+      - OAuth2: []
+      parameters:
+      - name: conversationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Conversation returned
+  /v1/private/conversations/{conversationId}/state:
+    post:
+      operationId: setConversationState
+      summary: Set Conversation State
+      description: Set the state of a product review conversation.
+      tags:
+      - Conversations
+      security:
+      - OAuth2: []
+      parameters:
+      - name: conversationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                state:
+                  type: string
+                  enum:
+                  - open
+                  - closed
+      responses:
+        '200':
+          description: State updated
+  /v1/private/conversations/{conversationId}/comments:
+    post:
+      operationId: createConversationComment
+      summary: Create Conversation Comment
+      description: Create a new comment on a product review conversation.
+      tags:
+      - Conversations
+      security:
+      - OAuth2: []
+      parameters:
+      - name: conversationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      responses:
+        '201':
+          description: Comment created
+  /v1/conversations/{conversationId}:
+    get:
+      operationId: getPublicConversation
+      summary: Get Public Conversation
+      description: Get a public product review conversation.
+      tags:
+      - Conversations
+      security:
+      - ApiKey: []
+      parameters:
+      - name: conversationId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: apikey
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Public conversation returned
+components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: query
+      name: apikey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+          tokenUrl: https://authenticate.trustpilot.com/oauth/token
+          scopes:
+            business.review.read: Read private review data

@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: Trustpilot Business Units Product Review Management API
+  description: Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.
+  version: 1.0.0
+  contact:
+    url: https://developers.trustpilot.com/
+  termsOfService: https://www.trustpilot.com/legal/terms-and-conditions-for-businesses
+servers:
+- url: https://api.trustpilot.com
+  description: Production
+tags:
+- name: Product Review Management
+  description: Private product review management
+paths:
+  /v1/private/product-reviews/business-units/{businessUnitId}/reviews:
+    get:
+      operationId: getPrivateProductReviews
+      summary: Get Private Product Reviews
+      description: Retrieve private product reviews including consumer contact information.
+      tags:
+      - Product Review Management
+      security:
+      - OAuth2: []
+      parameters:
+      - name: businessUnitId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: perPage
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Private product reviews returned
+  /v1/private/product-reviews/{reviewId}:
+    get:
+      operationId: getPrivateProductReview
+      summary: Get Private Product Review
+      description: Retrieve a specific private product review by ID.
+      tags:
+      - Product Review Management
+      security:
+      - OAuth2: []
+      parameters:
+      - name: reviewId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Private product review returned
+  /v1/private/product-reviews/business-units/{businessUnitId}/summaries:
+    get:
+      operationId: getPrivateProductReviewsSummaries
+      summary: Get Private Product Reviews Summaries
+      description: Get product review summaries including private data for a business unit.
+      tags:
+      - Product Review Management
+      security:
+      - OAuth2: []
+      parameters:
+      - name: businessUnitId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Private summaries returned
+  /v1/private/product-reviews/business-units/{businessUnitId}/invitation-links:
+    post:
+      operationId: createProductReviewInvitationLink
+      summary: Create Product Review Invitation Link
+      description: Create a product review invitation link for a specific business unit.
+      tags:
+      - Product Review Management
+      security:
+      - OAuth2: []
+      parameters:
+      - name: businessUnitId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                referenceNumber:
+                  type: string
+                products:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      productUrl:
+                        type: string
+                      productName:
+                        type: string
+                      productSku:
+                        type: string
+      responses:
+        '201':
+          description: Invitation link created
+components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: query
+      name: apikey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+          tokenUrl: https://authenticate.trustpilot.com/oauth/token
+          scopes:
+            business.review.read: Read private review data

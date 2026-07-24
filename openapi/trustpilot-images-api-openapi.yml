@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: Trustpilot Business Units Images API
+  description: Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.
+  version: 1.0.0
+  contact:
+    url: https://developers.trustpilot.com/
+  termsOfService: https://www.trustpilot.com/legal/terms-and-conditions-for-businesses
+servers:
+- url: https://api.trustpilot.com
+  description: Production
+tags:
+- name: Images
+  description: Business unit image operations
+paths:
+  /v1/business-units/{businessUnitId}/images:
+    get:
+      operationId: getBusinessUnitImages
+      summary: Get Business Unit Images
+      description: Fetch company profile images in multiple sizes.
+      tags:
+      - Images
+      security:
+      - ApiKey: []
+      parameters:
+      - name: businessUnitId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: apikey
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Images returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUnitImages'
+  /v1/business-units/{businessUnitId}/images/logo:
+    get:
+      operationId: getBusinessUnitLogo
+      summary: Get Business Unit Logo
+      description: Retrieve company or location-specific logo.
+      tags:
+      - Images
+      security:
+      - ApiKey: []
+      parameters:
+      - name: businessUnitId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: apikey
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Logo image returned
+components:
+  schemas:
+    BusinessUnitImages:
+      type: object
+      properties:
+        logoUrl:
+          type: string
+        headerUrl:
+          type: string
+        promotionBoxUrl:
+          type: string
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: query
+      name: apikey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+          tokenUrl: https://authenticate.trustpilot.com/oauth/token
+          scopes:
+            business.review.read: Read private review data
