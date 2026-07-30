@@ -9,7 +9,20 @@ description: >-
   feedback at scale. Trustpilot's APIs cover business profile management, service reviews, product reviews, invitation
   management, consumer profiles, and public review data.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Freemium (free trial) · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/trustpilot.png
 tags:
   - Consumer Reviews
   - Reviews
@@ -22,118 +35,187 @@ created: '2026-03-24'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: trustpilot:trustpilot-business-units-api
-    name: Trustpilot Business Units API
-    tags:
-      - Business Profiles
-      - Reviews
-      - Trust
-      - Ratings
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.trustpilot.com/v1
-    humanURL: https://developers.trustpilot.com/business-units-api
-    properties:
-      - url: https://developers.trustpilot.com/business-units-api
-        type: Documentation
-      - url: https://developers.trustpilot.com/authentication
-        type: Authentication
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/openapi/trustpilot-business-units-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Trustpilot Business Units API provides endpoints to retrieve company profile information, reviews, images,
-      categories, and web links for specific business units on Trustpilot. Developers can search for business units by
-      name, retrieve public and private reviews with filtering options, access business profile images and logos, and
-      list business categories. Public endpoints use API key authentication; private review endpoints require OAuth 2.0.
-  - aid: trustpilot:trustpilot-service-reviews-api
-    name: Trustpilot Service Reviews API
-    tags:
-      - Reviews
-      - Consumer Reviews
-      - Trust
-      - Ratings
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.trustpilot.com/v1
-    humanURL: https://developers.trustpilot.com/service-reviews-api/
-    properties:
-      - url: https://developers.trustpilot.com/service-reviews-api/
-        type: Documentation
-      - url: https://developers.trustpilot.com/authentication
-        type: Authentication
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/openapi/trustpilot-service-reviews-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Trustpilot Service Reviews API enables businesses to manage service reviews, including posting replies,
-      managing tags, finding reviewers, and retrieving review details. Businesses can respond to customer reviews,
-      organize reviews with custom tags, and retrieve the latest reviews by language. Most management endpoints require
-      OAuth 2.0 Business user tokens; public review endpoints are accessible with API keys.
-  - aid: trustpilot:trustpilot-invitation-api
-    name: Trustpilot Invitation API
-    tags:
-      - Invitations
-      - Consumer Reviews
-      - Email
-      - Reviews
-      - Trust
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.trustpilot.com/v1
-    humanURL: https://developers.trustpilot.com/invitation-api
-    properties:
-      - url: https://developers.trustpilot.com/invitation-api
-        type: Documentation
-      - url: https://developers.trustpilot.com/authentication
-        type: Authentication
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/openapi/trustpilot-invitation-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Trustpilot Invitation API allows businesses to programmatically send review invitations to their customers via
-      email or SMS after a transaction or service interaction. It supports creating invitation links, triggering bulk
-      email invitations for service and product reviews, retrieving invitation templates, and deleting invitation data
-      by email or date range. All endpoints require OAuth 2.0 Business user token authentication.
-  - aid: trustpilot:trustpilot-product-reviews-api
-    name: Trustpilot Product Reviews API
-    tags:
-      - Product Reviews
-      - Reviews
-      - Consumer Reviews
-      - Trust
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.trustpilot.com/v1
-    humanURL: https://developers.trustpilot.com/product-reviews-api/
-    properties:
-      - url: https://developers.trustpilot.com/product-reviews-api/
-        type: Documentation
-      - url: https://developers.trustpilot.com/authentication
-        type: Authentication
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/openapi/trustpilot-product-reviews-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Trustpilot Product Reviews API enables management of product-level reviews, including retrieving product
-      review summaries, accessing individual reviews, managing conversations and comments on product reviews, creating
-      product review invitation links, and accessing attribute rating summaries. Supports both public and private
-      endpoints with API key and OAuth 2.0 authentication respectively.
-  - aid: trustpilot:trustpilot-consumer-api
-    name: Trustpilot Consumer API
-    tags:
-      - Consumer Reviews
-      - Reviews
-      - Trust
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.trustpilot.com/v1
-    humanURL: https://developers.trustpilot.com/consumer-api
-    properties:
-      - url: https://developers.trustpilot.com/consumer-api
-        type: Documentation
-      - url: https://developers.trustpilot.com/authentication
-        type: Authentication
-    description: >-
-      The Trustpilot Consumer API provides access to reviews written by individual consumers. Developers can retrieve a
-      consumer's review history with filtering by stars, language, location, and business unit. Supports pagination and
-      sorting and requires API key authentication.
+- aid: trustpilot:trustpilot-consumer-api
+  name: Trustpilot Consumer API
+  tags:
+  - Consumer Reviews
+  - Reviews
+  - Trust
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  baseURL: https://api.trustpilot.com/v1
+  humanURL: https://developers.trustpilot.com/consumer-api
+  properties:
+  - url: https://developers.trustpilot.com/consumer-api
+    type: Documentation
+  - url: https://developers.trustpilot.com/authentication
+    type: Authentication
+  description: >-
+    The Trustpilot Consumer API provides access to reviews written by individual consumers. Developers
+    can retrieve a consumer's review history with filtering by stars, language, location, and business
+    unit. Supports pagination and sorting and requires API key authentication.
+- aid: trustpilot:trustpilot-business-units-api
+  name: Trustpilot Business Units API
+  description: Business unit profile and review operations
+  humanURL: https://developers.trustpilot.com/business-units-api
+  baseURL: https://api.trustpilot.com/v1
+  tags:
+  - Business Units
+  properties:
+  - type: OpenAPI
+    url: openapi/trustpilot-business-units-api-openapi.yml
+  - type: Documentation
+    url: https://developers.trustpilot.com/business-units-api
+  - type: Authentication
+    url: https://developers.trustpilot.com/authentication
+  - type: Documentation
+    url: https://developers.trustpilot.com/service-reviews-api/
+  - type: Documentation
+    url: https://developers.trustpilot.com/invitation-api
+  - type: Documentation
+    url: https://developers.trustpilot.com/product-reviews-api/
+- aid: trustpilot:trustpilot-conversations-api
+  name: Trustpilot Conversations API
+  description: Product review conversation management
+  humanURL: https://developers.trustpilot.com/business-units-api
+  baseURL: https://api.trustpilot.com/v1
+  tags:
+  - Conversations
+  properties:
+  - type: OpenAPI
+    url: openapi/trustpilot-conversations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.trustpilot.com/business-units-api
+  - type: Authentication
+    url: https://developers.trustpilot.com/authentication
+  - type: Documentation
+    url: https://developers.trustpilot.com/service-reviews-api/
+  - type: Documentation
+    url: https://developers.trustpilot.com/invitation-api
+  - type: Documentation
+    url: https://developers.trustpilot.com/product-reviews-api/
+- aid: trustpilot:trustpilot-images-api
+  name: Trustpilot Images API
+  description: Business unit image operations
+  humanURL: https://developers.trustpilot.com/business-units-api
+  baseURL: https://api.trustpilot.com/v1
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/trustpilot-images-api-openapi.yml
+  - type: Documentation
+    url: https://developers.trustpilot.com/business-units-api
+  - type: Authentication
+    url: https://developers.trustpilot.com/authentication
+  - type: Documentation
+    url: https://developers.trustpilot.com/service-reviews-api/
+  - type: Documentation
+    url: https://developers.trustpilot.com/invitation-api
+  - type: Documentation
+    url: https://developers.trustpilot.com/product-reviews-api/
+- aid: trustpilot:trustpilot-invitations-api
+  name: Trustpilot Invitations API
+  description: Review invitation operations
+  humanURL: https://developers.trustpilot.com/business-units-api
+  baseURL: https://api.trustpilot.com/v1
+  tags:
+  - Invitations
+  properties:
+  - type: OpenAPI
+    url: openapi/trustpilot-invitations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.trustpilot.com/business-units-api
+  - type: Authentication
+    url: https://developers.trustpilot.com/authentication
+  - type: Documentation
+    url: https://developers.trustpilot.com/service-reviews-api/
+  - type: Documentation
+    url: https://developers.trustpilot.com/invitation-api
+  - type: Documentation
+    url: https://developers.trustpilot.com/product-reviews-api/
+- aid: trustpilot:trustpilot-product-review-management-api
+  name: Trustpilot Product Review Management API
+  description: Private product review management
+  humanURL: https://developers.trustpilot.com/business-units-api
+  baseURL: https://api.trustpilot.com/v1
+  tags:
+  - Product Review Management
+  properties:
+  - type: OpenAPI
+    url: openapi/trustpilot-product-review-management-api-openapi.yml
+  - type: Documentation
+    url: https://developers.trustpilot.com/business-units-api
+  - type: Authentication
+    url: https://developers.trustpilot.com/authentication
+  - type: Documentation
+    url: https://developers.trustpilot.com/service-reviews-api/
+  - type: Documentation
+    url: https://developers.trustpilot.com/invitation-api
+  - type: Documentation
+    url: https://developers.trustpilot.com/product-reviews-api/
+- aid: trustpilot:trustpilot-product-reviews-api
+  name: Trustpilot Product Reviews API
+  description: Product review retrieval operations
+  humanURL: https://developers.trustpilot.com/business-units-api
+  baseURL: https://api.trustpilot.com/v1
+  tags:
+  - Product Reviews
+  properties:
+  - type: OpenAPI
+    url: openapi/trustpilot-product-reviews-api-openapi.yml
+  - type: Documentation
+    url: https://developers.trustpilot.com/business-units-api
+  - type: Authentication
+    url: https://developers.trustpilot.com/authentication
+  - type: Documentation
+    url: https://developers.trustpilot.com/service-reviews-api/
+  - type: Documentation
+    url: https://developers.trustpilot.com/invitation-api
+  - type: Documentation
+    url: https://developers.trustpilot.com/product-reviews-api/
+- aid: trustpilot:trustpilot-review-management-api
+  name: Trustpilot Review Management API
+  description: Private review management operations
+  humanURL: https://developers.trustpilot.com/business-units-api
+  baseURL: https://api.trustpilot.com/v1
+  tags:
+  - Review Management
+  properties:
+  - type: OpenAPI
+    url: openapi/trustpilot-review-management-api-openapi.yml
+  - type: Documentation
+    url: https://developers.trustpilot.com/business-units-api
+  - type: Authentication
+    url: https://developers.trustpilot.com/authentication
+  - type: Documentation
+    url: https://developers.trustpilot.com/service-reviews-api/
+  - type: Documentation
+    url: https://developers.trustpilot.com/invitation-api
+  - type: Documentation
+    url: https://developers.trustpilot.com/product-reviews-api/
+- aid: trustpilot:trustpilot-reviews-api
+  name: Trustpilot Reviews API
+  description: Business unit review retrieval
+  humanURL: https://developers.trustpilot.com/business-units-api
+  baseURL: https://api.trustpilot.com/v1
+  tags:
+  - Reviews
+  properties:
+  - type: OpenAPI
+    url: openapi/trustpilot-reviews-api-openapi.yml
+  - type: Documentation
+    url: https://developers.trustpilot.com/business-units-api
+  - type: Authentication
+    url: https://developers.trustpilot.com/authentication
+  - type: Documentation
+    url: https://developers.trustpilot.com/service-reviews-api/
+  - type: Documentation
+    url: https://developers.trustpilot.com/invitation-api
+  - type: Documentation
+    url: https://developers.trustpilot.com/product-reviews-api/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/trustpilot/overview
   - type: AgenticAccess
     url: agentic-access/trustpilot-agentic-access.yml
   - type: VulnerabilityDisclosure
