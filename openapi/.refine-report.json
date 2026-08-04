@@ -1,0 +1,28 @@
+{
+  "provider": "trustpilot",
+  "sources": [
+    "trustpilot-business-units-api-openapi.yml",
+    "trustpilot-conversations-api-openapi.yml",
+    "trustpilot-images-api-openapi.yml",
+    "trustpilot-invitations-api-openapi.yml",
+    "trustpilot-product-review-management-api-openapi.yml",
+    "trustpilot-product-reviews-api-openapi.yml",
+    "trustpilot-review-management-api-openapi.yml",
+    "trustpilot-reviews-api-openapi.yml"
+  ],
+  "outputs": [
+    "trustpilot-business-units-api-openapi.yml",
+    "trustpilot-conversations-api-openapi.yml",
+    "trustpilot-images-api-openapi.yml",
+    "trustpilot-invitations-api-openapi.yml",
+    "trustpilot-product-review-management-api-openapi.yml",
+    "trustpilot-product-reviews-api-openapi.yml",
+    "trustpilot-review-management-api-openapi.yml",
+    "trustpilot-reviews-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

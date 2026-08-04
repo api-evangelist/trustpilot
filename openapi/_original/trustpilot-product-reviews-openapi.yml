@@ -1,0 +1,412 @@
+openapi: 3.0.3
+info:
+  title: Trustpilot Product Reviews API
+  description: >-
+    Enables management of product-level reviews including retrieving product review
+    summaries, managing conversations and comments, creating product review invitation
+    links, and accessing attribute rating summaries.
+  version: 1.0.0
+  contact:
+    url: https://developers.trustpilot.com/
+  termsOfService: https://www.trustpilot.com/legal/terms-and-conditions-for-businesses
+servers:
+  - url: https://api.trustpilot.com
+    description: Production
+tags:
+  - name: Product Reviews
+    description: Product review retrieval operations
+  - name: Product Review Management
+    description: Private product review management
+  - name: Conversations
+    description: Product review conversation management
+paths:
+  /v1/product-reviews/business-units/{businessUnitId}:
+    get:
+      operationId: getProductReviewsSummary
+      summary: Get Product Reviews Summary
+      description: Retrieve aggregate product review summary for a business unit.
+      tags:
+        - Product Reviews
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product reviews summary returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductReviewsSummary'
+  /v1/product-reviews/business-units/{businessUnitId}/reviews:
+    get:
+      operationId: getProductReviews
+      summary: Get Product Reviews
+      description: Retrieve public product reviews for a business unit.
+      tags:
+        - Product Reviews
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - name: perPage
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 20
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product reviews returned
+  /v1/product-reviews/business-units/{businessUnitId}/batch-summaries:
+    post:
+      operationId: getBatchProductReviewsSummaries
+      summary: Get Batch Product Reviews Summaries
+      description: Get product review summaries for multiple SKUs in a single request.
+      tags:
+        - Product Reviews
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                skus:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Batch summaries returned
+  /v1/product-reviews/business-units/{businessUnitId}/attribute-summaries:
+    post:
+      operationId: getBatchAttributeRatingSummaries
+      summary: Get Batch Attribute Rating Summaries
+      description: Get batch attribute rating summaries for multiple products.
+      tags:
+        - Product Reviews
+      security:
+        - ApiKey: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                skus:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Attribute rating summaries returned
+  /v1/private/product-reviews/business-units/{businessUnitId}/reviews:
+    get:
+      operationId: getPrivateProductReviews
+      summary: Get Private Product Reviews
+      description: Retrieve private product reviews including consumer contact information.
+      tags:
+        - Product Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: perPage
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Private product reviews returned
+  /v1/private/product-reviews/{reviewId}:
+    get:
+      operationId: getPrivateProductReview
+      summary: Get Private Product Review
+      description: Retrieve a specific private product review by ID.
+      tags:
+        - Product Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Private product review returned
+  /v1/private/product-reviews/{reviewId}/create-conversation:
+    post:
+      operationId: createProductReviewConversation
+      summary: Create Product Review Conversation
+      description: Create a new conversation thread on a product review.
+      tags:
+        - Conversations
+      security:
+        - OAuth2: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      responses:
+        '201':
+          description: Conversation created
+  /v1/private/product-reviews/business-units/{businessUnitId}/summaries:
+    get:
+      operationId: getPrivateProductReviewsSummaries
+      summary: Get Private Product Reviews Summaries
+      description: Get product review summaries including private data for a business unit.
+      tags:
+        - Product Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Private summaries returned
+  /v1/private/product-reviews/business-units/{businessUnitId}/invitation-links:
+    post:
+      operationId: createProductReviewInvitationLink
+      summary: Create Product Review Invitation Link
+      description: Create a product review invitation link for a specific business unit.
+      tags:
+        - Product Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: businessUnitId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                referenceNumber:
+                  type: string
+                products:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      productUrl:
+                        type: string
+                      productName:
+                        type: string
+                      productSku:
+                        type: string
+      responses:
+        '201':
+          description: Invitation link created
+  /v1/private/conversations/{conversationId}:
+    get:
+      operationId: getConversation
+      summary: Get Conversation
+      description: Get a private product review conversation.
+      tags:
+        - Conversations
+      security:
+        - OAuth2: []
+      parameters:
+        - name: conversationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Conversation returned
+  /v1/private/conversations/{conversationId}/state:
+    post:
+      operationId: setConversationState
+      summary: Set Conversation State
+      description: Set the state of a product review conversation.
+      tags:
+        - Conversations
+      security:
+        - OAuth2: []
+      parameters:
+        - name: conversationId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                state:
+                  type: string
+                  enum: [open, closed]
+      responses:
+        '200':
+          description: State updated
+  /v1/private/conversations/{conversationId}/comments:
+    post:
+      operationId: createConversationComment
+      summary: Create Conversation Comment
+      description: Create a new comment on a product review conversation.
+      tags:
+        - Conversations
+      security:
+        - OAuth2: []
+      parameters:
+        - name: conversationId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      responses:
+        '201':
+          description: Comment created
+  /v1/conversations/{conversationId}:
+    get:
+      operationId: getPublicConversation
+      summary: Get Public Conversation
+      description: Get a public product review conversation.
+      tags:
+        - Conversations
+      security:
+        - ApiKey: []
+      parameters:
+        - name: conversationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Public conversation returned
+components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: query
+      name: apikey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+          tokenUrl: https://authenticate.trustpilot.com/oauth/token
+          scopes:
+            business.product.review.manage: Manage product reviews
+  schemas:
+    ProductReviewsSummary:
+      type: object
+      properties:
+        businessUnitId:
+          type: string
+        numberOfReviews:
+          type: integer
+        starsAverage:
+          type: number
+          format: double
+        stars:
+          type: object
+          properties:
+            oneStar:
+              type: integer
+            twoStars:
+              type: integer
+            threeStars:
+              type: integer
+            fourStars:
+              type: integer
+            fiveStars:
+              type: integer

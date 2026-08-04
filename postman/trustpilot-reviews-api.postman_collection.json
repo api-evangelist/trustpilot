@@ -1,0 +1,1187 @@
+{
+  "info": {
+    "_postman_id": "7a2df3b2-366c-4157-8b53-56489d282fab",
+    "name": "Trustpilot Business Units Reviews API",
+    "description": "Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:44.000Z",
+    "updatedAt": "2026-07-28T03:20:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7a2df3b2-366c-4157-8b53-56489d282fab"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "business-units",
+          "item": [
+            {
+              "name": "{businessUnitId}",
+              "item": [
+                {
+                  "name": "reviews",
+                  "item": [
+                    {
+                      "name": "Get Business Unit Reviews",
+                      "id": "a97dd2e9-574d-44f6-bf77-63c205ef3a3b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "apikey",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "query",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/business-units/:businessUnitId/reviews?stars=5&stars=4&language=<string>&orderBy=createdat.asc&page=1&perPage=20&apikey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "business-units",
+                            ":businessUnitId",
+                            "reviews"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by star rating",
+                              "key": "stars",
+                              "value": "5"
+                            },
+                            {
+                              "description": "Filter by star rating",
+                              "key": "stars",
+                              "value": "4"
+                            },
+                            {
+                              "description": "Filter reviews by language (ISO 639-1 code)",
+                              "key": "language",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Sort order for reviews",
+                              "key": "orderBy",
+                              "value": "createdat.asc"
+                            },
+                            {
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "key": "perPage",
+                              "value": "20"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "apikey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "71a272a9-0ff6-4fbe-9168-9b36c075fcf3",
+                              "key": "businessUnitId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Fetch public reviews for a business unit with filtering and sorting options."
+                      },
+                      "response": [
+                        {
+                          "id": "528e21ac-ef76-4e5f-aeae-29caf9886315",
+                          "name": "Reviews returned",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/business-units/:businessUnitId/reviews?stars=4&language=<string>&orderBy=createdat.asc&page=1&perPage=20&apikey=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "business-units",
+                                ":businessUnitId",
+                                "reviews"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter by star rating",
+                                  "key": "stars",
+                                  "value": "4"
+                                },
+                                {
+                                  "description": "Filter reviews by language (ISO 639-1 code)",
+                                  "key": "language",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Sort order for reviews",
+                                  "key": "orderBy",
+                                  "value": "createdat.asc"
+                                },
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "businessUnitId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reviews\": [\n    {\n      \"id\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"consumer\": {\n        \"id\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      \"businessUnit\": {\n        \"id\": \"<string>\"\n      },\n      \"status\": \"archived\",\n      \"verificationLevel\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"consumer\": {\n        \"id\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      \"businessUnit\": {\n        \"id\": \"<string>\"\n      },\n      \"status\": \"archived\",\n      \"verificationLevel\": \"<string>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\",\n  \"totalNumberOfReviews\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:20:45.000Z",
+                          "updatedAt": "2026-07-28T03:20:45.000Z",
+                          "uid": "35240-528e21ac-ef76-4e5f-aeae-29caf9886315"
+                        },
+                        {
+                          "id": "d059bb92-d52b-4efd-9200-1dd63fbc213c",
+                          "name": "Business unit not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/business-units/:businessUnitId/reviews?stars=4&language=<string>&orderBy=createdat.asc&page=1&perPage=20&apikey=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "business-units",
+                                ":businessUnitId",
+                                "reviews"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter by star rating",
+                                  "key": "stars",
+                                  "value": "4"
+                                },
+                                {
+                                  "description": "Filter reviews by language (ISO 639-1 code)",
+                                  "key": "language",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Sort order for reviews",
+                                  "key": "orderBy",
+                                  "value": "createdat.asc"
+                                },
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "businessUnitId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:45.000Z",
+                          "updatedAt": "2026-07-28T03:20:45.000Z",
+                          "uid": "35240-d059bb92-d52b-4efd-9200-1dd63fbc213c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:45.000Z",
+                      "updatedAt": "2026-07-28T03:20:45.000Z",
+                      "uid": "35240-a97dd2e9-574d-44f6-bf77-63c205ef3a3b"
+                    }
+                  ],
+                  "id": "e47e2560-a861-48d0-85aa-6847b4e8794f",
+                  "createdAt": "2026-07-28T03:20:45.000Z",
+                  "updatedAt": "2026-07-28T03:20:45.000Z",
+                  "uid": "35240-e47e2560-a861-48d0-85aa-6847b4e8794f"
+                },
+                {
+                  "name": "all-reviews",
+                  "item": [
+                    {
+                      "name": "Get All Business Unit Reviews",
+                      "id": "9ca6a393-9741-424c-b18d-e364fddc8a4d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "apikey",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "query",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/business-units/:businessUnitId/all-reviews?pageToken=<string>&perPage=20&apikey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "business-units",
+                            ":businessUnitId",
+                            "all-reviews"
+                          ],
+                          "query": [
+                            {
+                              "description": "Pagination cursor from previous response",
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "perPage",
+                              "value": "20"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "apikey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "65468e9d-10d0-4991-a4fd-5548a7b70be1",
+                              "key": "businessUnitId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve paginated public reviews using pageToken cursor-based pagination, supporting up to 100,000 reviews."
+                      },
+                      "response": [
+                        {
+                          "id": "efc8880b-b87b-44dc-b453-97d236040fc6",
+                          "name": "Reviews returned with pagination token",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/business-units/:businessUnitId/all-reviews?pageToken=<string>&perPage=20&apikey=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "business-units",
+                                ":businessUnitId",
+                                "all-reviews"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Pagination cursor from previous response",
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "businessUnitId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reviews\": [\n    {\n      \"id\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"consumer\": {\n        \"id\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      \"businessUnit\": {\n        \"id\": \"<string>\"\n      },\n      \"status\": \"archived\",\n      \"verificationLevel\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"consumer\": {\n        \"id\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      \"businessUnit\": {\n        \"id\": \"<string>\"\n      },\n      \"status\": \"archived\",\n      \"verificationLevel\": \"<string>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\",\n  \"totalNumberOfReviews\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:20:45.000Z",
+                          "updatedAt": "2026-07-28T03:20:45.000Z",
+                          "uid": "35240-efc8880b-b87b-44dc-b453-97d236040fc6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:45.000Z",
+                      "updatedAt": "2026-07-28T03:20:45.000Z",
+                      "uid": "35240-9ca6a393-9741-424c-b18d-e364fddc8a4d"
+                    }
+                  ],
+                  "id": "2d85ba5f-db56-4025-b193-96322c1f8dab",
+                  "createdAt": "2026-07-28T03:20:45.000Z",
+                  "updatedAt": "2026-07-28T03:20:45.000Z",
+                  "uid": "35240-2d85ba5f-db56-4025-b193-96322c1f8dab"
+                }
+              ],
+              "id": "b75dc0d2-a209-467b-87b8-9d675bb92a0b",
+              "createdAt": "2026-07-28T03:20:45.000Z",
+              "updatedAt": "2026-07-28T03:20:45.000Z",
+              "uid": "35240-b75dc0d2-a209-467b-87b8-9d675bb92a0b"
+            }
+          ],
+          "id": "6044d049-a493-4d83-9c88-fa332aab37b6",
+          "createdAt": "2026-07-28T03:20:45.000Z",
+          "updatedAt": "2026-07-28T03:20:45.000Z",
+          "uid": "35240-6044d049-a493-4d83-9c88-fa332aab37b6"
+        },
+        {
+          "name": "private",
+          "item": [
+            {
+              "name": "business-units",
+              "item": [
+                {
+                  "name": "{businessUnitId}",
+                  "item": [
+                    {
+                      "name": "reviews",
+                      "item": [
+                        {
+                          "name": "Get Private Business Unit Reviews",
+                          "id": "c34f1c5a-2f7a-4d9d-9d99-ecbe28335350",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/business-units/:businessUnitId/reviews?page=1&perPage=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "business-units",
+                                ":businessUnitId",
+                                "reviews"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "20"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "caab23f3-329e-40c2-afaf-ee469a5eeaaa",
+                                  "key": "businessUnitId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Access private reviews including customer contact information and order IDs."
+                          },
+                          "response": [
+                            {
+                              "id": "c71d570d-13ad-45f6-8648-504ee71cd984",
+                              "name": "Private reviews returned",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/business-units/:businessUnitId/reviews?page=1&perPage=20",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "business-units",
+                                    ":businessUnitId",
+                                    "reviews"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "key": "perPage",
+                                      "value": "20"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "businessUnitId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"reviews\": [\n    {\n      \"id\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"consumer\": {\n        \"id\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"businessUnit\": {\n        \"id\": \"<string>\"\n      },\n      \"status\": \"archived\",\n      \"verificationLevel\": \"<string>\",\n      \"orderId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"consumer\": {\n        \"id\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"businessUnit\": {\n        \"id\": \"<string>\"\n      },\n      \"status\": \"active\",\n      \"verificationLevel\": \"<string>\",\n      \"orderId\": \"<string>\"\n    }\n  ],\n  \"totalNumberOfReviews\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T03:20:45.000Z",
+                              "updatedAt": "2026-07-28T03:20:45.000Z",
+                              "uid": "35240-c71d570d-13ad-45f6-8648-504ee71cd984"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:45.000Z",
+                          "updatedAt": "2026-07-28T03:20:45.000Z",
+                          "uid": "35240-c34f1c5a-2f7a-4d9d-9d99-ecbe28335350"
+                        }
+                      ],
+                      "id": "fbc3fad9-028c-445a-91eb-a66f7674b17b",
+                      "createdAt": "2026-07-28T03:20:45.000Z",
+                      "updatedAt": "2026-07-28T03:20:45.000Z",
+                      "uid": "35240-fbc3fad9-028c-445a-91eb-a66f7674b17b"
+                    }
+                  ],
+                  "id": "7a44880c-d9c7-43b8-9b12-09cc0e3ed496",
+                  "createdAt": "2026-07-28T03:20:45.000Z",
+                  "updatedAt": "2026-07-28T03:20:45.000Z",
+                  "uid": "35240-7a44880c-d9c7-43b8-9b12-09cc0e3ed496"
+                }
+              ],
+              "id": "040c551e-73c6-4c0c-ac05-fa1552ff2298",
+              "createdAt": "2026-07-28T03:20:45.000Z",
+              "updatedAt": "2026-07-28T03:20:45.000Z",
+              "uid": "35240-040c551e-73c6-4c0c-ac05-fa1552ff2298"
+            }
+          ],
+          "id": "f8340f9b-1639-4f01-b230-540ecfc1f2c9",
+          "createdAt": "2026-07-28T03:20:45.000Z",
+          "updatedAt": "2026-07-28T03:20:45.000Z",
+          "uid": "35240-f8340f9b-1639-4f01-b230-540ecfc1f2c9"
+        },
+        {
+          "name": "reviews",
+          "item": [
+            {
+              "name": "latest",
+              "item": [
+                {
+                  "name": "Get Latest Reviews",
+                  "id": "3825ad7a-e83e-4493-aeac-7ba1d427a67e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "apikey",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "query",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/reviews/latest?count=<integer>&language=<string>&filterUsersWithoutImages=<boolean>&locale=<string>&apikey=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "reviews",
+                        "latest"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Number of latest reviews to return",
+                          "key": "count",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) ISO 639-1 language code",
+                          "key": "language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter out reviews from users without profile images",
+                          "key": "filterUsersWithoutImages",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "apikey",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Gets the latest reviews written in a specific language."
+                  },
+                  "response": [
+                    {
+                      "id": "a4bb3594-bacc-4d55-9206-d62cce159745",
+                      "name": "Latest reviews returned",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/reviews/latest?count=<integer>&language=<string>&filterUsersWithoutImages=<boolean>&locale=<string>&apikey=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "reviews",
+                            "latest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Number of latest reviews to return",
+                              "key": "count",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) ISO 639-1 language code",
+                              "key": "language",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter out reviews from users without profile images",
+                              "key": "filterUsersWithoutImages",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "apikey",
+                              "value": "<API Key>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reviews\": [\n    {\n      \"id\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"consumer\": {\n        \"id\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      \"status\": \"active\",\n      \"verificationLevel\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"consumer\": {\n        \"id\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      \"status\": \"archived\",\n      \"verificationLevel\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:20:45.000Z",
+                      "updatedAt": "2026-07-28T03:20:45.000Z",
+                      "uid": "35240-a4bb3594-bacc-4d55-9206-d62cce159745"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:45.000Z",
+                  "updatedAt": "2026-07-28T03:20:45.000Z",
+                  "uid": "35240-3825ad7a-e83e-4493-aeac-7ba1d427a67e"
+                }
+              ],
+              "id": "1d6753a0-8bdb-41df-a821-19d155ae98cb",
+              "createdAt": "2026-07-28T03:20:45.000Z",
+              "updatedAt": "2026-07-28T03:20:45.000Z",
+              "uid": "35240-1d6753a0-8bdb-41df-a821-19d155ae98cb"
+            },
+            {
+              "name": "{reviewId}",
+              "item": [
+                {
+                  "name": "web-links",
+                  "item": [
+                    {
+                      "name": "Get Review Web Links",
+                      "id": "78ccb79c-3149-423f-bc8a-2a557fbc2455",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "apikey",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "query",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/reviews/:reviewId/web-links?locale=<string>&apikey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "reviews",
+                            ":reviewId",
+                            "web-links"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Locale for the web link",
+                              "key": "locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "apikey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "96a39500-296f-45cf-a5a5-d8cb0bb8c02c",
+                              "key": "reviewId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve public Trustpilot page URLs for a specific review."
+                      },
+                      "response": [
+                        {
+                          "id": "5778b989-8195-4228-8352-e91ab81f1d69",
+                          "name": "Web links returned",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/reviews/:reviewId/web-links?locale=<string>&apikey=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "reviews",
+                                ":reviewId",
+                                "web-links"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Locale for the web link",
+                                  "key": "locale",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "reviewId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:45.000Z",
+                          "updatedAt": "2026-07-28T03:20:45.000Z",
+                          "uid": "35240-5778b989-8195-4228-8352-e91ab81f1d69"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:45.000Z",
+                      "updatedAt": "2026-07-28T03:20:45.000Z",
+                      "uid": "35240-78ccb79c-3149-423f-bc8a-2a557fbc2455"
+                    }
+                  ],
+                  "id": "3932eaec-ad81-4892-9d7d-6ab76df78d86",
+                  "createdAt": "2026-07-28T03:20:45.000Z",
+                  "updatedAt": "2026-07-28T03:20:45.000Z",
+                  "uid": "35240-3932eaec-ad81-4892-9d7d-6ab76df78d86"
+                },
+                {
+                  "name": "likes",
+                  "item": [
+                    {
+                      "name": "Get Review Likes",
+                      "id": "ab501857-eb28-426d-b2de-b7e4ffe8ada7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "apikey",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "query",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/reviews/:reviewId/likes?apikey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "reviews",
+                            ":reviewId",
+                            "likes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "apikey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "6c4c75bf-d7db-4e95-92eb-e706fa757465",
+                              "key": "reviewId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Gets the list of consumers who have liked the review."
+                      },
+                      "response": [
+                        {
+                          "id": "0aa58032-29a9-43e1-8a3d-20eea97226b6",
+                          "name": "Likes list returned",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/reviews/:reviewId/likes?apikey=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "reviews",
+                                ":reviewId",
+                                "likes"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "reviewId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:45.000Z",
+                          "updatedAt": "2026-07-28T03:20:45.000Z",
+                          "uid": "35240-0aa58032-29a9-43e1-8a3d-20eea97226b6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:45.000Z",
+                      "updatedAt": "2026-07-28T03:20:45.000Z",
+                      "uid": "35240-ab501857-eb28-426d-b2de-b7e4ffe8ada7"
+                    }
+                  ],
+                  "id": "954939b7-55ce-4cb4-9c8c-564064062c54",
+                  "createdAt": "2026-07-28T03:20:45.000Z",
+                  "updatedAt": "2026-07-28T03:20:45.000Z",
+                  "uid": "35240-954939b7-55ce-4cb4-9c8c-564064062c54"
+                },
+                {
+                  "name": "Get Review",
+                  "id": "beefc519-dd74-4ed6-9210-4ff493f61d12",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "apikey",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "query",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/reviews/:reviewId?apikey=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "reviews",
+                        ":reviewId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "apikey",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "60404cd8-7791-4830-81a7-cb2eb03bbb2c",
+                          "key": "reviewId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Fetch public review information by review ID."
+                  },
+                  "response": [
+                    {
+                      "id": "90da7f04-14a3-44ba-8036-b738772e7d1d",
+                      "name": "Review details returned",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/reviews/:reviewId?apikey=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "reviews",
+                            ":reviewId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "apikey",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "reviewId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"text\": \"<string>\",\n  \"language\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"consumer\": {\n    \"id\": \"<string>\",\n    \"displayName\": \"<string>\"\n  },\n  \"status\": \"active\",\n  \"verificationLevel\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:20:45.000Z",
+                      "updatedAt": "2026-07-28T03:20:45.000Z",
+                      "uid": "35240-90da7f04-14a3-44ba-8036-b738772e7d1d"
+                    },
+                    {
+                      "id": "3e70da94-c6b0-4635-81ef-9246d1c838e5",
+                      "name": "Review not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/reviews/:reviewId?apikey=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "reviews",
+                            ":reviewId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "apikey",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "reviewId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:20:45.000Z",
+                      "updatedAt": "2026-07-28T03:20:45.000Z",
+                      "uid": "35240-3e70da94-c6b0-4635-81ef-9246d1c838e5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:45.000Z",
+                  "updatedAt": "2026-07-28T03:20:45.000Z",
+                  "uid": "35240-beefc519-dd74-4ed6-9210-4ff493f61d12"
+                }
+              ],
+              "id": "22ba4f31-ff7d-43d2-b0e4-ce1424315e91",
+              "createdAt": "2026-07-28T03:20:45.000Z",
+              "updatedAt": "2026-07-28T03:20:45.000Z",
+              "uid": "35240-22ba4f31-ff7d-43d2-b0e4-ce1424315e91"
+            }
+          ],
+          "id": "5b8a792d-bee7-4da0-a4ee-847990aa62ac",
+          "createdAt": "2026-07-28T03:20:45.000Z",
+          "updatedAt": "2026-07-28T03:20:45.000Z",
+          "uid": "35240-5b8a792d-bee7-4da0-a4ee-847990aa62ac"
+        }
+      ],
+      "id": "29ba4aa8-bcdc-4623-b031-d2ef5bd7cdd8",
+      "createdAt": "2026-07-28T03:20:45.000Z",
+      "updatedAt": "2026-07-28T03:20:45.000Z",
+      "uid": "35240-29ba4aa8-bcdc-4623-b031-d2ef5bd7cdd8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.trustpilot.com"
+    }
+  ]
+}

@@ -1,0 +1,1187 @@
+{
+  "info": {
+    "_postman_id": "cb9fcaff-a4a7-4beb-9400-3f716340ff82",
+    "name": "Trustpilot Business Units Review Management API",
+    "description": "Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:43.000Z",
+    "updatedAt": "2026-07-28T03:20:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cb9fcaff-a4a7-4beb-9400-3f716340ff82"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "private",
+          "item": [
+            {
+              "name": "reviews",
+              "item": [
+                {
+                  "name": "{reviewId}",
+                  "item": [
+                    {
+                      "name": "reply",
+                      "item": [
+                        {
+                          "name": "Create Review Reply",
+                          "id": "bab6926a-917b-404d-8a5a-2cc8e6a46b65",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"message\": \"<string>\",\n  \"authorBusinessUserId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/reply",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "reviews",
+                                ":reviewId",
+                                "reply"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d9e35e53-2895-4a4d-8f64-b6a500962c14",
+                                  "key": "reviewId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Post a company reply to a service review."
+                          },
+                          "response": [
+                            {
+                              "id": "5a4866f8-9069-49e4-9819-82ce94b74448",
+                              "name": "Reply posted successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"message\": \"<string>\",\n  \"authorBusinessUserId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/reply",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "reviews",
+                                    ":reviewId",
+                                    "reply"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "reviewId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:44.000Z",
+                              "updatedAt": "2026-07-28T03:20:44.000Z",
+                              "uid": "35240-5a4866f8-9069-49e4-9819-82ce94b74448"
+                            },
+                            {
+                              "id": "c53f783f-fd0b-4332-8b59-6fe5bdddc18b",
+                              "name": "Bad request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"message\": \"<string>\",\n  \"authorBusinessUserId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/reply",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "reviews",
+                                    ":reviewId",
+                                    "reply"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "reviewId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:44.000Z",
+                              "updatedAt": "2026-07-28T03:20:44.000Z",
+                              "uid": "35240-c53f783f-fd0b-4332-8b59-6fe5bdddc18b"
+                            },
+                            {
+                              "id": "65ca284f-1fec-48dc-b343-cf3b078f3374",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"message\": \"<string>\",\n  \"authorBusinessUserId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/reply",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "reviews",
+                                    ":reviewId",
+                                    "reply"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "reviewId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:44.000Z",
+                              "updatedAt": "2026-07-28T03:20:44.000Z",
+                              "uid": "35240-65ca284f-1fec-48dc-b343-cf3b078f3374"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:44.000Z",
+                          "updatedAt": "2026-07-28T03:20:44.000Z",
+                          "uid": "35240-bab6926a-917b-404d-8a5a-2cc8e6a46b65"
+                        },
+                        {
+                          "name": "Delete Review Reply",
+                          "id": "7877ce36-dc14-485c-a58a-c947aac41a7d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/reply",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "reviews",
+                                ":reviewId",
+                                "reply"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "359ffa75-aa2d-47af-9a36-91029fcdf79c",
+                                  "key": "reviewId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Remove a company response from a review."
+                          },
+                          "response": [
+                            {
+                              "id": "ba672c90-2c4f-4f06-ae0c-016f92245321",
+                              "name": "Reply deleted successfully",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/reply",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "reviews",
+                                    ":reviewId",
+                                    "reply"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "reviewId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:44.000Z",
+                              "updatedAt": "2026-07-28T03:20:44.000Z",
+                              "uid": "35240-ba672c90-2c4f-4f06-ae0c-016f92245321"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:44.000Z",
+                          "updatedAt": "2026-07-28T03:20:44.000Z",
+                          "uid": "35240-7877ce36-dc14-485c-a58a-c947aac41a7d"
+                        }
+                      ],
+                      "id": "fc974f57-bd5e-4e80-b4cf-f81d328d03ca",
+                      "createdAt": "2026-07-28T03:20:44.000Z",
+                      "updatedAt": "2026-07-28T03:20:44.000Z",
+                      "uid": "35240-fc974f57-bd5e-4e80-b4cf-f81d328d03ca"
+                    },
+                    {
+                      "name": "tags",
+                      "item": [
+                        {
+                          "name": "Get Review Tags",
+                          "id": "61f3a082-5843-4807-82b2-511c231c7d71",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/tags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "reviews",
+                                ":reviewId",
+                                "tags"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "99228daf-dab1-43cc-aaad-2ffc9be9909d",
+                                  "key": "reviewId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Retrieve all tags assigned to a service review."
+                          },
+                          "response": [
+                            {
+                              "id": "68ab6fec-f98c-4e89-83f3-87f4459569e1",
+                              "name": "Tags returned",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/tags",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "reviews",
+                                    ":reviewId",
+                                    "tags"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "reviewId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:44.000Z",
+                              "updatedAt": "2026-07-28T03:20:44.000Z",
+                              "uid": "35240-68ab6fec-f98c-4e89-83f3-87f4459569e1"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:44.000Z",
+                          "updatedAt": "2026-07-28T03:20:44.000Z",
+                          "uid": "35240-61f3a082-5843-4807-82b2-511c231c7d71"
+                        },
+                        {
+                          "name": "Set Review Tags",
+                          "id": "dd0ea0fe-5a70-4818-a70a-e7c4b2fef6d6",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"tags\": [\n    {\n      \"group\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"group\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/tags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "reviews",
+                                ":reviewId",
+                                "tags"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f82328c2-11e8-4d02-8de1-4be0e655909f",
+                                  "key": "reviewId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Set the tags of a service review, replacing existing tags."
+                          },
+                          "response": [
+                            {
+                              "id": "1f9c39d8-54e7-40fa-bf64-2445b7c413d8",
+                              "name": "Tags set successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"tags\": [\n    {\n      \"group\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"group\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/tags",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "reviews",
+                                    ":reviewId",
+                                    "tags"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "reviewId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:44.000Z",
+                              "updatedAt": "2026-07-28T03:20:44.000Z",
+                              "uid": "35240-1f9c39d8-54e7-40fa-bf64-2445b7c413d8"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:44.000Z",
+                          "updatedAt": "2026-07-28T03:20:44.000Z",
+                          "uid": "35240-dd0ea0fe-5a70-4818-a70a-e7c4b2fef6d6"
+                        },
+                        {
+                          "name": "Add Review Tags",
+                          "id": "e1c02932-37fe-4c13-a30a-8d4b2619f42b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"tags\": [\n    {\n      \"group\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"group\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/tags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "reviews",
+                                ":reviewId",
+                                "tags"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "5af09f88-82f9-4090-b654-e47f24e34184",
+                                  "key": "reviewId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Add tags to a service review."
+                          },
+                          "response": [
+                            {
+                              "id": "a42e74a3-46f2-47a3-8564-00cee4e7f7c3",
+                              "name": "Tags added successfully",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"tags\": [\n    {\n      \"group\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"group\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/tags",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "reviews",
+                                    ":reviewId",
+                                    "tags"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "reviewId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:44.000Z",
+                              "updatedAt": "2026-07-28T03:20:44.000Z",
+                              "uid": "35240-a42e74a3-46f2-47a3-8564-00cee4e7f7c3"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:44.000Z",
+                          "updatedAt": "2026-07-28T03:20:44.000Z",
+                          "uid": "35240-e1c02932-37fe-4c13-a30a-8d4b2619f42b"
+                        },
+                        {
+                          "name": "Delete Review Tag",
+                          "id": "ead8176a-da7a-4800-89f6-3626e404c0d1",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/tags?group=<string>&value=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "reviews",
+                                ":reviewId",
+                                "tags"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "group",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "value",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "61b14607-bacb-453b-85f6-9f095c2512c1",
+                                  "key": "reviewId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Remove a specific tag from a review."
+                          },
+                          "response": [
+                            {
+                              "id": "d6c4b7c9-22e1-4b48-99c3-97167569297e",
+                              "name": "Tag deleted",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/tags?group=<string>&value=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "reviews",
+                                    ":reviewId",
+                                    "tags"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "group",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "value",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "reviewId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:44.000Z",
+                              "updatedAt": "2026-07-28T03:20:44.000Z",
+                              "uid": "35240-d6c4b7c9-22e1-4b48-99c3-97167569297e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:44.000Z",
+                          "updatedAt": "2026-07-28T03:20:44.000Z",
+                          "uid": "35240-ead8176a-da7a-4800-89f6-3626e404c0d1"
+                        }
+                      ],
+                      "id": "c230db04-3d8a-432a-b530-1b1a5a5c4a46",
+                      "createdAt": "2026-07-28T03:20:44.000Z",
+                      "updatedAt": "2026-07-28T03:20:44.000Z",
+                      "uid": "35240-c230db04-3d8a-432a-b530-1b1a5a5c4a46"
+                    },
+                    {
+                      "name": "find-reviewer",
+                      "item": [
+                        {
+                          "name": "Find Reviewer",
+                          "id": "5a9c597f-aa52-4505-be2a-d5154f8e04a7",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"message\": \"<string>\",\n  \"skipNotificationEmailToBusinessUser\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/find-reviewer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "reviews",
+                                ":reviewId",
+                                "find-reviewer"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e456794a-c400-4012-8a17-ea8289a681a2",
+                                  "key": "reviewId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Initiate a reviewer identification request for a review."
+                          },
+                          "response": [
+                            {
+                              "id": "bd238692-cddb-49d2-b683-e503e1db60b2",
+                              "name": "Find reviewer request initiated",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"message\": \"<string>\",\n  \"skipNotificationEmailToBusinessUser\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/reviews/:reviewId/find-reviewer",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "reviews",
+                                    ":reviewId",
+                                    "find-reviewer"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "reviewId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:44.000Z",
+                              "updatedAt": "2026-07-28T03:20:44.000Z",
+                              "uid": "35240-bd238692-cddb-49d2-b683-e503e1db60b2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:44.000Z",
+                          "updatedAt": "2026-07-28T03:20:44.000Z",
+                          "uid": "35240-5a9c597f-aa52-4505-be2a-d5154f8e04a7"
+                        }
+                      ],
+                      "id": "a51ae929-aab9-425f-bbe9-fc240a7e6878",
+                      "createdAt": "2026-07-28T03:20:44.000Z",
+                      "updatedAt": "2026-07-28T03:20:44.000Z",
+                      "uid": "35240-a51ae929-aab9-425f-bbe9-fc240a7e6878"
+                    },
+                    {
+                      "name": "Get Private Review",
+                      "id": "6ef45ef5-1188-4a71-8bcc-86549b3b8a71",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "business.review.read",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://authenticate.trustpilot.com/oauth/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/private/reviews/:reviewId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "private",
+                            "reviews",
+                            ":reviewId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b2796c14-9285-40e5-ac06-31b559231750",
+                              "key": "reviewId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve a review with private details including status and consumer information."
+                      },
+                      "response": [
+                        {
+                          "id": "653e9bc6-3a28-4b84-907d-9c4e91ca799b",
+                          "name": "Private review returned",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/reviews/:reviewId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "reviews",
+                                ":reviewId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "reviewId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"text\": \"<string>\",\n  \"language\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"consumer\": {\n    \"id\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"status\": \"archived\",\n  \"verificationLevel\": \"<string>\",\n  \"orderId\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:20:44.000Z",
+                          "updatedAt": "2026-07-28T03:20:44.000Z",
+                          "uid": "35240-653e9bc6-3a28-4b84-907d-9c4e91ca799b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:44.000Z",
+                      "updatedAt": "2026-07-28T03:20:44.000Z",
+                      "uid": "35240-6ef45ef5-1188-4a71-8bcc-86549b3b8a71"
+                    }
+                  ],
+                  "id": "f824f193-47a5-4d31-8635-7462f604b8dd",
+                  "createdAt": "2026-07-28T03:20:44.000Z",
+                  "updatedAt": "2026-07-28T03:20:44.000Z",
+                  "uid": "35240-f824f193-47a5-4d31-8635-7462f604b8dd"
+                }
+              ],
+              "id": "a58d7647-e234-42c6-97f2-14ba0227327e",
+              "createdAt": "2026-07-28T03:20:44.000Z",
+              "updatedAt": "2026-07-28T03:20:44.000Z",
+              "uid": "35240-a58d7647-e234-42c6-97f2-14ba0227327e"
+            }
+          ],
+          "id": "49e1f3fa-96ab-4a8a-b01c-9727cca59bee",
+          "createdAt": "2026-07-28T03:20:44.000Z",
+          "updatedAt": "2026-07-28T03:20:44.000Z",
+          "uid": "35240-49e1f3fa-96ab-4a8a-b01c-9727cca59bee"
+        }
+      ],
+      "id": "c160feb6-1864-40e0-b293-629734991b61",
+      "createdAt": "2026-07-28T03:20:44.000Z",
+      "updatedAt": "2026-07-28T03:20:44.000Z",
+      "uid": "35240-c160feb6-1864-40e0-b293-629734991b61"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.trustpilot.com"
+    }
+  ]
+}

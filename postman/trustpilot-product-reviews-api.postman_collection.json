@@ -1,0 +1,604 @@
+{
+  "info": {
+    "_postman_id": "4cf6a4a9-89b9-44fa-9a9b-47bc823c3cb1",
+    "name": "Trustpilot Business Units Product Reviews API",
+    "description": "Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:42.000Z",
+    "updatedAt": "2026-07-28T03:20:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4cf6a4a9-89b9-44fa-9a9b-47bc823c3cb1"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "product-reviews",
+          "item": [
+            {
+              "name": "business-units",
+              "item": [
+                {
+                  "name": "{businessUnitId}",
+                  "item": [
+                    {
+                      "name": "reviews",
+                      "item": [
+                        {
+                          "name": "Get Product Reviews",
+                          "id": "05f719a7-7062-4c64-9c85-1fd92bbc8463",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "apikey",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "query",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/product-reviews/business-units/:businessUnitId/reviews?page=1&perPage=20&apikey=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "product-reviews",
+                                "business-units",
+                                ":businessUnitId",
+                                "reviews"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ae02177a-8300-42b5-a938-6e86fd6aa6fe",
+                                  "key": "businessUnitId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Retrieve public product reviews for a business unit."
+                          },
+                          "response": [
+                            {
+                              "id": "b8507340-3e97-4fc5-8b3d-09521285adb9",
+                              "name": "Product reviews returned",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/product-reviews/business-units/:businessUnitId/reviews?page=1&perPage=20&apikey=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "product-reviews",
+                                    "business-units",
+                                    ":businessUnitId",
+                                    "reviews"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "key": "perPage",
+                                      "value": "20"
+                                    },
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "apikey",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "businessUnitId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:43.000Z",
+                              "updatedAt": "2026-07-28T03:20:43.000Z",
+                              "uid": "35240-b8507340-3e97-4fc5-8b3d-09521285adb9"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:43.000Z",
+                          "updatedAt": "2026-07-28T03:20:43.000Z",
+                          "uid": "35240-05f719a7-7062-4c64-9c85-1fd92bbc8463"
+                        }
+                      ],
+                      "id": "4d59a2d9-c71c-443b-893b-6bf20bd4ede2",
+                      "createdAt": "2026-07-28T03:20:43.000Z",
+                      "updatedAt": "2026-07-28T03:20:43.000Z",
+                      "uid": "35240-4d59a2d9-c71c-443b-893b-6bf20bd4ede2"
+                    },
+                    {
+                      "name": "batch-summaries",
+                      "item": [
+                        {
+                          "name": "Get Batch Product Reviews Summaries",
+                          "id": "6c1ebab5-e4c3-4e81-9990-439b387493bd",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "apikey",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "query",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"skus\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/product-reviews/business-units/:businessUnitId/batch-summaries?apikey=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "product-reviews",
+                                "business-units",
+                                ":businessUnitId",
+                                "batch-summaries"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2d979bbf-c12d-41d8-902f-3699f05ffd02",
+                                  "key": "businessUnitId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get product review summaries for multiple SKUs in a single request."
+                          },
+                          "response": [
+                            {
+                              "id": "3cfdf752-de31-4ea1-b337-8d15d0438606",
+                              "name": "Batch summaries returned",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"skus\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/product-reviews/business-units/:businessUnitId/batch-summaries?apikey=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "product-reviews",
+                                    "business-units",
+                                    ":businessUnitId",
+                                    "batch-summaries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "apikey",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "businessUnitId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:43.000Z",
+                              "updatedAt": "2026-07-28T03:20:43.000Z",
+                              "uid": "35240-3cfdf752-de31-4ea1-b337-8d15d0438606"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:43.000Z",
+                          "updatedAt": "2026-07-28T03:20:43.000Z",
+                          "uid": "35240-6c1ebab5-e4c3-4e81-9990-439b387493bd"
+                        }
+                      ],
+                      "id": "5555d71e-a1d6-472b-b2c3-7b27781ff93a",
+                      "createdAt": "2026-07-28T03:20:43.000Z",
+                      "updatedAt": "2026-07-28T03:20:43.000Z",
+                      "uid": "35240-5555d71e-a1d6-472b-b2c3-7b27781ff93a"
+                    },
+                    {
+                      "name": "attribute-summaries",
+                      "item": [
+                        {
+                          "name": "Get Batch Attribute Rating Summaries",
+                          "id": "9575db91-6de9-414b-8b8b-d24ace832a58",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "apikey",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "query",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"skus\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/product-reviews/business-units/:businessUnitId/attribute-summaries?apikey=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "product-reviews",
+                                "business-units",
+                                ":businessUnitId",
+                                "attribute-summaries"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e6b6b672-e068-43f9-aec5-a73804407015",
+                                  "key": "businessUnitId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get batch attribute rating summaries for multiple products."
+                          },
+                          "response": [
+                            {
+                              "id": "80e93995-1613-4b95-916f-33b406c08fe2",
+                              "name": "Attribute rating summaries returned",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"skus\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/product-reviews/business-units/:businessUnitId/attribute-summaries?apikey=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "product-reviews",
+                                    "business-units",
+                                    ":businessUnitId",
+                                    "attribute-summaries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "apikey",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "businessUnitId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:43.000Z",
+                              "updatedAt": "2026-07-28T03:20:43.000Z",
+                              "uid": "35240-80e93995-1613-4b95-916f-33b406c08fe2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:43.000Z",
+                          "updatedAt": "2026-07-28T03:20:43.000Z",
+                          "uid": "35240-9575db91-6de9-414b-8b8b-d24ace832a58"
+                        }
+                      ],
+                      "id": "c55fe223-d972-4939-953b-644cdb312897",
+                      "createdAt": "2026-07-28T03:20:43.000Z",
+                      "updatedAt": "2026-07-28T03:20:43.000Z",
+                      "uid": "35240-c55fe223-d972-4939-953b-644cdb312897"
+                    },
+                    {
+                      "name": "Get Product Reviews Summary",
+                      "id": "bd436859-8ee1-418a-a7b8-abc032539b2f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "apikey",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "query",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/product-reviews/business-units/:businessUnitId?apikey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "product-reviews",
+                            "business-units",
+                            ":businessUnitId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "apikey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "f1aa738e-d9ab-4eee-a122-be8dfa6cee57",
+                              "key": "businessUnitId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve aggregate product review summary for a business unit."
+                      },
+                      "response": [
+                        {
+                          "id": "0e8631e8-c874-4e87-89b7-b2f7c46971d0",
+                          "name": "Product reviews summary returned",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/product-reviews/business-units/:businessUnitId?apikey=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "product-reviews",
+                                "business-units",
+                                ":businessUnitId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "businessUnitId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"businessUnitId\": \"<string>\",\n  \"numberOfReviews\": \"<integer>\",\n  \"starsAverage\": \"<double>\",\n  \"stars\": {\n    \"oneStar\": \"<integer>\",\n    \"twoStars\": \"<integer>\",\n    \"threeStars\": \"<integer>\",\n    \"fourStars\": \"<integer>\",\n    \"fiveStars\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:20:43.000Z",
+                          "updatedAt": "2026-07-28T03:20:43.000Z",
+                          "uid": "35240-0e8631e8-c874-4e87-89b7-b2f7c46971d0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:43.000Z",
+                      "updatedAt": "2026-07-28T03:20:43.000Z",
+                      "uid": "35240-bd436859-8ee1-418a-a7b8-abc032539b2f"
+                    }
+                  ],
+                  "id": "a28e6027-1b3d-4bac-a762-5eaddf2cb5c0",
+                  "createdAt": "2026-07-28T03:20:43.000Z",
+                  "updatedAt": "2026-07-28T03:20:43.000Z",
+                  "uid": "35240-a28e6027-1b3d-4bac-a762-5eaddf2cb5c0"
+                }
+              ],
+              "id": "d35b3066-907f-45da-8d3d-0f8b7f97afc7",
+              "createdAt": "2026-07-28T03:20:43.000Z",
+              "updatedAt": "2026-07-28T03:20:43.000Z",
+              "uid": "35240-d35b3066-907f-45da-8d3d-0f8b7f97afc7"
+            }
+          ],
+          "id": "a9e95b12-391b-453f-9ebb-89e44b5fba20",
+          "createdAt": "2026-07-28T03:20:43.000Z",
+          "updatedAt": "2026-07-28T03:20:43.000Z",
+          "uid": "35240-a9e95b12-391b-453f-9ebb-89e44b5fba20"
+        }
+      ],
+      "id": "f0572d47-69e2-431e-bf35-a1df6d76188a",
+      "createdAt": "2026-07-28T03:20:43.000Z",
+      "updatedAt": "2026-07-28T03:20:43.000Z",
+      "uid": "35240-f0572d47-69e2-431e-bf35-a1df6d76188a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.trustpilot.com"
+    }
+  ]
+}

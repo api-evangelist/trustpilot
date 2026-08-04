@@ -1,0 +1,430 @@
+openapi: 3.0.3
+info:
+  title: Trustpilot Service Reviews API
+  description: >-
+    Enables businesses to manage service reviews including posting replies, managing tags,
+    finding reviewers, and retrieving review details. Get public review data and manage
+    private review interactions.
+  version: 1.0.0
+  contact:
+    url: https://developers.trustpilot.com/
+  termsOfService: https://www.trustpilot.com/legal/terms-and-conditions-for-businesses
+servers:
+  - url: https://api.trustpilot.com
+    description: Production
+tags:
+  - name: Reviews
+    description: Service review retrieval operations
+  - name: Review Management
+    description: Private review management operations
+paths:
+  /v1/reviews/latest:
+    get:
+      operationId: getLatestReviews
+      summary: Get Latest Reviews
+      description: Gets the latest reviews written in a specific language.
+      tags:
+        - Reviews
+      security:
+        - ApiKey: []
+      parameters:
+        - name: count
+          in: query
+          required: true
+          schema:
+            type: integer
+            maximum: 100
+          description: Number of latest reviews to return
+        - name: language
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ISO 639-1 language code
+        - name: filterUsersWithoutImages
+          in: query
+          required: false
+          schema:
+            type: boolean
+          description: Filter out reviews from users without profile images
+        - name: locale
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Latest reviews returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reviews:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Review'
+  /v1/reviews/{reviewId}:
+    get:
+      operationId: getReview
+      summary: Get Review
+      description: Fetch public review information by review ID.
+      tags:
+        - Reviews
+      security:
+        - ApiKey: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Review details returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '404':
+          description: Review not found
+  /v1/reviews/{reviewId}/web-links:
+    get:
+      operationId: getReviewWebLinks
+      summary: Get Review Web Links
+      description: Retrieve public Trustpilot page URLs for a specific review.
+      tags:
+        - Reviews
+      security:
+        - ApiKey: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: locale
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Locale for the web link
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Web links returned
+  /v1/reviews/{reviewId}/likes:
+    get:
+      operationId: getReviewLikes
+      summary: Get Review Likes
+      description: Gets the list of consumers who have liked the review.
+      tags:
+        - Reviews
+      security:
+        - ApiKey: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Likes list returned
+  /v1/private/reviews/{reviewId}:
+    get:
+      operationId: getPrivateReview
+      summary: Get Private Review
+      description: Retrieve a review with private details including status and consumer information.
+      tags:
+        - Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Private review returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateReview'
+  /v1/private/reviews/{reviewId}/reply:
+    post:
+      operationId: createReviewReply
+      summary: Create Review Reply
+      description: Post a company reply to a service review.
+      tags:
+        - Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Reply message text
+                authorBusinessUserId:
+                  type: string
+                  description: Business user ID of the reply author
+      responses:
+        '201':
+          description: Reply posted successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteReviewReply
+      summary: Delete Review Reply
+      description: Remove a company response from a review.
+      tags:
+        - Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Reply deleted successfully
+  /v1/private/reviews/{reviewId}/tags:
+    get:
+      operationId: getReviewTags
+      summary: Get Review Tags
+      description: Retrieve all tags assigned to a service review.
+      tags:
+        - Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Tags returned
+    post:
+      operationId: setReviewTags
+      summary: Set Review Tags
+      description: Set the tags of a service review, replacing existing tags.
+      tags:
+        - Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tags:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      group:
+                        type: string
+                      value:
+                        type: string
+      responses:
+        '200':
+          description: Tags set successfully
+    put:
+      operationId: addReviewTags
+      summary: Add Review Tags
+      description: Add tags to a service review.
+      tags:
+        - Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tags:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      group:
+                        type: string
+                      value:
+                        type: string
+      responses:
+        '200':
+          description: Tags added successfully
+    delete:
+      operationId: deleteReviewTag
+      summary: Delete Review Tag
+      description: Remove a specific tag from a review.
+      tags:
+        - Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: group
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: value
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Tag deleted
+  /v1/private/reviews/{reviewId}/find-reviewer:
+    post:
+      operationId: findReviewer
+      summary: Find Reviewer
+      description: Initiate a reviewer identification request for a review.
+      tags:
+        - Review Management
+      security:
+        - OAuth2: []
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                skipNotificationEmailToBusinessUser:
+                  type: boolean
+      responses:
+        '200':
+          description: Find reviewer request initiated
+components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: query
+      name: apikey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
+          tokenUrl: https://authenticate.trustpilot.com/oauth/token
+          scopes:
+            business.review.manage: Manage business reviews
+  schemas:
+    Review:
+      type: object
+      properties:
+        id:
+          type: string
+        stars:
+          type: integer
+          minimum: 1
+          maximum: 5
+        title:
+          type: string
+        text:
+          type: string
+        language:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        consumer:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        status:
+          type: string
+          enum: [active, archived]
+        verificationLevel:
+          type: string
+    PrivateReview:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Review'
+        - type: object
+          properties:
+            consumer:
+              type: object
+              properties:
+                email:
+                  type: string
+                id:
+                  type: string
+                displayName:
+                  type: string
+            orderId:
+              type: string

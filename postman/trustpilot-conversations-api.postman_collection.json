@@ -1,0 +1,728 @@
+{
+  "info": {
+    "_postman_id": "d8094249-a4ef-4c43-9165-cdfa9f62e081",
+    "name": "Trustpilot Business Units Conversations API",
+    "description": "Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:31.000Z",
+    "updatedAt": "2026-07-28T03:20:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d8094249-a4ef-4c43-9165-cdfa9f62e081"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "private",
+          "item": [
+            {
+              "name": "product-reviews",
+              "item": [
+                {
+                  "name": "{reviewId}",
+                  "item": [
+                    {
+                      "name": "create-conversation",
+                      "item": [
+                        {
+                          "name": "Create Product Review Conversation",
+                          "id": "eaabc121-a22f-4360-9767-511c368aad98",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"message\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/product-reviews/:reviewId/create-conversation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "product-reviews",
+                                ":reviewId",
+                                "create-conversation"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0b3919e5-ba80-4507-8c97-3fe56ede7acd",
+                                  "key": "reviewId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create a new conversation thread on a product review."
+                          },
+                          "response": [
+                            {
+                              "id": "a4d747be-9f90-4ba0-a923-0d97b084fa4c",
+                              "name": "Conversation created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"message\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/product-reviews/:reviewId/create-conversation",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "product-reviews",
+                                    ":reviewId",
+                                    "create-conversation"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "reviewId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:31.000Z",
+                              "updatedAt": "2026-07-28T03:20:31.000Z",
+                              "uid": "35240-a4d747be-9f90-4ba0-a923-0d97b084fa4c"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:31.000Z",
+                          "updatedAt": "2026-07-28T03:20:31.000Z",
+                          "uid": "35240-eaabc121-a22f-4360-9767-511c368aad98"
+                        }
+                      ],
+                      "id": "fc6511cf-c062-45ed-9d85-f8701cca867f",
+                      "createdAt": "2026-07-28T03:20:31.000Z",
+                      "updatedAt": "2026-07-28T03:20:31.000Z",
+                      "uid": "35240-fc6511cf-c062-45ed-9d85-f8701cca867f"
+                    }
+                  ],
+                  "id": "99a9e711-bd90-43b2-8e58-4c8b015892f0",
+                  "createdAt": "2026-07-28T03:20:31.000Z",
+                  "updatedAt": "2026-07-28T03:20:31.000Z",
+                  "uid": "35240-99a9e711-bd90-43b2-8e58-4c8b015892f0"
+                }
+              ],
+              "id": "391b4991-c154-46ae-835a-139ffb6e495d",
+              "createdAt": "2026-07-28T03:20:31.000Z",
+              "updatedAt": "2026-07-28T03:20:31.000Z",
+              "uid": "35240-391b4991-c154-46ae-835a-139ffb6e495d"
+            },
+            {
+              "name": "conversations",
+              "item": [
+                {
+                  "name": "{conversationId}",
+                  "item": [
+                    {
+                      "name": "state",
+                      "item": [
+                        {
+                          "name": "Set Conversation State",
+                          "id": "4b301c80-4176-4c16-afef-eb9bff21402f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"state\": \"open\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/conversations/:conversationId/state",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "conversations",
+                                ":conversationId",
+                                "state"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "adef99a6-82d7-49bd-bcfe-429cf0c4adfa",
+                                  "key": "conversationId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Set the state of a product review conversation."
+                          },
+                          "response": [
+                            {
+                              "id": "bf953284-1ec4-421a-adb1-a962fa937b6f",
+                              "name": "State updated",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"state\": \"open\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/conversations/:conversationId/state",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "conversations",
+                                    ":conversationId",
+                                    "state"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "conversationId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:31.000Z",
+                              "updatedAt": "2026-07-28T03:20:31.000Z",
+                              "uid": "35240-bf953284-1ec4-421a-adb1-a962fa937b6f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:31.000Z",
+                          "updatedAt": "2026-07-28T03:20:31.000Z",
+                          "uid": "35240-4b301c80-4176-4c16-afef-eb9bff21402f"
+                        }
+                      ],
+                      "id": "af8949d8-8112-4d15-bd09-911611e4e702",
+                      "createdAt": "2026-07-28T03:20:31.000Z",
+                      "updatedAt": "2026-07-28T03:20:31.000Z",
+                      "uid": "35240-af8949d8-8112-4d15-bd09-911611e4e702"
+                    },
+                    {
+                      "name": "comments",
+                      "item": [
+                        {
+                          "name": "Create Conversation Comment",
+                          "id": "42717b25-c9df-462d-8fad-54e814e1e881",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "business.review.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"message\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/conversations/:conversationId/comments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "conversations",
+                                ":conversationId",
+                                "comments"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "24e58e63-d6bc-4991-a211-1831a1934a6d",
+                                  "key": "conversationId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create a new comment on a product review conversation."
+                          },
+                          "response": [
+                            {
+                              "id": "9b8309fb-bad1-4825-b89d-5a9711a75003",
+                              "name": "Comment created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"message\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/conversations/:conversationId/comments",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "conversations",
+                                    ":conversationId",
+                                    "comments"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "conversationId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:31.000Z",
+                              "updatedAt": "2026-07-28T03:20:31.000Z",
+                              "uid": "35240-9b8309fb-bad1-4825-b89d-5a9711a75003"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:31.000Z",
+                          "updatedAt": "2026-07-28T03:20:31.000Z",
+                          "uid": "35240-42717b25-c9df-462d-8fad-54e814e1e881"
+                        }
+                      ],
+                      "id": "9e8f35e2-1847-470f-8dbb-4fb14096b403",
+                      "createdAt": "2026-07-28T03:20:31.000Z",
+                      "updatedAt": "2026-07-28T03:20:31.000Z",
+                      "uid": "35240-9e8f35e2-1847-470f-8dbb-4fb14096b403"
+                    },
+                    {
+                      "name": "Get Conversation",
+                      "id": "0ccb9749-ac63-4dae-9f94-00deb101c48b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "business.review.read",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://authenticate.trustpilot.com/oauth/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/private/conversations/:conversationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "private",
+                            "conversations",
+                            ":conversationId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d0a05624-5c65-4ba3-8f93-2a44bc8e4e9d",
+                              "key": "conversationId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get a private product review conversation."
+                      },
+                      "response": [
+                        {
+                          "id": "611cb317-e203-4312-bf44-433595940dd8",
+                          "name": "Conversation returned",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/conversations/:conversationId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "conversations",
+                                ":conversationId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "conversationId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:31.000Z",
+                          "updatedAt": "2026-07-28T03:20:31.000Z",
+                          "uid": "35240-611cb317-e203-4312-bf44-433595940dd8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:31.000Z",
+                      "updatedAt": "2026-07-28T03:20:31.000Z",
+                      "uid": "35240-0ccb9749-ac63-4dae-9f94-00deb101c48b"
+                    }
+                  ],
+                  "id": "c250772c-d597-4575-9e4c-3c7373a12a19",
+                  "createdAt": "2026-07-28T03:20:31.000Z",
+                  "updatedAt": "2026-07-28T03:20:31.000Z",
+                  "uid": "35240-c250772c-d597-4575-9e4c-3c7373a12a19"
+                }
+              ],
+              "id": "14bb114f-fa09-4a57-9f23-7fc622c45e18",
+              "createdAt": "2026-07-28T03:20:31.000Z",
+              "updatedAt": "2026-07-28T03:20:31.000Z",
+              "uid": "35240-14bb114f-fa09-4a57-9f23-7fc622c45e18"
+            }
+          ],
+          "id": "f88fdb19-6314-4674-8b53-eed38f0063af",
+          "createdAt": "2026-07-28T03:20:31.000Z",
+          "updatedAt": "2026-07-28T03:20:31.000Z",
+          "uid": "35240-f88fdb19-6314-4674-8b53-eed38f0063af"
+        },
+        {
+          "name": "conversations",
+          "item": [
+            {
+              "name": "{conversationId}",
+              "item": [
+                {
+                  "name": "Get Public Conversation",
+                  "id": "41ebcc72-ba67-490e-bc9c-513dea4984a2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "apikey",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "query",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/conversations/:conversationId?apikey=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "conversations",
+                        ":conversationId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "apikey",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "5fa7347a-f972-4de7-a17e-aa2f62e60dcd",
+                          "key": "conversationId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get a public product review conversation."
+                  },
+                  "response": [
+                    {
+                      "id": "1f3a062f-aed7-416e-804b-bd73391e3b89",
+                      "name": "Public conversation returned",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/conversations/:conversationId?apikey=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "conversations",
+                            ":conversationId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "apikey",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "conversationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:20:31.000Z",
+                      "updatedAt": "2026-07-28T03:20:31.000Z",
+                      "uid": "35240-1f3a062f-aed7-416e-804b-bd73391e3b89"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:31.000Z",
+                  "updatedAt": "2026-07-28T03:20:31.000Z",
+                  "uid": "35240-41ebcc72-ba67-490e-bc9c-513dea4984a2"
+                }
+              ],
+              "id": "09da11fd-d15b-4981-9aed-a4615680019b",
+              "createdAt": "2026-07-28T03:20:31.000Z",
+              "updatedAt": "2026-07-28T03:20:31.000Z",
+              "uid": "35240-09da11fd-d15b-4981-9aed-a4615680019b"
+            }
+          ],
+          "id": "c9757e6b-8a95-474c-a86a-2eae47843eba",
+          "createdAt": "2026-07-28T03:20:31.000Z",
+          "updatedAt": "2026-07-28T03:20:31.000Z",
+          "uid": "35240-c9757e6b-8a95-474c-a86a-2eae47843eba"
+        }
+      ],
+      "id": "48ba0a79-50a6-462d-9b7d-bc8bb2ab023c",
+      "createdAt": "2026-07-28T03:20:31.000Z",
+      "updatedAt": "2026-07-28T03:20:31.000Z",
+      "uid": "35240-48ba0a79-50a6-462d-9b7d-bc8bb2ab023c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.trustpilot.com"
+    }
+  ]
+}

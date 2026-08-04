@@ -1,0 +1,294 @@
+{
+  "info": {
+    "_postman_id": "4c3d0419-4b74-4f1c-8222-b852f334e366",
+    "name": "Trustpilot Business Units Images API",
+    "description": "Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:32.000Z",
+    "updatedAt": "2026-07-28T03:20:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4c3d0419-4b74-4f1c-8222-b852f334e366"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "business-units",
+          "item": [
+            {
+              "name": "{businessUnitId}",
+              "item": [
+                {
+                  "name": "images",
+                  "item": [
+                    {
+                      "name": "logo",
+                      "item": [
+                        {
+                          "name": "Get Business Unit Logo",
+                          "id": "97f4d945-22a8-486f-a755-78133676bbac",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "apikey",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "query",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/business-units/:businessUnitId/images/logo?apikey=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "business-units",
+                                ":businessUnitId",
+                                "images",
+                                "logo"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9264ad35-1e92-4698-b8f4-50233554cce7",
+                                  "key": "businessUnitId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Retrieve company or location-specific logo."
+                          },
+                          "response": [
+                            {
+                              "id": "3b20f57c-79be-445b-9422-0d0d12a4d608",
+                              "name": "Logo image returned",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/business-units/:businessUnitId/images/logo?apikey=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "business-units",
+                                    ":businessUnitId",
+                                    "images",
+                                    "logo"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "apikey",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "businessUnitId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:20:32.000Z",
+                              "updatedAt": "2026-07-28T03:20:32.000Z",
+                              "uid": "35240-3b20f57c-79be-445b-9422-0d0d12a4d608"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:20:32.000Z",
+                          "updatedAt": "2026-07-28T03:20:32.000Z",
+                          "uid": "35240-97f4d945-22a8-486f-a755-78133676bbac"
+                        }
+                      ],
+                      "id": "216580e7-6d31-4966-bcb1-fe5fb9d5979c",
+                      "createdAt": "2026-07-28T03:20:32.000Z",
+                      "updatedAt": "2026-07-28T03:20:32.000Z",
+                      "uid": "35240-216580e7-6d31-4966-bcb1-fe5fb9d5979c"
+                    },
+                    {
+                      "name": "Get Business Unit Images",
+                      "id": "a56e84a8-5415-438d-a86d-4668c39db92f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "apikey",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "query",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/business-units/:businessUnitId/images?apikey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "business-units",
+                            ":businessUnitId",
+                            "images"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "apikey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "8d7d6ddc-9bea-44c1-ba8e-3870f2de4b97",
+                              "key": "businessUnitId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Fetch company profile images in multiple sizes."
+                      },
+                      "response": [
+                        {
+                          "id": "fbbc4ac5-4e0d-44ba-a7d2-780cae7c97c1",
+                          "name": "Images returned",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/business-units/:businessUnitId/images?apikey=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "business-units",
+                                ":businessUnitId",
+                                "images"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "apikey",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "businessUnitId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"logoUrl\": \"<string>\",\n  \"headerUrl\": \"<string>\",\n  \"promotionBoxUrl\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:20:32.000Z",
+                          "updatedAt": "2026-07-28T03:20:32.000Z",
+                          "uid": "35240-fbbc4ac5-4e0d-44ba-a7d2-780cae7c97c1"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:32.000Z",
+                      "updatedAt": "2026-07-28T03:20:32.000Z",
+                      "uid": "35240-a56e84a8-5415-438d-a86d-4668c39db92f"
+                    }
+                  ],
+                  "id": "a1cfde8d-8e96-49c6-a7a4-3e04683404ef",
+                  "createdAt": "2026-07-28T03:20:32.000Z",
+                  "updatedAt": "2026-07-28T03:20:32.000Z",
+                  "uid": "35240-a1cfde8d-8e96-49c6-a7a4-3e04683404ef"
+                }
+              ],
+              "id": "9382d003-1677-457c-81e1-68d36f88e7e9",
+              "createdAt": "2026-07-28T03:20:32.000Z",
+              "updatedAt": "2026-07-28T03:20:32.000Z",
+              "uid": "35240-9382d003-1677-457c-81e1-68d36f88e7e9"
+            }
+          ],
+          "id": "f68a463f-3bfc-4f6b-b176-57c29eab7174",
+          "createdAt": "2026-07-28T03:20:32.000Z",
+          "updatedAt": "2026-07-28T03:20:32.000Z",
+          "uid": "35240-f68a463f-3bfc-4f6b-b176-57c29eab7174"
+        }
+      ],
+      "id": "13ab7e6f-006b-475d-bca0-edc8df454837",
+      "createdAt": "2026-07-28T03:20:32.000Z",
+      "updatedAt": "2026-07-28T03:20:32.000Z",
+      "uid": "35240-13ab7e6f-006b-475d-bca0-edc8df454837"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.trustpilot.com"
+    }
+  ]
+}

@@ -1,0 +1,574 @@
+{
+  "info": {
+    "_postman_id": "df4e3be2-d38c-4b95-b5a3-95c16c750e87",
+    "name": "Trustpilot Business Units Product Review Management API",
+    "description": "Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:42.000Z",
+    "updatedAt": "2026-07-28T03:20:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-df4e3be2-d38c-4b95-b5a3-95c16c750e87"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "private",
+          "item": [
+            {
+              "name": "product-reviews",
+              "item": [
+                {
+                  "name": "business-units",
+                  "item": [
+                    {
+                      "name": "{businessUnitId}",
+                      "item": [
+                        {
+                          "name": "reviews",
+                          "item": [
+                            {
+                              "name": "Get Private Product Reviews",
+                              "id": "b725dabf-7295-4664-83c1-8d022973b569",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "business.review.read",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://authenticate.trustpilot.com/oauth/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/product-reviews/business-units/:businessUnitId/reviews?page=<integer>&perPage=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "product-reviews",
+                                    "business-units",
+                                    ":businessUnitId",
+                                    "reviews"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "perPage",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "bbe5d375-8b54-482f-957e-c65c8217c1e3",
+                                      "key": "businessUnitId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Retrieve private product reviews including consumer contact information."
+                              },
+                              "response": [
+                                {
+                                  "id": "48799dcb-813e-4b26-815f-16573d09858f",
+                                  "name": "Private product reviews returned",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/private/product-reviews/business-units/:businessUnitId/reviews?page=<integer>&perPage=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "private",
+                                        "product-reviews",
+                                        "business-units",
+                                        ":businessUnitId",
+                                        "reviews"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "page",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "perPage",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "businessUnitId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:20:42.000Z",
+                                  "updatedAt": "2026-07-28T03:20:42.000Z",
+                                  "uid": "35240-48799dcb-813e-4b26-815f-16573d09858f"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:20:42.000Z",
+                              "updatedAt": "2026-07-28T03:20:42.000Z",
+                              "uid": "35240-b725dabf-7295-4664-83c1-8d022973b569"
+                            }
+                          ],
+                          "id": "1df07ce1-318a-4e0c-b3a5-e118886440a6",
+                          "createdAt": "2026-07-28T03:20:42.000Z",
+                          "updatedAt": "2026-07-28T03:20:42.000Z",
+                          "uid": "35240-1df07ce1-318a-4e0c-b3a5-e118886440a6"
+                        },
+                        {
+                          "name": "summaries",
+                          "item": [
+                            {
+                              "name": "Get Private Product Reviews Summaries",
+                              "id": "247504ea-7d6b-4949-88fe-1b7dcbe613ef",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "business.review.read",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://authenticate.trustpilot.com/oauth/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/product-reviews/business-units/:businessUnitId/summaries",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "product-reviews",
+                                    "business-units",
+                                    ":businessUnitId",
+                                    "summaries"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "92371406-002d-42b9-8edc-0c05a59fde45",
+                                      "key": "businessUnitId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Get product review summaries including private data for a business unit."
+                              },
+                              "response": [
+                                {
+                                  "id": "d1850fc2-8fc8-48fe-868c-c7a05b726230",
+                                  "name": "Private summaries returned",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/private/product-reviews/business-units/:businessUnitId/summaries",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "private",
+                                        "product-reviews",
+                                        "business-units",
+                                        ":businessUnitId",
+                                        "summaries"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "businessUnitId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:20:42.000Z",
+                                  "updatedAt": "2026-07-28T03:20:42.000Z",
+                                  "uid": "35240-d1850fc2-8fc8-48fe-868c-c7a05b726230"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:20:42.000Z",
+                              "updatedAt": "2026-07-28T03:20:42.000Z",
+                              "uid": "35240-247504ea-7d6b-4949-88fe-1b7dcbe613ef"
+                            }
+                          ],
+                          "id": "68d5c599-dfff-4c46-80a6-ba318b63fe51",
+                          "createdAt": "2026-07-28T03:20:42.000Z",
+                          "updatedAt": "2026-07-28T03:20:42.000Z",
+                          "uid": "35240-68d5c599-dfff-4c46-80a6-ba318b63fe51"
+                        },
+                        {
+                          "name": "invitation-links",
+                          "item": [
+                            {
+                              "name": "Create Product Review Invitation Link",
+                              "id": "435ab541-2f43-4e48-80b2-121dd2e3ccb4",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "business.review.read",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://authenticate.trustpilot.com/oauth/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"referenceNumber\": \"<string>\",\n  \"products\": [\n    {\n      \"productUrl\": \"<string>\",\n      \"productName\": \"<string>\",\n      \"productSku\": \"<string>\"\n    },\n    {\n      \"productUrl\": \"<string>\",\n      \"productName\": \"<string>\",\n      \"productSku\": \"<string>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/private/product-reviews/business-units/:businessUnitId/invitation-links",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "private",
+                                    "product-reviews",
+                                    "business-units",
+                                    ":businessUnitId",
+                                    "invitation-links"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "1f854466-b759-430d-94c7-2819861c1f6d",
+                                      "key": "businessUnitId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Create a product review invitation link for a specific business unit."
+                              },
+                              "response": [
+                                {
+                                  "id": "0420cce9-6169-4f20-8e2c-59cea892791c",
+                                  "name": "Invitation link created",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"referenceNumber\": \"<string>\",\n  \"products\": [\n    {\n      \"productUrl\": \"<string>\",\n      \"productName\": \"<string>\",\n      \"productSku\": \"<string>\"\n    },\n    {\n      \"productUrl\": \"<string>\",\n      \"productName\": \"<string>\",\n      \"productSku\": \"<string>\"\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/private/product-reviews/business-units/:businessUnitId/invitation-links",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "private",
+                                        "product-reviews",
+                                        "business-units",
+                                        ":businessUnitId",
+                                        "invitation-links"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "businessUnitId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:20:42.000Z",
+                                  "updatedAt": "2026-07-28T03:20:42.000Z",
+                                  "uid": "35240-0420cce9-6169-4f20-8e2c-59cea892791c"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:20:42.000Z",
+                              "updatedAt": "2026-07-28T03:20:42.000Z",
+                              "uid": "35240-435ab541-2f43-4e48-80b2-121dd2e3ccb4"
+                            }
+                          ],
+                          "id": "0084b144-c5f4-431b-8cca-7524beef3d94",
+                          "createdAt": "2026-07-28T03:20:42.000Z",
+                          "updatedAt": "2026-07-28T03:20:42.000Z",
+                          "uid": "35240-0084b144-c5f4-431b-8cca-7524beef3d94"
+                        }
+                      ],
+                      "id": "4da88dd0-0e5b-425f-83d2-05b11f25a0e2",
+                      "createdAt": "2026-07-28T03:20:42.000Z",
+                      "updatedAt": "2026-07-28T03:20:42.000Z",
+                      "uid": "35240-4da88dd0-0e5b-425f-83d2-05b11f25a0e2"
+                    }
+                  ],
+                  "id": "1808e511-b611-450b-abb1-e3e5f958c09d",
+                  "createdAt": "2026-07-28T03:20:42.000Z",
+                  "updatedAt": "2026-07-28T03:20:42.000Z",
+                  "uid": "35240-1808e511-b611-450b-abb1-e3e5f958c09d"
+                },
+                {
+                  "name": "{reviewId}",
+                  "item": [
+                    {
+                      "name": "Get Private Product Review",
+                      "id": "5c33c044-40b9-44e6-9386-6e8375aee2e2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "business.review.read",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://authenticate.trustpilot.com/oauth/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/private/product-reviews/:reviewId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "private",
+                            "product-reviews",
+                            ":reviewId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a64858e9-e67d-478e-a7cb-d19523e075cf",
+                              "key": "reviewId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve a specific private product review by ID."
+                      },
+                      "response": [
+                        {
+                          "id": "23d1cc49-86a9-4406-be17-ac763a04b8a7",
+                          "name": "Private product review returned",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/private/product-reviews/:reviewId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "private",
+                                "product-reviews",
+                                ":reviewId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "reviewId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:42.000Z",
+                          "updatedAt": "2026-07-28T03:20:42.000Z",
+                          "uid": "35240-23d1cc49-86a9-4406-be17-ac763a04b8a7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:42.000Z",
+                      "updatedAt": "2026-07-28T03:20:42.000Z",
+                      "uid": "35240-5c33c044-40b9-44e6-9386-6e8375aee2e2"
+                    }
+                  ],
+                  "id": "0f3f59df-9b8a-4e94-a09a-f6bed38e152c",
+                  "createdAt": "2026-07-28T03:20:42.000Z",
+                  "updatedAt": "2026-07-28T03:20:42.000Z",
+                  "uid": "35240-0f3f59df-9b8a-4e94-a09a-f6bed38e152c"
+                }
+              ],
+              "id": "91902298-34ad-4b38-9c83-ee1fb73cb6af",
+              "createdAt": "2026-07-28T03:20:42.000Z",
+              "updatedAt": "2026-07-28T03:20:42.000Z",
+              "uid": "35240-91902298-34ad-4b38-9c83-ee1fb73cb6af"
+            }
+          ],
+          "id": "78b6661d-978c-4c54-92c2-e183bb535d4d",
+          "createdAt": "2026-07-28T03:20:42.000Z",
+          "updatedAt": "2026-07-28T03:20:42.000Z",
+          "uid": "35240-78b6661d-978c-4c54-92c2-e183bb535d4d"
+        }
+      ],
+      "id": "760defed-9699-4a3e-bc92-db02ca74757a",
+      "createdAt": "2026-07-28T03:20:42.000Z",
+      "updatedAt": "2026-07-28T03:20:42.000Z",
+      "uid": "35240-760defed-9699-4a3e-bc92-db02ca74757a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.trustpilot.com"
+    }
+  ]
+}
