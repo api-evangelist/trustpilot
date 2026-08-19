@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trustpilot Business Units API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Business Units",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Business Units",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/business-units/search",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Business name or partial name to search for"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by ISO 3166-1 alpha-2 country code"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page"
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query",
+                "description": "Your Trustpilot API key"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apikey",
+              "value": "{{apikey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Search for business units on Trustpilot, even if you only know part of the name."
+        },
+        {
+          "info": {
+            "name": "Get Business Unit Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/business-units/:businessUnitId/profileinfo",
+            "params": [
+              {
+                "name": "businessUnitId",
+                "value": "",
+                "type": "path",
+                "description": "Unique Trustpilot business unit identifier"
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apikey",
+              "value": "{{apikey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve company profile information including contact details and social media links."
+        },
+        {
+          "info": {
+            "name": "Get Business Unit Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/business-units/:businessUnitId/categories",
+            "params": [
+              {
+                "name": "businessUnitId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apikey",
+              "value": "{{apikey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "List categories associated with a business unit."
+        },
+        {
+          "info": {
+            "name": "Get Business Unit Web Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/business-units/:businessUnitId/web-links",
+            "params": [
+              {
+                "name": "businessUnitId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code for localized URLs"
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apikey",
+              "value": "{{apikey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Obtain links to the business unit's public profile page on Trustpilot."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

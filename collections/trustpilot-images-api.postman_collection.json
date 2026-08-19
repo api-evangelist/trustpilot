@@ -1,0 +1,270 @@
+{
+  "item": [
+    {
+      "id": "776675c1-61cf-4597-8d1e-18d593e23d1d",
+      "name": "Images",
+      "description": {
+        "content": "Business unit image operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "536831e4-4a78-47c9-b27e-00eb3cdb9475",
+          "name": "Get Business Unit Images",
+          "request": {
+            "name": "Get Business Unit Images",
+            "description": {
+              "content": "Fetch company profile images in multiple sizes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "business-units",
+                ":businessUnitId",
+                "images"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ae3749c7-ab9d-410b-abe0-8166347d4ff4",
+              "name": "Images returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"logoUrl\": \"string\",\n  \"headerUrl\": \"string\",\n  \"promotionBoxUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8097282-293d-49a6-8613-e45be5948d74",
+          "name": "Get Business Unit Logo",
+          "request": {
+            "name": "Get Business Unit Logo",
+            "description": {
+              "content": "Retrieve company or location-specific logo.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "business-units",
+                ":businessUnitId",
+                "images",
+                "logo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessUnitId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bb74eaec-7856-4312-b0c0-e986eedd8855",
+              "name": "Logo image returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "business-units",
+                    ":businessUnitId",
+                    "images",
+                    "logo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessUnitId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.trustpilot.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ddc19e73-561a-49c1-9254-1f2b9d9c5dad",
+    "name": "Trustpilot Business Units Images API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.",
+      "type": "text/plain"
+    }
+  }
+}

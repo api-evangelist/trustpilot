@@ -1,0 +1,143 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trustpilot Business Units Invitations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Invitations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Invitation Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/private/business-units/:businessUnitId/templates",
+            "params": [
+              {
+                "name": "businessUnitId",
+                "value": "",
+                "type": "path",
+                "description": "Trustpilot business unit identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+              "accessTokenUrl": "https://authenticate.trustpilot.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieve available invitation templates with IDs and names for a business unit."
+        },
+        {
+          "info": {
+            "name": "Send Email Invitations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.trustpilot.com/v1/private/business-units/:businessUnitId/email-invitations",
+            "params": [
+              {
+                "name": "businessUnitId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+              "accessTokenUrl": "https://authenticate.trustpilot.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Trigger email invitations for service and product reviews to a list of recipients."
+        },
+        {
+          "info": {
+            "name": "Create Invitation Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.trustpilot.com/v1/private/business-units/:businessUnitId/invitation-links",
+            "params": [
+              {
+                "name": "businessUnitId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+              "accessTokenUrl": "https://authenticate.trustpilot.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create a unique invitation link for service reviews."
+        },
+        {
+          "info": {
+            "name": "Delete Invitation Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.trustpilot.com/v1/private/business-units/:businessUnitId/invitation-data/delete",
+            "params": [
+              {
+                "name": "businessUnitId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+              "accessTokenUrl": "https://authenticate.trustpilot.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Remove invitation data by email addresses or date range. Cannot specify both email addresses and dates in the same request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

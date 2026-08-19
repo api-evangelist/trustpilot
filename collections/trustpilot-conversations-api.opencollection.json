@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trustpilot Business Units Conversations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conversations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Product Review Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.trustpilot.com/v1/private/product-reviews/:reviewId/create-conversation",
+            "params": [
+              {
+                "name": "reviewId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+              "accessTokenUrl": "https://authenticate.trustpilot.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create a new conversation thread on a product review."
+        },
+        {
+          "info": {
+            "name": "Get Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/private/conversations/:conversationId",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+              "accessTokenUrl": "https://authenticate.trustpilot.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get a private product review conversation."
+        },
+        {
+          "info": {
+            "name": "Set Conversation State",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.trustpilot.com/v1/private/conversations/:conversationId/state",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+              "accessTokenUrl": "https://authenticate.trustpilot.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Set the state of a product review conversation."
+        },
+        {
+          "info": {
+            "name": "Create Conversation Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.trustpilot.com/v1/private/conversations/:conversationId/comments",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://authenticate.trustpilot.com/oauth/connect/authorize",
+              "accessTokenUrl": "https://authenticate.trustpilot.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create a new comment on a product review conversation."
+        },
+        {
+          "info": {
+            "name": "Get Public Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/conversations/:conversationId",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apikey",
+              "value": "{{apikey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Get a public product review conversation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

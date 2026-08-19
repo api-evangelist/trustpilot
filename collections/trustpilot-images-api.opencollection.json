@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trustpilot Business Units Images API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Business Unit Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/business-units/:businessUnitId/images",
+            "params": [
+              {
+                "name": "businessUnitId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apikey",
+              "value": "{{apikey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Fetch company profile images in multiple sizes."
+        },
+        {
+          "info": {
+            "name": "Get Business Unit Logo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/business-units/:businessUnitId/images/logo",
+            "params": [
+              {
+                "name": "businessUnitId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apikey",
+              "value": "{{apikey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve company or location-specific logo."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
