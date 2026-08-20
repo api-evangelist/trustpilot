@@ -99,6 +99,8 @@ apis:
   humanURL: https://developers.trustpilot.com/business-units-api
   baseURL: https://api.trustpilot.com/v1
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
