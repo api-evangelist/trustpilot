@@ -1,28 +1,41 @@
 {
   "provider": "trustpilot",
   "sources": [
-    "trustpilot-business-units-api-openapi.yml",
-    "trustpilot-conversations-api-openapi.yml",
-    "trustpilot-images-api-openapi.yml",
-    "trustpilot-invitations-api-openapi.yml",
-    "trustpilot-product-review-management-api-openapi.yml",
-    "trustpilot-product-reviews-api-openapi.yml",
-    "trustpilot-review-management-api-openapi.yml",
-    "trustpilot-reviews-api-openapi.yml"
+    "_original/trustpilot-business-units-openapi.yml",
+    "_original/trustpilot-invitation-openapi.yml",
+    "_original/trustpilot-product-reviews-openapi.yml",
+    "_original/trustpilot-service-reviews-openapi.yml"
   ],
   "outputs": [
     "trustpilot-business-units-api-openapi.yml",
-    "trustpilot-conversations-api-openapi.yml",
     "trustpilot-images-api-openapi.yml",
+    "trustpilot-reviews-api-openapi.yml",
     "trustpilot-invitations-api-openapi.yml",
+    "trustpilot-conversations-api-openapi.yml",
     "trustpilot-product-review-management-api-openapi.yml",
     "trustpilot-product-reviews-api-openapi.yml",
-    "trustpilot-review-management-api-openapi.yml",
-    "trustpilot-reviews-api-openapi.yml"
+    "trustpilot-review-management-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (4 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "trustpilot-business-units-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "trustpilot-invitation-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "trustpilot-product-reviews-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "trustpilot-service-reviews-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "tag 'Reviews' spans 2 source specs (trustpilot-business-units-openapi.yml, trustpilot-service-reviews-openapi.yml): per-path servers applied",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "trustpilot-business-units-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trustpilot-conversations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trustpilot-images-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trustpilot-invitations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trustpilot-product-review-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trustpilot-product-reviews-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trustpilot-review-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trustpilot-reviews-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

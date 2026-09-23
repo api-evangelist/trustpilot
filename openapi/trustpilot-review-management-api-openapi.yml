@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Trustpilot Business Units Review Management API
-  description: Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.
+  title: Trustpilot Service Reviews Review Management API
+  description: Enables businesses to manage service reviews including posting replies, managing tags, finding reviewers, and retrieving review details. Get public review data and manage private review interactions.
   version: 1.0.0
   contact:
     url: https://developers.trustpilot.com/
@@ -228,6 +228,23 @@ paths:
           description: Find reviewer request initiated
 components:
   schemas:
+    PrivateReview:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Review'
+      - type: object
+        properties:
+          consumer:
+            type: object
+            properties:
+              email:
+                type: string
+              id:
+                type: string
+              displayName:
+                type: string
+          orderId:
+            type: string
     Review:
       type: object
       properties:
@@ -263,23 +280,6 @@ components:
           - archived
         verificationLevel:
           type: string
-    PrivateReview:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Review'
-      - type: object
-        properties:
-          consumer:
-            type: object
-            properties:
-              email:
-                type: string
-              id:
-                type: string
-              displayName:
-                type: string
-          orderId:
-            type: string
   securitySchemes:
     ApiKey:
       type: apiKey
@@ -292,4 +292,4 @@ components:
           authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
           tokenUrl: https://authenticate.trustpilot.com/oauth/token
           scopes:
-            business.review.read: Read private review data
+            business.review.manage: Manage business reviews

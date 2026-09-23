@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Trustpilot Business Units Conversations API
-  description: Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.
+  title: Trustpilot Product Reviews Conversations API
+  description: Enables management of product-level reviews including retrieving product review summaries, managing conversations and comments, creating product review invitation links, and accessing attribute rating summaries.
   version: 1.0.0
   contact:
     url: https://developers.trustpilot.com/
@@ -149,4 +149,4 @@ components:
           authorizationUrl: https://authenticate.trustpilot.com/oauth/connect/authorize
           tokenUrl: https://authenticate.trustpilot.com/oauth/token
           scopes:
-            business.review.read: Read private review data
+            business.product.review.manage: Manage product reviews

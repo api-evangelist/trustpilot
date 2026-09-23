@@ -1,11 +1,11 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Trustpilot Business Units Reviews API
-  description: Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.
+  title: Trustpilot Reviews API
   version: 1.0.0
   contact:
     url: https://developers.trustpilot.com/
   termsOfService: https://www.trustpilot.com/legal/terms-and-conditions-for-businesses
+  description: 'Operations tagged Reviews across 2 of this provider''s published API definitions: trustpilot-business-units-openapi.yml, trustpilot-service-reviews-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.trustpilot.com
   description: Production
@@ -84,6 +84,9 @@ paths:
                 $ref: '#/components/schemas/ReviewListResponse'
         '404':
           description: Business unit not found
+    servers:
+    - url: https://api.trustpilot.com
+      description: Production
   /v1/business-units/{businessUnitId}/all-reviews:
     get:
       operationId: getAllBusinessUnitReviews
@@ -124,6 +127,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ReviewListResponse'
+    servers:
+    - url: https://api.trustpilot.com
+      description: Production
   /v1/private/business-units/{businessUnitId}/reviews:
     get:
       operationId: getPrivateBusinessUnitReviews
@@ -158,6 +164,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PrivateReviewListResponse'
+    servers:
+    - url: https://api.trustpilot.com
+      description: Production
   /v1/reviews/latest:
     get:
       operationId: getLatestReviews
@@ -209,6 +218,9 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Review_2'
+    servers:
+    - url: https://api.trustpilot.com
+      description: Production
   /v1/reviews/{reviewId}:
     get:
       operationId: getReview
@@ -238,6 +250,9 @@ paths:
                 $ref: '#/components/schemas/Review_2'
         '404':
           description: Review not found
+    servers:
+    - url: https://api.trustpilot.com
+      description: Production
   /v1/reviews/{reviewId}/web-links:
     get:
       operationId: getReviewWebLinks
@@ -267,6 +282,9 @@ paths:
       responses:
         '200':
           description: Web links returned
+    servers:
+    - url: https://api.trustpilot.com
+      description: Production
   /v1/reviews/{reviewId}/likes:
     get:
       operationId: getReviewLikes
@@ -290,8 +308,39 @@ paths:
       responses:
         '200':
           description: Likes list returned
+    servers:
+    - url: https://api.trustpilot.com
+      description: Production
 components:
   schemas:
+    ReviewListResponse:
+      type: object
+      properties:
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+        nextPageToken:
+          type: string
+        totalNumberOfReviews:
+          type: integer
+    PrivateReview:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Review'
+      - type: object
+        properties:
+          consumer:
+            type: object
+            properties:
+              email:
+                type: string
+              id:
+                type: string
+              displayName:
+                type: string
+          orderId:
+            type: string
     Review:
       type: object
       properties:
@@ -338,34 +387,15 @@ components:
         verificationLevel:
           type: string
           description: Verification level of the review
-    ReviewListResponse:
+    PrivateReviewListResponse:
       type: object
       properties:
         reviews:
           type: array
           items:
-            $ref: '#/components/schemas/Review'
-        nextPageToken:
-          type: string
+            $ref: '#/components/schemas/PrivateReview'
         totalNumberOfReviews:
           type: integer
-    PrivateReview:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Review'
-      - type: object
-        properties:
-          consumer:
-            type: object
-            properties:
-              email:
-                type: string
-              id:
-                type: string
-              displayName:
-                type: string
-          orderId:
-            type: string
     Review_2:
       type: object
       properties:
@@ -401,15 +431,6 @@ components:
           - archived
         verificationLevel:
           type: string
-    PrivateReviewListResponse:
-      type: object
-      properties:
-        reviews:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrivateReview'
-        totalNumberOfReviews:
-          type: integer
   securitySchemes:
     ApiKey:
       type: apiKey
@@ -423,3 +444,6 @@ components:
           tokenUrl: https://authenticate.trustpilot.com/oauth/token
           scopes:
             business.review.read: Read private review data
+x-refined-from:
+- trustpilot-business-units-openapi.yml
+- trustpilot-service-reviews-openapi.yml

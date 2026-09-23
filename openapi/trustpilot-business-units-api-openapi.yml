@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Trustpilot Business Units API
   description: Provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Search for business units and access both public and private review data.
@@ -196,19 +196,6 @@ components:
                 type: string
               name:
                 type: string
-    BusinessUnitSearchResponse:
-      type: object
-      properties:
-        businesses:
-          type: array
-          items:
-            $ref: '#/components/schemas/BusinessUnitSummary'
-        totalNumberOfBusinesses:
-          type: integer
-        currentPage:
-          type: integer
-        perPage:
-          type: integer
     BusinessUnitProfile:
       type: object
       properties:
@@ -250,6 +237,19 @@ components:
               type: string
             phone:
               type: string
+    BusinessUnitSearchResponse:
+      type: object
+      properties:
+        businesses:
+          type: array
+          items:
+            $ref: '#/components/schemas/BusinessUnitSummary'
+        totalNumberOfBusinesses:
+          type: integer
+        currentPage:
+          type: integer
+        perPage:
+          type: integer
   securitySchemes:
     ApiKey:
       type: apiKey
