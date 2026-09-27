@@ -159,43 +159,6 @@ paths:
                 type: object
 components:
   schemas:
-    BusinessUnitSummary:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Trustpilot business unit ID
-        displayName:
-          type: string
-        name:
-          type: string
-        websiteUrl:
-          type: string
-        countryCode:
-          type: string
-        trustScore:
-          type: number
-          format: double
-        stars:
-          type: number
-          format: double
-        numberOfReviews:
-          type: object
-          properties:
-            total:
-              type: integer
-    CategoryListResponse:
-      type: object
-      properties:
-        categories:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
     BusinessUnitProfile:
       type: object
       properties:
@@ -237,6 +200,43 @@ components:
               type: string
             phone:
               type: string
+    CategoryListResponse:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+    BusinessUnitSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Trustpilot business unit ID
+        displayName:
+          type: string
+        name:
+          type: string
+        websiteUrl:
+          type: string
+        countryCode:
+          type: string
+        trustScore:
+          type: number
+          format: double
+        stars:
+          type: number
+          format: double
+        numberOfReviews:
+          type: object
+          properties:
+            total:
+              type: integer
     BusinessUnitSearchResponse:
       type: object
       properties:
