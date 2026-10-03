@@ -359,15 +359,6 @@ components:
         verificationLevel:
           type: string
           description: Verification level of the review
-    PrivateReviewListResponse:
-      type: object
-      properties:
-        reviews:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrivateReview'
-        totalNumberOfReviews:
-          type: integer
     PrivateReview:
       type: object
       allOf:
@@ -385,6 +376,15 @@ components:
                 type: string
           orderId:
             type: string
+    PrivateReviewListResponse:
+      type: object
+      properties:
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrivateReview'
+        totalNumberOfReviews:
+          type: integer
     ReviewListResponse:
       type: object
       properties:

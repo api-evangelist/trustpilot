@@ -159,6 +159,19 @@ paths:
                 type: object
 components:
   schemas:
+    BusinessUnitSearchResponse:
+      type: object
+      properties:
+        businesses:
+          type: array
+          items:
+            $ref: '#/components/schemas/BusinessUnitSummary'
+        totalNumberOfBusinesses:
+          type: integer
+        currentPage:
+          type: integer
+        perPage:
+          type: integer
     BusinessUnitProfile:
       type: object
       properties:
@@ -200,18 +213,6 @@ components:
               type: string
             phone:
               type: string
-    CategoryListResponse:
-      type: object
-      properties:
-        categories:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
     BusinessUnitSummary:
       type: object
       properties:
@@ -237,19 +238,18 @@ components:
           properties:
             total:
               type: integer
-    BusinessUnitSearchResponse:
+    CategoryListResponse:
       type: object
       properties:
-        businesses:
+        categories:
           type: array
           items:
-            $ref: '#/components/schemas/BusinessUnitSummary'
-        totalNumberOfBusinesses:
-          type: integer
-        currentPage:
-          type: integer
-        perPage:
-          type: integer
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
   securitySchemes:
     ApiKey:
       type: apiKey
