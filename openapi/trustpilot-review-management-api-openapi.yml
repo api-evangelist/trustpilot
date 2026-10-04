@@ -228,6 +228,23 @@ paths:
           description: Find reviewer request initiated
 components:
   schemas:
+    PrivateReview:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Review'
+      - type: object
+        properties:
+          consumer:
+            type: object
+            properties:
+              email:
+                type: string
+              id:
+                type: string
+              displayName:
+                type: string
+          orderId:
+            type: string
     Review:
       type: object
       properties:
@@ -263,23 +280,6 @@ components:
           - archived
         verificationLevel:
           type: string
-    PrivateReview:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Review'
-      - type: object
-        properties:
-          consumer:
-            type: object
-            properties:
-              email:
-                type: string
-              id:
-                type: string
-              displayName:
-                type: string
-          orderId:
-            type: string
   securitySchemes:
     ApiKey:
       type: apiKey

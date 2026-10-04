@@ -313,6 +313,23 @@ paths:
       description: Production
 components:
   schemas:
+    PrivateReview:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Review'
+      - type: object
+        properties:
+          consumer:
+            type: object
+            properties:
+              email:
+                type: string
+              id:
+                type: string
+              displayName:
+                type: string
+          orderId:
+            type: string
     Review:
       type: object
       properties:
@@ -359,32 +376,6 @@ components:
         verificationLevel:
           type: string
           description: Verification level of the review
-    PrivateReview:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Review'
-      - type: object
-        properties:
-          consumer:
-            type: object
-            properties:
-              email:
-                type: string
-              id:
-                type: string
-              displayName:
-                type: string
-          orderId:
-            type: string
-    PrivateReviewListResponse:
-      type: object
-      properties:
-        reviews:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrivateReview'
-        totalNumberOfReviews:
-          type: integer
     ReviewListResponse:
       type: object
       properties:
@@ -394,6 +385,15 @@ components:
             $ref: '#/components/schemas/Review'
         nextPageToken:
           type: string
+        totalNumberOfReviews:
+          type: integer
+    PrivateReviewListResponse:
+      type: object
+      properties:
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrivateReview'
         totalNumberOfReviews:
           type: integer
     Review_2:
