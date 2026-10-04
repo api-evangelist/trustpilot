@@ -1,0 +1,58 @@
+slug: trustpilot
+provider: Trustpilot
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Invitations
+  spec_file: trustpilot-invitations-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.8
+  evidence: '"Allows businesses to programmatically send review invitations to their customers via email
+    or SMS after transactions"; POST /v1/private/business-units/{businessUnitId}/email-invitations — "Send
+    Email Invitations"'
+  reason: The surface solicits post-transaction customer reviews via templated email/SMS invitations —
+    a voice-of-customer / feedback solicitation programme. Maps cleanly to Customer Feedback Management.
+- tag: Review Management
+  spec_file: trustpilot-review-management-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.8
+  evidence: POST /v1/private/reviews/{reviewId}/reply — "Create Review Reply"; POST /v1/private/reviews/{reviewId}/find-reviewer
+    — "Find Reviewer"
+  reason: Businesses reply to, tag, and triage service reviews and identify the reviewer — active handling
+    of voice-of-customer feedback. Maps to Customer Feedback Management.
+- tag: Reviews
+  spec_file: trustpilot-reviews-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.75
+  evidence: GET /v1/business-units/{businessUnitId}/reviews — "Get Business Unit Reviews"; GET /v1/reviews/latest
+    — "Get Latest Reviews"
+  reason: Read surface over consumer reviews (public and private) for a company — retrieval of voice-of-customer
+    data. Customer Feedback Management is the fitting capability; the tag is purely read-oriented, so
+    slightly lower confidence.
+- tag: Conversations
+  spec_file: trustpilot-conversations-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.7
+  evidence: POST /v1/private/product-reviews/{reviewId}/create-conversation — "Create Product Review Conversation";
+    POST /v1/private/conversations/{conversationId}/comments — "Create Conversation Comment"
+  reason: Operations let a business open and comment in a dialogue attached to a customer review, i.e.
+    responding to voice-of-customer feedback. Customer Feedback Management is the closest fit; some overlap
+    with inquiry handling keeps confidence moderate.

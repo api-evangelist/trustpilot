@@ -228,6 +228,9 @@ apis:
   - type: Documentation
     url: https://developers.trustpilot.com/product-reviews-api/
 common:
+  - type: CapabilityMap
+    url: capabilities/trustpilot-capability-edges.yml
+    name: Trustpilot Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/trustpilot/overview
   - type: AgenticAccess
