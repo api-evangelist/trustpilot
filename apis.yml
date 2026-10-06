@@ -44,7 +44,7 @@ tags:
   - Product Reviews
 access: 3rd-Party
 created: '2026-03-24'
-modified: '2026-05-19'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: trustpilot:trustpilot-consumer-api
@@ -228,6 +228,8 @@ apis:
   - type: Documentation
     url: https://developers.trustpilot.com/product-reviews-api/
 common:
+  - url: https://business.trustpilot.com/blog
+    type: Blog
   - type: CapabilityMap
     url: capabilities/trustpilot-capability-edges.yml
     name: Trustpilot Business Capability Map
