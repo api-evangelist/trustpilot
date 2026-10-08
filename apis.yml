@@ -228,6 +228,12 @@ apis:
   - type: Documentation
     url: https://developers.trustpilot.com/product-reviews-api/
 common:
+  - type: Plans
+    url: plans/trustpilot-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/trustpilot-rate-limits.yml
+  - type: FinOps
+    url: finops/trustpilot-finops.yml
   - url: https://business.trustpilot.com/blog
     type: Blog
   - type: CapabilityMap
