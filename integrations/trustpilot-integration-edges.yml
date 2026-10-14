@@ -3,11 +3,11 @@ edges:
 - partner_name: Twilio Segment
   partner: segment
   partner_match: aggregator
-  marketplace: coverage
+  marketplace: segment-partner-destinations
   channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
+  direction: third-party
+  type: marketplace
+  relationship: platform-app
   evidence: https://www.twilio.com/docs/segment/connections/destinations/catalog/trustpilot
   coverage_role:
   - destination
@@ -25,7 +25,25 @@ edges:
       - Track
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
+- partner_name: Square (own)
+  partner: square
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://squareup.com/us/en/app-marketplace/app/trustpilot-reviews-us
+  mirror_of: square/integrations/square-integration-edges.yml
+  apps:
+  - Trustpilot Reviews
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Square Online add-ons
 method: searched
 checked:
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/trustpilot
+- square/integrations/square-integration-edges.yml
 source: https://www.twilio.com/docs/segment/connections/destinations/catalog/trustpilot

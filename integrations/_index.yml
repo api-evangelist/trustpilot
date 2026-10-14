@@ -7,11 +7,24 @@
   label: Twilio Segment
   partner: segment
   partner_name: Twilio Segment
-  type: coverage
-  marketplace: coverage
+  type: marketplace
+  marketplace: segment-partner-destinations
   channel: partner-built
   evidence: https://www.twilio.com/docs/segment/connections/destinations/catalog/trustpilot
   source: edge
-  relationship: connector-coverage
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: trustpilot-square-own
+  label: Square (own)
+  partner: square
+  partner_name: Square (own)
+  category: Square Online add-ons
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://squareup.com/us/en/app-marketplace/app/trustpilot-reviews-us
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
