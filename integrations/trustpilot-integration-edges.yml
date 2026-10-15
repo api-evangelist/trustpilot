@@ -42,8 +42,26 @@ edges:
   detected: '2026-10-14'
   detected_by: mirror-platform-listings.py
   category: Square Online add-ons
+- partner_name: WooCommerce (own)
+  partner: woocommerce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://woocommerce.com/products/trustpilot-reviews/
+  mirror_of: woocommerce/integrations/woocommerce-integration-edges.yml
+  apps:
+  - Trustpilot Reviews
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: extension
 method: searched
 checked:
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/trustpilot
 - square/integrations/square-integration-edges.yml
+- woocommerce/integrations/woocommerce-integration-edges.yml
 source: https://www.twilio.com/docs/segment/connections/destinations/catalog/trustpilot
