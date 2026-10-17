@@ -313,6 +313,26 @@ paths:
       description: Production
 components:
   schemas:
+    ReviewListResponse:
+      type: object
+      properties:
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+        nextPageToken:
+          type: string
+        totalNumberOfReviews:
+          type: integer
+    PrivateReviewListResponse:
+      type: object
+      properties:
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrivateReview'
+        totalNumberOfReviews:
+          type: integer
     PrivateReview:
       type: object
       allOf:
@@ -376,26 +396,6 @@ components:
         verificationLevel:
           type: string
           description: Verification level of the review
-    ReviewListResponse:
-      type: object
-      properties:
-        reviews:
-          type: array
-          items:
-            $ref: '#/components/schemas/Review'
-        nextPageToken:
-          type: string
-        totalNumberOfReviews:
-          type: integer
-    PrivateReviewListResponse:
-      type: object
-      properties:
-        reviews:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrivateReview'
-        totalNumberOfReviews:
-          type: integer
     Review_2:
       type: object
       properties:
