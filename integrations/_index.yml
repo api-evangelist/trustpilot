@@ -120,7 +120,7 @@
     - alpha
     in_cloud: true
     builder: unknown (community connector; contributor not in the record)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: trustpilot-fivetran
   label: Fivetran
@@ -146,7 +146,7 @@
     - connectors/applications/trustpilot
     vendor_link: https://www.trustpilot.com/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: trustpilot-meltano
   label: Meltano
@@ -175,5 +175,5 @@
     quality:
     - silver
     builder: 'community (Meltano Hub variant maintainers: dbt-labs)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
