@@ -1,4 +1,46 @@
-generated: '2026-10-14'
+generated: '2026-10-20'
+method: searched
+source:
+- https://www.twilio.com/docs/segment/connections/destinations/catalog/trustpilot
+- https://zapier.com/apps/trustpilot/integrations
+- https://monid.ai/tools/trustpilot
+checked:
+- https://cloudsecurityalliance.org/star/registry
+- https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
+- https://connectors.airbyte.com/files/registries/v0/oss_registry.json
+- https://eucoc.cloud/en/public-register/list-of-adherent-services
+- https://fivetran.com/docs-sitemap.xml
+- https://fivetran.com/docs/connectors/partner-built-program
+- https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
+- https://github.com/meltano/hub
+- https://www.twilio.com/docs/segment/connections/destinations/catalog/trustpilot
+- https://zapier.com/api/v4/apps/
+- square/integrations/square-integration-edges.yml
+- woocommerce/integrations/woocommerce-integration-edges.yml
+- zendesk/integrations/zendesk-integration-edges.yml
+- https://composio.dev/toolkits/trustpilot
+- https://monid.ai/tools/trustpilot
+- https://n8n.io/integrations/trustpilot/
+- https://zapier.com/apps/trustpilot/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: trustpilot
+  url: https://zapier.com/apps/trustpilot/integrations
+  external_url: https://marketing.trustpilot.com/partner-success?utm_source=zapier&utm_medium=partner&utm_campaign=partner_partner-tracked-link_requestdemo_all_0519&partner_id=0010N0000473yhtQAA
+  partner_tier: BRONZE
+  triggers: []
+  actions:
+  - key: CreateInvitationV2
+    label: Create Invitation
+  searches: []
+- marketplace: monid
+  channel: agent-gateway
+  app: trustpilot
+  url: https://monid.ai/tools/trustpilot
+  identity: slug
 edges:
 - partner_name: Twilio Segment
   partner: segment
@@ -242,20 +284,425 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-compliance-assurance.py
   first_seen: '2026-10-20'
-method: searched
-checked:
-- https://cloudsecurityalliance.org/star/registry
-- https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
-- https://connectors.airbyte.com/files/registries/v0/oss_registry.json
-- https://eucoc.cloud/en/public-register/list-of-adherent-services
-- https://fivetran.com/docs-sitemap.xml
-- https://fivetran.com/docs/connectors/partner-built-program
-- https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
-- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
-- https://github.com/meltano/hub
-- https://www.twilio.com/docs/segment/connections/destinations/catalog/trustpilot
-- https://zapier.com/api/v4/apps/
-- square/integrations/square-integration-edges.yml
-- woocommerce/integrations/woocommerce-integration-edges.yml
-- zendesk/integrations/zendesk-integration-edges.yml
-source: https://www.twilio.com/docs/segment/connections/destinations/catalog/trustpilot
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/mailchimp
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://mailchimp.com/
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Intercom
+  partner: intercom
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/intercom
+  direction: third-party
+  category: Customer Support
+  partner_url: https://www.intercom.com/welcome-to-intercom?utm_source=external-website&utm_medium=partner&utm_campaign=20220503_all_oc_all_global_gl_all_all_par_extmktplc&utm_term=zapier
+- partner_name: Typeform
+  partner: typeform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/typeform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.typeform.com/signup?utm_medium=referral&utm_source=zapier&utm_campaign=zapier_integration&utm_content=marketplace
+- partner_name: Wix
+  partner: wix
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/wix
+  direction: third-party
+  category: Website Builders
+  partner_url: https://www.wix.com/
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: ActiveCampaign
+  partner: activecampaign
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/activecampaign
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.activecampaign.com/?utm_source=unpaid_syndication_website&utm_medium=referral&utm_campaign=zapier_listing
+- partner_name: Google Business Profile
+  partner: google-business-profile
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/google-business-profile
+  direction: third-party
+  category: Google
+  partner_url: https://www.google.com/business/
+- partner_name: WooCommerce
+  partner: woocommerce
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/woocommerce
+  direction: third-party
+  category: eCommerce
+  partner_url: https://woocommerce.com/products/woocommerce-zapier/?utm_source=zapier&utm_medium=website&utm_campaign=integration
+- partner_name: WHMCS
+  partner: whmcs
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/whmcs
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: http://www.whmcs.com/
+- partner_name: Ecwid by Lightspeed
+  partner: ecwid
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/ecwid
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.ecwid.com/
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: Squarespace Forms
+  partner: squarespace
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/squarespace-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.squarespace.com/
+- partner_name: eBay
+  partner: ebay
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/ebay
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.ebay.com/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: Judge.me
+  partner: judge-me
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/judgeme
+  direction: third-party
+  category: eCommerce
+  partner_url: https://judge.me/
+- partner_name: Gravity Forms
+  partner: gravity-forms
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/gravity-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.gravityforms.com/?utm_campaign=partners&utm_source=zapier-listing-learn-more&utm_medium=free-placement
+- partner_name: Brevo
+  partner: brevo
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/brevo
+  direction: third-party
+  category: Email Newsletters
+  partner_url: https://www.sendinblue.com/?utm_medium=plugin&utm_source=zapier
+- partner_name: monday.com
+  partner: monday-com
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: Acuity Scheduling
+  partner: acuity-scheduling
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/acuity-scheduling
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://acuityscheduling.com/?utm_source=zapier.com&utm_medium=referral&utm_campaign=integration-page
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Xero
+  partner: xero
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/xero
+  direction: third-party
+  category: Accounting
+  partner_url: https://xero5440.partnerlinks.io/uvwuuwrxyoi8
+- partner_name: Pipedrive
+  partner: pipedrive
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/pipedrive
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://pipedrive.com/
+- partner_name: Freshdesk
+  partner: freshdesk
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/freshdesk
+  direction: third-party
+  category: Customer Support
+  partner_url: http://freshdesk.com/
+- partner_name: Epos Now
+  partner: epos-now
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/epos-now
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://www.eposnowhq.com/
+- partner_name: Microsoft Dynamics 365 CRM
+  partner: microsoft-dynamics-365
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/microsoft-dynamics-crm
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://dynamics.microsoft.com/
+- partner_name: Magento 2.X
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/magento-v2
+  direction: third-party
+  category: eCommerce
+  partner_url: https://magento.com/
+- partner_name: systeme.io
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/systemeio
+  direction: third-party
+  category: Marketing
+  partner_url: https://systeme.io/
+- partner_name: ClickFunnels Classic
+  partner: clickfunnels
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/clickfunnels-classic
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.clickfunnels.com/
+- partner_name: Eventbrite
+  partner: eventbrite
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/trustpilot/integrations/eventbrite
+  direction: third-party
+  category: Event Management
+  partner_url: https://eventbrite.com/
+templates:
+- title: Send new Mailchimp subscribers Trustpilot Invitations
+  url: https://zapier.com/apps/mailchimp/integrations/trustpilot/381/send-new-mailchimp-subscribers-trustpilot-invitations
+  apps:
+  - mailchimp
+  - trustpilot
+- title: Create Trustpilot invitations from new Shopify orders
+  url: https://zapier.com/apps/shopify/integrations/trustpilot/373/create-trustpilot-invitations-from-new-shopify-orders
+  apps:
+  - shopify
+  - trustpilot
+- title: Create Trustpilot invitations for new Google Sheet rows
+  url: https://zapier.com/apps/google-sheets/integrations/trustpilot/214763/create-trustpilot-invitations-for-new-google-sheet-rows
+  apps:
+  - google-sheets
+  - trustpilot
+- title: Create Trustpilot invitations from new WooCommerce orders
+  url: https://zapier.com/apps/trustpilot/integrations/woocommerce/378/create-trustpilot-invitations-from-new-woocommerce-orders
+  apps:
+  - woocommerce
+  - trustpilot
+- title: Send Trustpilot review invitations to contacts from Zendesk tickets
+  url: https://zapier.com/apps/trustpilot/integrations/zendesk/7799/send-trustpilot-review-invitations-to-contacts-from-zendesk-tickets
+  apps:
+  - zendesk
+  - trustpilot
+- title: Create Trustpilot invitations when new tags are added to Intercom users
+  url: https://zapier.com/apps/intercom/integrations/trustpilot/1735587/create-trustpilot-invitations-when-new-tags-are-added-to-intercom-users
+  apps:
+  - intercom
+  - trustpilot
+- title: Create Trustpilot invitations for new Salesforce contacts
+  url: https://zapier.com/apps/salesforce/integrations/trustpilot/377/create-trustpilot-invitations-for-new-salesforce-contacts
+  apps:
+  - salesforce
+  - trustpilot
+- title: Create Trustpilot invitations for new contacts in HubSpot list
+  url: https://zapier.com/apps/hubspot/integrations/trustpilot/1218912/create-trustpilot-invitations-for-new-contacts-in-hubspot-list
+  apps:
+  - hubspot
+  - trustpilot
+- title: Create Trustpilot invitations for new Fortnox orders
+  url: https://zapier.com/apps/fortnox-1/integrations/trustpilot/1192093/create-trustpilot-invitations-for-new-fortnox-orders
+  apps:
+  - fortnox-1
+  - trustpilot
+- title: Send Trustpilot review invitation following new Epos Now transaction
+  url: https://zapier.com/apps/epos-now/integrations/trustpilot/6357/send-trustpilot-review-invitation-following-new-epos-now-transaction
+  apps:
+  - epos-now
+  - trustpilot
+- title: Create Trustpilot invitations for new orders in SHOPLINE
+  url: https://zapier.com/apps/shopline/integrations/trustpilot/1610412/create-trustpilot-invitations-for-new-orders-in-shopline
+  apps:
+  - shopline
+  - trustpilot
+- title: Create Trustpilot invitations for new Stripe subscriptions
+  url: https://zapier.com/apps/stripe/integrations/trustpilot/1238756/create-trustpilot-invitations-for-new-stripe-subscriptions
+  apps:
+  - stripe
+  - trustpilot
+template_total: 247
