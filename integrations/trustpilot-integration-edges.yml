@@ -29,6 +29,11 @@ checked:
 - https://www.indexventures.com/companies/
 - https://www.sequoiacap.com/our-companies/
 - https://www.sequoiacap.com/sitemap.xml
+- https://commercemarketplace.adobe.com/partner/
+- https://commercemarketplace.adobe.com/sitemap.xml
+- https://store.shopware.com/en/extension-partners/
+- https://store.shopware.com/en/sitemap.xml
+- adobe-commerce/integrations/adobe-commerce-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -209,57 +214,6 @@ edges:
     builder: Pipedream repo (component)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
-- partner_name: Square (own)
-  partner: square
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://squareup.com/us/en/app-marketplace/app/trustpilot-reviews-us
-  mirror_of: square/integrations/square-integration-edges.yml
-  apps:
-  - Trustpilot Reviews
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Square Online add-ons
-- partner_name: WooCommerce (own)
-  partner: woocommerce
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://woocommerce.com/products/trustpilot-reviews/
-  mirror_of: woocommerce/integrations/woocommerce-integration-edges.yml
-  apps:
-  - Trustpilot Reviews
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: extension
-- partner_name: Zendesk (own)
-  partner: zendesk
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.zendesk.com/marketplace/apps/support/298255/trustpilot-reviews/
-  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
-  apps:
-  - Trustpilot Reviews
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: Surveys and Reviews
 - partner_name: Cloud Security Alliance STAR Registry
   partner: null
   partner_match: register
@@ -677,6 +631,104 @@ edges:
     sector: business-applications
   detected_by: sweep-vc-portfolios.py
   first_seen: '2026-10-21'
+- partner_name: Square (own)
+  partner: square
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://squareup.com/us/en/app-marketplace/app/trustpilot-reviews-us
+  mirror_of: square/integrations/square-integration-edges.yml
+  apps:
+  - Trustpilot Reviews
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Square Online add-ons
+- partner_name: WooCommerce (own)
+  partner: woocommerce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://woocommerce.com/products/trustpilot-reviews/
+  mirror_of: woocommerce/integrations/woocommerce-integration-edges.yml
+  apps:
+  - Trustpilot Reviews
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: extension
+- partner_name: Zendesk (own)
+  partner: zendesk
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.zendesk.com/marketplace/apps/support/298255/trustpilot-reviews/
+  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
+  apps:
+  - Trustpilot Reviews
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Surveys and Reviews
+- partner_name: Adobe Commerce (own)
+  partner: adobe-commerce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://commercemarketplace.adobe.com/trustpilot-module-reviews.html
+  mirror_of: adobe-commerce/integrations/adobe-commerce-integration-edges.yml
+  apps:
+  - Trustpilot Reviews
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Adobe Commerce Marketplace extension
+- partner_name: Shopware Store
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: shopware-store
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://store.shopware.com/en/extension-partners/trustpilot
+  category: Shopware Store extension partner
+  publisher_name: Trustpilot
+  publisher_country: Denmark
+  partner_tier:
+  - Technology Partner Silver
+  - Extension Partner
+  matched_domain: trustpilot.com
+  matched_by: domain
+  identity_source: the partner's own Shopware Store profile links (domain, name-checked)
+  partner_null_note: 'there is no all/shopware repo (Shopware is a harvest candidate): the platform side cannot
+    be written, so the publisher side names the store with partner null'
+  signal_note: Shopware Store extension partner (listing alone = participation); Partner Status tier in partner_tier;
+    listing count is context, never counted
+  detected_by: sweep-ecommerce-extension-marketplaces.py
+  detected: '2026-10-22'
+  example_listing: https://store.shopware.com/en/trus281545542926f/trustpilot-reviews.html
+  listing_count_prefix: 4
+  badges:
+  - Shopware Technology Partner
+  publisher_verified:
+  - Shopware Technology Partner
 templates:
 - title: Send new Mailchimp subscribers Trustpilot Invitations
   url: https://zapier.com/apps/mailchimp/integrations/trustpilot/381/send-new-mailchimp-subscribers-trustpilot-invitations

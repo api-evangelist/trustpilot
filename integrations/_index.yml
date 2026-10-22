@@ -256,45 +256,6 @@
     builder: Pipedream repo (component)
   status: not-a-workflow
   arazzo: null
-- slug: trustpilot-square-own
-  label: Square (own)
-  partner: square
-  partner_name: Square (own)
-  category: Square Online add-ons
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://squareup.com/us/en/app-marketplace/app/trustpilot-reviews-us
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: trustpilot-woocommerce-own
-  label: WooCommerce (own)
-  partner: woocommerce
-  partner_name: WooCommerce (own)
-  category: extension
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://woocommerce.com/products/trustpilot-reviews/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: trustpilot-zendesk-own
-  label: Zendesk (own)
-  partner: zendesk
-  partner_name: Zendesk (own)
-  category: Surveys and Reviews
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.zendesk.com/marketplace/apps/support/298255/trustpilot-reviews/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: trustpilot-cloud-security-alliance-star-registry
   label: Cloud Security Alliance STAR Registry
   partner_name: Cloud Security Alliance STAR Registry
@@ -647,5 +608,69 @@
     detected_by: sweep-vc-portfolios.py
     detected: '2026-10-21'
     sector: business-applications
+  status: not-a-workflow
+  arazzo: null
+- slug: trustpilot-square-own
+  label: Square (own)
+  partner: square
+  partner_name: Square (own)
+  category: Square Online add-ons
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://squareup.com/us/en/app-marketplace/app/trustpilot-reviews-us
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: trustpilot-woocommerce-own
+  label: WooCommerce (own)
+  partner: woocommerce
+  partner_name: WooCommerce (own)
+  category: extension
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://woocommerce.com/products/trustpilot-reviews/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: trustpilot-zendesk-own
+  label: Zendesk (own)
+  partner: zendesk
+  partner_name: Zendesk (own)
+  category: Surveys and Reviews
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.zendesk.com/marketplace/apps/support/298255/trustpilot-reviews/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: trustpilot-adobe-commerce-own
+  label: Adobe Commerce (own)
+  partner: adobe-commerce
+  partner_name: Adobe Commerce (own)
+  category: Adobe Commerce Marketplace extension
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://commercemarketplace.adobe.com/trustpilot-module-reviews.html
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: trustpilot-shopware-store
+  label: Shopware Store
+  partner_name: Shopware Store
+  category: Shopware Store extension partner
+  type: marketplace
+  marketplace: shopware-store
+  channel: partner-built
+  evidence: https://store.shopware.com/en/extension-partners/trustpilot
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
