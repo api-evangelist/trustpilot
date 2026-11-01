@@ -1,4 +1,4 @@
-# Trustpilot (trustpilot)
+# Trustpilot
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,171 +66,201 @@
 
 Trustpilot is a global consumer review platform that connects businesses with their customers to build trust through transparent, verified reviews. Founded in 2007, Trustpilot hosts hundreds of millions of reviews across millions of businesses worldwide. The platform offers business APIs that allow companies to collect, manage, and display reviews programmatically, integrate review data into their own systems, and automate invitation workflows to gather customer feedback at scale. Trustpilot's APIs cover business profile management, service reviews, product reviews, invitation management, consumer profiles, and public review data.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/apis.yml)
+**Areas:** Consumer Reviews · Reviews · Trust · Ratings · Business Profiles · Product Reviews
 
-## Scope
+## Trustpilot on APIs.io
 
-- **Type:** Index
-- **Access:** 3rd-Party
+Everything profiled for Trustpilot is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/trustpilot/](https://apis.io/providers/trustpilot/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- Consumer Reviews
-- Reviews
-- Trust
-- Ratings
-- Business Profiles
-- Product Reviews
+- [Trustpilot Consumer API](https://apis.io/apis/trustpilot/trustpilot-consumer-api/) — The Trustpilot Consumer API provides access to reviews written by individual consumers. Developers can retrieve a consumer's review history with filtering…
+- [Trustpilot Business Units API](https://apis.io/apis/trustpilot/trustpilot-business-units-api/) — Business unit profile and review operations
+- [Trustpilot Conversations API](https://apis.io/apis/trustpilot/trustpilot-conversations-api/) — Product review conversation management
+- [Trustpilot Images API](https://apis.io/apis/trustpilot/trustpilot-images-api/) — Business unit image operations
+- [Trustpilot Invitations API](https://apis.io/apis/trustpilot/trustpilot-invitations-api/) — Review invitation operations
+- [Trustpilot Product Review Management API](https://apis.io/apis/trustpilot/trustpilot-product-review-management-api/) — Private product review management
+- [Trustpilot Product Reviews API](https://apis.io/apis/trustpilot/trustpilot-product-reviews-api/) — Product review retrieval operations
+- [Trustpilot Review Management API](https://apis.io/apis/trustpilot/trustpilot-review-management-api/) — Private review management operations
+- [Trustpilot Reviews API](https://apis.io/apis/trustpilot/trustpilot-reviews-api/) — Business unit review retrieval
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-24
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Trustpilot Business Units API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Trustpilot Business Units API provides endpoints to retrieve company profile information, reviews, images, categories, and web links for specific business units on Trustpilot. Developers can search for business units by name, retrieve public and private reviews with filtering options, access business profile images and logos, and list business categories. Public endpoints use API key authentication; private review endpoints require OAuth 2.0.
+- [Trustpilot Agentic Access](https://apis.io/agentic-access/trustpilot/trustpilot-agentic-access/)
 
-- **Human URL:** [https://developers.trustpilot.com/business-units-api](https://developers.trustpilot.com/business-units-api)
-- **Base URL:** `https://api.trustpilot.com/v1`
+#### JSON Schema (11)
 
-#### Tags
+The data models the API reads and writes.
 
-- Business Profiles
-- Reviews
-- Trust
-- Ratings
+- [Trustpilot Business Unit](https://apis.io/schemas/trustpilot/trustpilot-business-unit/)
+- [BusinessUnitImages](https://apis.io/schemas/trustpilot/trustpilot-businessunitimages/)
+- [BusinessUnitProfile](https://apis.io/schemas/trustpilot/trustpilot-businessunitprofile/)
+- [BusinessUnitSearchResponse](https://apis.io/schemas/trustpilot/trustpilot-businessunitsearchresponse/)
+- [BusinessUnitSummary](https://apis.io/schemas/trustpilot/trustpilot-businessunitsummary/)
+- [CategoryListResponse](https://apis.io/schemas/trustpilot/trustpilot-categorylistresponse/)
+- [PrivateReview](https://apis.io/schemas/trustpilot/trustpilot-privatereview/)
+- [PrivateReviewListResponse](https://apis.io/schemas/trustpilot/trustpilot-privatereviewlistresponse/)
+- [ProductReviewsSummary](https://apis.io/schemas/trustpilot/trustpilot-productreviewssummary/)
+- [Trustpilot Review](https://apis.io/schemas/trustpilot/trustpilot-review/)
+- [ReviewListResponse](https://apis.io/schemas/trustpilot/trustpilot-reviewlistresponse/)
 
-#### Properties
+#### JSON Structure (2)
 
-- [Documentation](https://developers.trustpilot.com/business-units-api)
-- [Authentication](https://developers.trustpilot.com/authentication)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/openapi/trustpilot-business-units-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/trustpilot-business-units.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/trustpilot-business-units.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/trustpilot-invitation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/trustpilot-invitation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-### Trustpilot Service Reviews API
+- [Trustpilot Review Structure](https://apis.io/json-structure/trustpilot/trustpilot-review-structure/)
+- [Trustpilot Structure](https://apis.io/json-structure/trustpilot/trustpilot-structure/)
 
-The Trustpilot Service Reviews API enables businesses to manage service reviews, including posting replies, managing tags, finding reviewers, and retrieving review details. Businesses can respond to customer reviews, organize reviews with custom tags, and retrieve the latest reviews by language. Most management endpoints require OAuth 2.0 Business user tokens; public review endpoints are accessible with API keys.
+#### JSON-LD (1)
 
-- **Human URL:** [https://developers.trustpilot.com/service-reviews-api/](https://developers.trustpilot.com/service-reviews-api/)
-- **Base URL:** `https://api.trustpilot.com/v1`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Trustpilot Context](https://apis.io/jsonld/trustpilot/trustpilot-context/)
 
-- Reviews
-- Consumer Reviews
-- Trust
-- Ratings
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://developers.trustpilot.com/service-reviews-api/)
-- [Authentication](https://developers.trustpilot.com/authentication)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/openapi/trustpilot-service-reviews-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/trustpilot-business-units.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/trustpilot-business-units.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/trustpilot-invitation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/trustpilot-invitation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Trustpilot Vocabulary](https://apis.io/vocabularies/trustpilot/trustpilot-vocabulary/)
 
-### Trustpilot Invitation API
+#### Examples (4)
 
-The Trustpilot Invitation API allows businesses to programmatically send review invitations to their customers via email or SMS after a transaction or service interaction. It supports creating invitation links, triggering bulk email invitations for service and product reviews, retrieving invitation templates, and deleting invitation data by email or date range. All endpoints require OAuth 2.0 Business user token authentication.
+Example requests and responses.
 
-- **Human URL:** [https://developers.trustpilot.com/invitation-api](https://developers.trustpilot.com/invitation-api)
-- **Base URL:** `https://api.trustpilot.com/v1`
+- [Trustpilot Create Review Reply Example](https://apis.io/examples/trustpilot/trustpilot-create-review-reply-example/)
+- [Trustpilot Get Business Unit Reviews Example](https://apis.io/examples/trustpilot/trustpilot-get-business-unit-reviews-example/)
+- [Trustpilot Search Business Units Example](https://apis.io/examples/trustpilot/trustpilot-search-business-units-example/)
+- [Trustpilot Send Email Invitations Example](https://apis.io/examples/trustpilot/trustpilot-send-email-invitations-example/)
 
-#### Tags
+#### Collections (14)
 
-- Invitations
-- Consumer Reviews
-- Email
-- Reviews
-- Trust
+Postman and Open Collection request collections.
 
-#### Properties
+- [Trustpilot Business Units API](https://apis.io/collections/trustpilot/open-trustpilot-business-units/)
+- [Trustpilot Business Units API](https://apis.io/collections/trustpilot/open-trustpilot-business-units-api/)
+- [Trustpilot Business Units Conversations API](https://apis.io/collections/trustpilot/open-trustpilot-conversations-api/)
+- [Trustpilot Business Units Images API](https://apis.io/collections/trustpilot/open-trustpilot-images-api/)
+- [Trustpilot Invitation API](https://apis.io/collections/trustpilot/open-trustpilot-invitation/)
+- [Trustpilot Business Units Invitations API](https://apis.io/collections/trustpilot/open-trustpilot-invitations-api/)
+- [Trustpilot Business Units API](https://apis.io/collections/trustpilot/postman-trustpilot-business-units-api/)
+- [Trustpilot Business Units Conversations API](https://apis.io/collections/trustpilot/postman-trustpilot-conversations-api/)
+- [Trustpilot Business Units Images API](https://apis.io/collections/trustpilot/postman-trustpilot-images-api/)
+- [Trustpilot Business Units Invitations API](https://apis.io/collections/trustpilot/postman-trustpilot-invitations-api/)
+- [Trustpilot Business Units Product Review Management API](https://apis.io/collections/trustpilot/postman-trustpilot-product-review-management-api/)
+- [Trustpilot Business Units Product Reviews API](https://apis.io/collections/trustpilot/postman-trustpilot-product-reviews-api/)
+- [Trustpilot Business Units Review Management API](https://apis.io/collections/trustpilot/postman-trustpilot-review-management-api/)
+- [Trustpilot Business Units Reviews API](https://apis.io/collections/trustpilot/postman-trustpilot-reviews-api/)
 
-- [Documentation](https://developers.trustpilot.com/invitation-api)
-- [Authentication](https://developers.trustpilot.com/authentication)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/openapi/trustpilot-invitation-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/trustpilot-business-units.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/trustpilot-business-units.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/trustpilot-invitation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/trustpilot-invitation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Governance rules (2)
 
-### Trustpilot Product Reviews API
+Spectral rulesets for the provider's contracts.
 
-The Trustpilot Product Reviews API enables management of product-level reviews, including retrieving product review summaries, accessing individual reviews, managing conversations and comments on product reviews, creating product review invitation links, and accessing attribute rating summaries. Supports both public and private endpoints with API key and OAuth 2.0 authentication respectively.
+- [Trustpilot — jsonschema rules](https://apis.io/rules/trustpilot/trustpilot-jsonschema-spectral-rules/)
+- [Trustpilot API Rules](https://apis.io/rules/trustpilot/trustpilot-rules/)
 
-- **Human URL:** [https://developers.trustpilot.com/product-reviews-api/](https://developers.trustpilot.com/product-reviews-api/)
-- **Base URL:** `https://api.trustpilot.com/v1`
+#### Security (3)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Product Reviews
-- Reviews
-- Consumer Reviews
-- Trust
+- [Trustpilot Authentication](https://apis.io/security/trustpilot/trustpilot-authentication/)
+- [Trustpilot Domain Security](https://apis.io/security/trustpilot/trustpilot-domain-security/)
+- [Trustpilot Vulnerability Disclosure](https://apis.io/security/trustpilot/trustpilot-vulnerability-disclosure/)
 
-#### Properties
+#### OAuth scopes (1)
 
-- [Documentation](https://developers.trustpilot.com/product-reviews-api/)
-- [Authentication](https://developers.trustpilot.com/authentication)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/openapi/trustpilot-product-reviews-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/trustpilot-business-units.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/trustpilot-business-units.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/trustpilot-invitation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/trustpilot-invitation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The permissions the API asks for.
 
-### Trustpilot Consumer API
+- [Trustpilot Scopes](https://apis.io/scopes/trustpilot/trustpilot-scopes/)
 
-The Trustpilot Consumer API provides access to reviews written by individual consumers. Developers can retrieve a consumer's review history with filtering by stars, language, location, and business unit. Supports pagination and sorting and requires API key authentication.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://developers.trustpilot.com/consumer-api](https://developers.trustpilot.com/consumer-api)
-- **Base URL:** `https://api.trustpilot.com/v1`
+Published plans, tiers and prices.
 
-#### Tags
+- [Trustpilot Plans Pricing](https://apis.io/plans/trustpilot/trustpilot-plans-pricing/)
 
-- Consumer Reviews
-- Reviews
-- Trust
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://developers.trustpilot.com/consumer-api)
-- [Authentication](https://developers.trustpilot.com/authentication)
-- [Postman Collection](collections/trustpilot-business-units.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/trustpilot-business-units.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/trustpilot-invitation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/trustpilot-invitation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Trustpilot Rate Limits](https://apis.io/rate-limits/trustpilot/trustpilot-rate-limits/)
 
-## Common Properties
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Trustpilot Finops](https://apis.io/finops/trustpilot/trustpilot-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.trustpilot.com/)
-- [Portal](https://developers.trustpilot.com/)
 - [Documentation](https://developers.trustpilot.com/)
-- [Sign Up](https://www.trustpilot.com/signup/business)
-- [Login](https://businessapp.b2b.trustpilot.com/login)
 - [Pricing](https://www.trustpilot.com/pricing)
-- [Authentication](https://developers.trustpilot.com/authentication)
-- [Changelog](https://developers.trustpilot.com/changelog)
 - [Support](https://support.trustpilot.com/)
-- [Terms of Service](https://www.trustpilot.com/legal/terms-and-conditions-for-businesses)
-- [Privacy Policy](https://www.trustpilot.com/legal/privacy-policy)
-- [Blog](https://blog.trustpilot.com/)
-- [Status Page](https://status.trustpilot.com/)
-- [X (Twitter)](https://twitter.com/trustpilot)
-- [LinkedIn](https://www.linkedin.com/company/trustpilot)
-- [Facebook](https://www.facebook.com/trustpilot)
-- [Git Hub](https://github.com/trustpilot)
-- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/trustpilot/refs/heads/main/rules/trustpilot-rules.yml)
-- [L L Ms Txt](https://developers.trustpilot.com/llms.txt)
+- [Changelog](https://developers.trustpilot.com/changelog)
+- [Blog](https://business.trustpilot.com/blog)
+- [Terms of service](https://www.trustpilot.com/legal/terms-and-conditions-for-businesses)
+- [Privacy policy](https://www.trustpilot.com/legal/privacy-policy)
+- [Status](https://status.trustpilot.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 50.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 52.4 |
+| Contract governance | 13.6 |
+| Operational transparency | 52.6 |
+| Developer ergonomics | 39.3 |
+| Access clarity | 52.6 |
+
+**Agent readiness 21.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/trustpilot/](https://apis.io/providers/trustpilot/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Trustpilot: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/trustpilot/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
